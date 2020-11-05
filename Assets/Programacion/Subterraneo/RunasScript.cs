@@ -24,7 +24,7 @@ public class RunasScript : MonoBehaviour
         {
             if (Input.GetKeyUp(KeyCode.E)) 
             {
-                Personaje.GetComponent<CharacterController>().ContarRunas(1);
+                Personaje.GetComponent<PropiedadesScript>().ContarRunas(1);
                 Debug.Log("recogido");
                 Destroy(this.gameObject);
                 

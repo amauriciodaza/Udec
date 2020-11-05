@@ -23,7 +23,7 @@ public class TrampasScript : MonoBehaviour
         if (other.name == Personaje.name) 
         {
             Debug.Log("golpeo");
-            Personaje.GetComponent<CharacterController>().Daño(herida);
+            Personaje.GetComponent<PropiedadesScript>().Daño(herida);
         }
     }
 }
