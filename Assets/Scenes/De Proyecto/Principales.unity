@@ -155,10 +155,10 @@ RectTransform:
   m_Father: {fileID: 1175389774}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.41961792, y: 0.28263354}
+  m_AnchorMin: {x: 0.33887395, y: 0.25784472}
   m_AnchorMax: {x: 0.60146, y: 0.3414721}
-  m_AnchoredPosition: {x: 0.27069855, y: 0.5}
-  m_SizeDelta: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 2.1598969, y: 5.4000015}
+  m_SizeDelta: {x: 8.855728, y: 7.999996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &17225796
 MonoBehaviour:
@@ -1343,10 +1343,10 @@ RectTransform:
   m_Father: {fileID: 2067188282}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.4, y: 0.5}
-  m_AnchorMax: {x: 0.648, y: 0.57768327}
-  m_AnchoredPosition: {x: 0.19999695, y: -2.399994}
-  m_SizeDelta: {x: 1.9575195, y: 5.0479736}
+  m_AnchorMin: {x: 0.33923006, y: 0.54342234}
+  m_AnchorMax: {x: 0.648, y: 0.6366894}
+  m_AnchoredPosition: {x: 0.23500061, y: 2.5}
+  m_SizeDelta: {x: -0.46923828, y: 0.047973633}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &511018271
 MonoBehaviour:
@@ -1369,10 +1369,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d314b48c1cc90c846a9e752e55347860, type: 3}
-    m_FontSize: 14
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -1540,10 +1540,10 @@ RectTransform:
   m_Father: {fileID: 2067188282}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.089, y: 0.4533168}
-  m_AnchorMax: {x: 0.26253232, y: 0.5466335}
-  m_AnchoredPosition: {x: 0.44000244, y: 0}
-  m_SizeDelta: {x: -1.8820381, y: 0}
+  m_AnchorMin: {x: 0.14070636, y: 0.4533168}
+  m_AnchorMax: {x: 0.3125913, y: 0.57768327}
+  m_AnchoredPosition: {x: 2, y: 0.06100464}
+  m_SizeDelta: {x: -0.8820343, y: 0.122024536}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &537195184
 MonoBehaviour:
@@ -1566,7 +1566,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d314b48c1cc90c846a9e752e55347860, type: 3}
-    m_FontSize: 20
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1705,7 +1705,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030518, y: 0.022369385}
+  m_AnchoredPosition: {x: 0.000030517578, y: 0.022369385}
   m_SizeDelta: {x: 0.00024414062, y: 0.04473877}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &576107709
@@ -1922,7 +1922,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d314b48c1cc90c846a9e752e55347860, type: 3}
-    m_FontSize: 11
+    m_FontSize: 16
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -1963,6 +1963,102 @@ MonoBehaviour:
   PanelPartidas: {fileID: 1989579493}
   OpcionesPanel: {fileID: 1175389773}
   PanelNuePartida: {fileID: 211781229}
+--- !u!82 &658836660
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658836655}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: be24952a13df4394a992ad80f3e9256a, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.6
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &723808562
 GameObject:
   m_ObjectHideFlags: 0
@@ -2597,8 +2693,8 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d314b48c1cc90c846a9e752e55347860, type: 3}
-    m_FontSize: 18
-    m_FontStyle: 0
+    m_FontSize: 25
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
@@ -2732,7 +2828,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.13700001}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.4823, y: 0.34695}
+  m_AnchoredPosition: {x: 0.4822998, y: 0.34695435}
   m_SizeDelta: {x: -1.9036865, y: -2.1071472}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1084709679
@@ -2981,8 +3077,8 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d314b48c1cc90c846a9e752e55347860, type: 3}
-    m_FontSize: 16
-    m_FontStyle: 0
+    m_FontSize: 18
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
@@ -3384,8 +3480,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.41329882, y: 0.4658944}
   m_AnchorMax: {x: 0.5935611, y: 0.528}
-  m_AnchoredPosition: {x: 5, y: 1}
-  m_SizeDelta: {x: 2, y: 0}
+  m_AnchoredPosition: {x: -22, y: 0.983}
+  m_SizeDelta: {x: 68.850006, y: 14.999965}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1321875046
 MonoBehaviour:
@@ -3495,8 +3591,8 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d314b48c1cc90c846a9e752e55347860, type: 3}
-    m_FontSize: 14
-    m_FontStyle: 0
+    m_FontSize: 16
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
@@ -4241,10 +4337,10 @@ RectTransform:
   m_Father: {fileID: 2067188282}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.10560248, y: 0.25776395}
-  m_AnchorMax: {x: 0.26253232, y: 0.3663168}
-  m_AnchoredPosition: {x: 0.730011, y: 0.5}
-  m_SizeDelta: {x: -2.5437317, y: -5}
+  m_AnchorMin: {x: 0.14070636, y: 0.23600002}
+  m_AnchorMax: {x: 0.3125913, y: 0.35700002}
+  m_AnchoredPosition: {x: 1.9679871, y: 0.8999939}
+  m_SizeDelta: {x: -0.83034515, y: 4.2992477}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1646952666
 MonoBehaviour:
@@ -4267,7 +4363,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d314b48c1cc90c846a9e752e55347860, type: 3}
-    m_FontSize: 20
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -4394,9 +4490,9 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.18400002, y: 0.6741493}
-  m_AnchorMax: {x: 0.80600005, y: 0.82310563}
-  m_AnchoredPosition: {x: 1.199997, y: 1}
-  m_SizeDelta: {x: 1.1375122, y: -2.7318115}
+  m_AnchorMax: {x: 0.80600005, y: 0.9008447}
+  m_AnchoredPosition: {x: 1.199997, y: 1.0999985}
+  m_SizeDelta: {x: 1.1375122, y: -2.4631882}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1851728566
 MonoBehaviour:
@@ -4419,7 +4515,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d314b48c1cc90c846a9e752e55347860, type: 3}
-    m_FontSize: 28
+    m_FontSize: 40
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
@@ -4705,10 +4801,10 @@ RectTransform:
   m_Father: {fileID: 2067188282}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.4, y: 0.30742237}
-  m_AnchorMax: {x: 0.648, y: 0.40352798}
-  m_AnchoredPosition: {x: 0.19999695, y: 0.30000305}
-  m_SizeDelta: {x: 1.9575195, y: -0.95202637}
+  m_AnchorMin: {x: 0.33923006, y: 0.35700002}
+  m_AnchorMax: {x: 0.648, y: 0.43157765}
+  m_AnchoredPosition: {x: 0.18899536, y: -1.5}
+  m_SizeDelta: {x: -0.37745667, y: 6.2240143}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1988590459
 MonoBehaviour:
@@ -4731,10 +4827,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d314b48c1cc90c846a9e752e55347860, type: 3}
-    m_FontSize: 14
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -5023,7 +5119,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2095680671}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 658836656}
+        m_MethodName: EmpezarJuego
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2095680671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5287,6 +5394,11 @@ PrefabInstance:
       propertyPath: m_FontData.m_BestFit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8771211525183693104, guid: fb5e67f8007659941ba87f437ea96dab,
+        type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8771211525183693107, guid: fb5e67f8007659941ba87f437ea96dab,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5392,6 +5504,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8771211525923986294, guid: fb5e67f8007659941ba87f437ea96dab,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771211525923986294, guid: fb5e67f8007659941ba87f437ea96dab,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771211525923986294, guid: fb5e67f8007659941ba87f437ea96dab,
+        type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8771211525992686248, guid: fb5e67f8007659941ba87f437ea96dab,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -5427,6 +5554,36 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0.7392305
       objectReference: {fileID: 0}
+    - target: {fileID: 8771211525992686249, guid: fb5e67f8007659941ba87f437ea96dab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771211525992686249, guid: fb5e67f8007659941ba87f437ea96dab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771211525992686249, guid: fb5e67f8007659941ba87f437ea96dab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771211525992686249, guid: fb5e67f8007659941ba87f437ea96dab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 658836656}
+    - target: {fileID: 8771211525992686249, guid: fb5e67f8007659941ba87f437ea96dab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EmpezarJuego
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771211525992686249, guid: fb5e67f8007659941ba87f437ea96dab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8771211526071220933, guid: fb5e67f8007659941ba87f437ea96dab,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -5461,6 +5618,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0.17378883
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771211526071220954, guid: fb5e67f8007659941ba87f437ea96dab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771211526071220954, guid: fb5e67f8007659941ba87f437ea96dab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771211526071220954, guid: fb5e67f8007659941ba87f437ea96dab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771211526071220954, guid: fb5e67f8007659941ba87f437ea96dab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 658836656}
+    - target: {fileID: 8771211526071220954, guid: fb5e67f8007659941ba87f437ea96dab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: IrGameOver
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771211526071220954, guid: fb5e67f8007659941ba87f437ea96dab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8771211526368710054, guid: fb5e67f8007659941ba87f437ea96dab,
         type: 3}
@@ -5501,6 +5688,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771211526441710135, guid: fb5e67f8007659941ba87f437ea96dab,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771211526441710135, guid: fb5e67f8007659941ba87f437ea96dab,
+        type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8771211526777971414, guid: fb5e67f8007659941ba87f437ea96dab,
         type: 3}
@@ -5571,6 +5768,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771211526860774711, guid: fb5e67f8007659941ba87f437ea96dab,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771211526860774711, guid: fb5e67f8007659941ba87f437ea96dab,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771211526860774711, guid: fb5e67f8007659941ba87f437ea96dab,
+        type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771211527035359993, guid: fb5e67f8007659941ba87f437ea96dab,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771211527035359993, guid: fb5e67f8007659941ba87f437ea96dab,
+        type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8771211527049571876, guid: fb5e67f8007659941ba87f437ea96dab,
         type: 3}
