@@ -63,6 +63,10 @@ public class TranslationMovement : MonoBehaviour
     void checkConditions()
     {
         // SIN ESPADA.................................
+        if (currentState == STATES.HANDSWORDCOMBO)
+        {
+            return;
+        }
         if (armas == false)
         {
             //Adelante y combinaciones
@@ -306,7 +310,7 @@ public class TranslationMovement : MonoBehaviour
     void RunningJump()
     {
         anim.SetInteger("Estado", 5);
-        transform.Translate(0, 0, speedRun*1f);
+        transform.Translate(0, 0.2f, speedRun*1f);
     }
 
 
@@ -428,5 +432,12 @@ public class TranslationMovement : MonoBehaviour
     void SwordDeath()
     {
         anim.SetInteger("Estado", 22);
+    }
+
+    //Finalizar Ataques
+    public void FinishHandSwordCombo()
+    {
+        currentState = STATES.SWORDIDDLE;
+        Debug.Log("Ataque Finalizado");
     }
 }

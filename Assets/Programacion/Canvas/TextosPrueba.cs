@@ -12,6 +12,7 @@ public class TextosPrueba : MonoBehaviour
 
     string[] texto;
 
+    //Variables del ciclo for anidado que muestra los dialogos (i , s)
     int i;
     int s;
 
@@ -33,6 +34,29 @@ public class TextosPrueba : MonoBehaviour
         }
     }
 
+    IEnumerator MostrarDialogos()
+    {
+        Panel.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        int total = texto.Length;
+        yield return null;//Seguridad de un null
+        for (i = 0; i < total; i++)//Recorremos todas las frases
+        {
+            string res = "";
+            for (s = 0; s < texto[i].Length; s++)//Recorremos char por char esa frase
+            {
+                res = string.Concat(res, texto[i][s]);
+                Dialogos.text = res;
+                yield return new WaitForSeconds(0.05f);
+            }
+            yield return new WaitForSeconds(1f);
+        }
+        Dialogos.text = "";
+        yield return new WaitForSeconds(0.5f);
+        Panel.SetActive(false);
+    }
+
+    //##################### Validacion de Triggers ##########################
     void OnTriggerEnter(Collider Other)
     {
         if(Other.gameObject.name == "Cube1")
@@ -40,24 +64,28 @@ public class TextosPrueba : MonoBehaviour
             triggerAc = 1;
             Dialogar();
             StartCoroutine(MostrarDialogos());
+            Destroy(Other.gameObject);
         }
         else if (Other.gameObject.name == "Cube2")
         {
             triggerAc = 2;
             Dialogar();
             StartCoroutine(MostrarDialogos());
+            Destroy(Other.gameObject);
         }
         else if (Other.gameObject.name == "Cube3")
         {
             triggerAc = 3;
             Dialogar();
             StartCoroutine(MostrarDialogos());
+            Destroy(Other.gameObject);
         }
         else if (Other.gameObject.name == "Cube4")
         {
             triggerAc = 4;
             Dialogar();
             StartCoroutine(MostrarDialogos());
+            Destroy(Other.gameObject);
         }
         else if (Other.gameObject.name == "Cube5")
         {
@@ -145,31 +173,7 @@ public class TextosPrueba : MonoBehaviour
         }
     }
 
-    IEnumerator MostrarDialogos()
-    {
-        Panel.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
-        int total = texto.Length;
-        yield return null;//Seguridad de un null
-        for (i = 0; i < total; i++)//Recorremos todas las frases
-        {
-            string res = "";
-            for (s = 0; s < texto[i].Length; s++)//Recorremos char por char esa frase
-            {
-                res = string.Concat(res, texto[i][s]);
-                Dialogos.text = res;
-                yield return new WaitForSeconds(0.05f);
-            }
-            yield return new WaitForSeconds(1f);
-        }
-        Dialogos.text = "";
-        yield return new WaitForSeconds(0.5f);
-        Panel.SetActive(false);
-    }
-
-
-
-    //################# Escritura de Dialogos ###########################
+    //##################### Escritura de Dialogos ###########################
     void Dialogar()
     {
         //Inicio
