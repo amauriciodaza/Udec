@@ -41,7 +41,7 @@ public class MouseCamLook : MonoBehaviour {
 
         // vector3.right means the x-axis
         transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
-        Debug.Log(mouseLook.y);
+       
         character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
     }
 }
