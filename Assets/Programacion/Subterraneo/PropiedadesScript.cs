@@ -7,11 +7,15 @@ public class PropiedadesScript : MonoBehaviour
     public int runas;
     public int salud;
     public Text Runastxt, Saludtxt;
+    //DIALOGOS
+    public Text Dialogostxt;
+    public Image Dialogosimg;
 
     // Start is called before the first frame update
     void Start()
     {
-      
+        Dialogostxt.enabled = false;
+        Dialogosimg.enabled = false;
         runas = 0;
         salud = 100;
     }
@@ -37,5 +41,22 @@ public class PropiedadesScript : MonoBehaviour
         salud = salud - num;
         Saludtxt.text = "SALUD: " + salud;
     }
+
+    public void dialogo(int num)
+    {
+        Dialogostxt.enabled = true;
+        Dialogosimg.enabled = true;
+        switch (num)
+        {
+            case 1:
+                Dialogostxt.text = "HOLA EINAR";
+                break;
+            case 2:
+                Dialogostxt.text = "Al parecer funciona esto";
+                break;
+        }
+
+    }
+
 }
 
