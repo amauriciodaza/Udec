@@ -43,14 +43,16 @@ public class TranslationMovement : MonoBehaviour
     public float speedRun;
     public float speedSide;
     public float speedReverse;
-
+    public float impulso;
     public bool armas;
+    float seg = 2;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         armas = false;
+        seg = 2;
     }
 
     // Update is called once per frame
@@ -63,16 +65,12 @@ public class TranslationMovement : MonoBehaviour
     void checkConditions()
     {
         // SIN ESPADA.................................
-        if (currentState == STATES.HANDSWORDCOMBO)
-        {
-            return;
-        }
         if (armas == false)
         {
             //Adelante y combinaciones
             if (Input.GetKey(KeyCode.W))
             {
-                if (Input.GetKey(KeyCode.Space))
+                if (Input.GetKeyUp(KeyCode.Space))
                 {
                     currentState = STATES.RUNNINGJUMP;
                 }
@@ -84,7 +82,7 @@ public class TranslationMovement : MonoBehaviour
             //Reversa y combinaciones
             else if (Input.GetKey(KeyCode.S))
             {
-                if (Input.GetKey(KeyCode.Space))
+                if (Input.GetKeyUp(KeyCode.Space))
                 {
                     currentState = STATES.REVERSEJUMP;
                 }
@@ -119,7 +117,7 @@ public class TranslationMovement : MonoBehaviour
             }
             else
             {
-                if (Input.GetKey(KeyCode.Space))
+                if (Input.GetKeyUp(KeyCode.Space))
                 {
                     currentState = STATES.IDDLEJUMP;
                 }
@@ -135,7 +133,7 @@ public class TranslationMovement : MonoBehaviour
             //Adelante y combinaciones
             if (Input.GetKey(KeyCode.W))
             {
-                if (Input.GetKey(KeyCode.Space))
+                if (Input.GetKeyUp(KeyCode.Space))
                 {
                     if (Input.GetKey(KeyCode.Mouse0))
                     {
@@ -158,7 +156,7 @@ public class TranslationMovement : MonoBehaviour
             //Reversa y combinaciones
             else if (Input.GetKey(KeyCode.S))
             {
-                if (Input.GetKey(KeyCode.Space))
+                if (Input.GetKeyUp(KeyCode.Space))
                 {
                     currentState = STATES.SWORDREVERSEJUMP;
                 }
@@ -198,7 +196,7 @@ public class TranslationMovement : MonoBehaviour
                 {
                     currentState = STATES.SWORDSLASH;
                 }
-                else if (Input.GetKey(KeyCode.Space))
+                else if (Input.GetKeyUp(KeyCode.Space))
                 {
                     currentState = STATES.SWORDIDDLEJUMP;
                 }
@@ -298,7 +296,11 @@ public class TranslationMovement : MonoBehaviour
     }
     void IddleJump()
     {
-        anim.SetInteger("Estado", 8);
+            Rigidbody rb;
+            rb = GetComponent<Rigidbody>();
+            rb.AddForce(transform.up * impulso, ForceMode.Impulse);
+            anim.SetInteger("Estado", 8);
+    
     }
 
 
@@ -309,8 +311,11 @@ public class TranslationMovement : MonoBehaviour
     }
     void RunningJump()
     {
+        Rigidbody rb;
+        rb = GetComponent<Rigidbody>();
+        rb.AddForce(transform.up * impulso, ForceMode.Impulse);
         anim.SetInteger("Estado", 5);
-        transform.Translate(0, 0.2f, speedRun*1f);
+       
     }
 
 
@@ -432,12 +437,5 @@ public class TranslationMovement : MonoBehaviour
     void SwordDeath()
     {
         anim.SetInteger("Estado", 22);
-    }
-
-    //Finalizar Ataques
-    public void FinishHandSwordCombo()
-    {
-        currentState = STATES.SWORDIDDLE;
-        Debug.Log("Ataque Finalizado");
     }
 }

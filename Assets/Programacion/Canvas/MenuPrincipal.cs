@@ -18,7 +18,7 @@ public class MenuPrincipal : MonoBehaviour
         PanelPartidas.SetActive(false);
         OpcionesPanel.SetActive(false);
     }
-    public void Regresar()
+    public void EmpezarJuego()
     {
         SceneManager.LoadScene("Principal Scene", LoadSceneMode.Single);
     }
@@ -27,7 +27,10 @@ public class MenuPrincipal : MonoBehaviour
     {
         SceneManager.LoadScene("Principales", LoadSceneMode.Single);
     }
-
+    public void IrGameOver()
+    {
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+    }
     public void Panel1()
     {
         PanelNuePartida.SetActive(true);

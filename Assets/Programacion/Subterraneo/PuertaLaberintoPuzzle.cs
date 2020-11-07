@@ -24,7 +24,7 @@ public class PuertaLaberintoPuzzle : MonoBehaviour
         {
             if (Input.GetKeyUp(KeyCode.E))
             {
-                run = Personaje.GetComponent<CharacterController>().runas;
+                run = Personaje.GetComponent<PropiedadesScript>().runas;
                 if (run == 4)
                 {
                     GetComponent<Animator>().SetBool("Estado", true);

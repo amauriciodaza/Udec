@@ -7,11 +7,15 @@ public class PropiedadesScript : MonoBehaviour
     public int runas;
     public int salud;
     public Text Runastxt, Saludtxt;
+    //DIALOGOS
+    public Text Dialogostxt;
+    public Image Dialogosimg;
 
     // Start is called before the first frame update
     void Start()
     {
-      
+        Dialogostxt.enabled = false;
+        Dialogosimg.enabled = false;
         runas = 0;
         salud = 100;
     }
@@ -19,11 +23,7 @@ public class PropiedadesScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.F1))
-       // {
-            // turn on the cursor
-        
-       // }
+       
     }
 
     public void ContarRunas(int num)
@@ -37,5 +37,25 @@ public class PropiedadesScript : MonoBehaviour
         salud = salud - num;
         Saludtxt.text = "SALUD: " + salud;
     }
+
+    public void dialogo(int num)
+    {
+        Dialogostxt.enabled = true;
+        Dialogosimg.enabled = true;
+        switch (num)
+        {
+            case 1:
+                Dialogostxt.text = "TEXTO 1";
+                break;
+            case 2:
+                Dialogostxt.text = "TEXTO 2";
+                break;
+            case 3:
+                Dialogostxt.text = "TEXTO 3";
+                break;
+        }
+
+    }
+
 }
 

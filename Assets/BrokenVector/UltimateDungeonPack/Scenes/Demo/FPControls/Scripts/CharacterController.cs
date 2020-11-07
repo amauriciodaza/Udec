@@ -11,20 +11,20 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class CharacterController : MonoBehaviour {
-    public int runas;
-    public int salud;
+    //public int runas;
+   // public int salud;
     public float speed = 10.0f;
     public float sprintSpeed = 1000f;
     private float translation;
     private float straffe;
-    public Text Runastxt, Saludtxt;
+   // public Text Runastxt, Saludtxt;
 
     // Use this for initialization
     void Start () {
         // turn off the cursor
         Cursor.lockState = CursorLockMode.Locked;
-        runas = 0;
-        salud = 100;
+        //runas = 0;
+        //salud = 100;
         }
 	// Update is called once per frame
 	void Update () {
@@ -52,7 +52,7 @@ public class CharacterController : MonoBehaviour {
     }
 
 
-    public void ContarRunas(int num) 
+   /* public void ContarRunas(int num) 
     {
         runas = runas + num;
         Runastxt.text = "RUNAS: " + runas;
@@ -62,5 +62,5 @@ public class CharacterController : MonoBehaviour {
     {
         salud = salud - num;
         Saludtxt.text = "SALUD: " + salud;
-    }
+    }*/
 }

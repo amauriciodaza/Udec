@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class GanaroPerder : MonoBehaviour
 {
-
-    public void StartGame()
+    public void IrMenuPrincipal()
     {
         SceneManager.LoadScene("Principales", LoadSceneMode.Single);
     }
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Principal Scene", LoadSceneMode.Single);
+    }
+
 }
