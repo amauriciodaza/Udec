@@ -6,37 +6,58 @@ using UnityEngine.UI;
 public class DialogosScript : MonoBehaviour
 {
     public int fasedialogo;
-    public int frases;
+    public int fasedialogolimite;
+    GameObject other;
+    bool op;
     // Start is called before the first frame update
     void Start()
     {
-    
+        other = GameObject.Find("Einar");
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.name == "Einar") 
+        if (op == true)
         {
-            Debug.Log("entro einar");
-
-           /* do
+            other.GetComponent<CharacterController>().enabled = false;
+            if (Input.GetKeyUp(KeyCode.T) && fasedialogo <= fasedialogolimite)
             {
-                if (Input.GetKeyUp(KeyCode.T))
-                {
-                    Debug.Log("Einar escucha");
-                    other.GetComponent<PropiedadesScript>().dialogo(fasedialogo);
-                    fasedialogo = fasedialogo + 1;
-                }
-
-            } while (fasedialogo < frases);*/
+                Debug.Log("Einar escucha " + fasedialogo);
+                other.GetComponent<PropiedadesScript>().dialogo(fasedialogo);
+                fasedialogo = fasedialogo + 1;
+            }
+            
+            if (fasedialogo > fasedialogolimite) 
+            {
+                op = false;
+                other.GetComponent<CharacterController>().enabled = true;
+                Destroy(this.gameObject);
+                
+            }
         }
-       
+
     }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.name == "Einar")
+        {
+            op = true;
+
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.name == "Einar")
+        {
+            op = false;
+        }
+    }
+
+
 }

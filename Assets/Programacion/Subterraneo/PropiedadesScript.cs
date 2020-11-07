@@ -23,11 +23,7 @@ public class PropiedadesScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.F1))
-       // {
-            // turn on the cursor
-        
-       // }
+       
     }
 
     public void ContarRunas(int num)
@@ -49,10 +45,13 @@ public class PropiedadesScript : MonoBehaviour
         switch (num)
         {
             case 1:
-                Dialogostxt.text = "HOLA EINAR";
+                Dialogostxt.text = "TEXTO 1";
                 break;
             case 2:
-                Dialogostxt.text = "Al parecer funciona esto";
+                Dialogostxt.text = "TEXTO 2";
+                break;
+            case 3:
+                Dialogostxt.text = "TEXTO 3";
                 break;
         }
 
