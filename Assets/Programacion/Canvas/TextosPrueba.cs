@@ -12,6 +12,8 @@ public class TextosPrueba : MonoBehaviour
 
     string[] texto;
 
+    public GameObject[] triggers;
+
     //Variables del ciclo for anidado que muestra los dialogos (i , s)
     int i;
     int s;
@@ -59,117 +61,17 @@ public class TextosPrueba : MonoBehaviour
     //##################### Validacion de Triggers ##########################
     void OnTriggerEnter(Collider Other)
     {
-        if(Other.gameObject.name == "Cube1")
+        for (int j = 0; j < triggers.Length; j++)
         {
-            triggerAc = 1;
-            Dialogar();
-            StartCoroutine(MostrarDialogos());
-            Destroy(Other.gameObject);
-        }
-        else if (Other.gameObject.name == "Cube2")
-        {
-            triggerAc = 2;
-            Dialogar();
-            StartCoroutine(MostrarDialogos());
-            Destroy(Other.gameObject);
-        }
-        else if (Other.gameObject.name == "Cube3")
-        {
-            triggerAc = 3;
-            Dialogar();
-            StartCoroutine(MostrarDialogos());
-            Destroy(Other.gameObject);
-        }
-        else if (Other.gameObject.name == "Cube4")
-        {
-            triggerAc = 4;
-            Dialogar();
-            StartCoroutine(MostrarDialogos());
-            Destroy(Other.gameObject);
-        }
-        else if (Other.gameObject.name == "Cube5")
-        {
-            triggerAc = 5;
-            Dialogar();
-            StartCoroutine(MostrarDialogos());
-        }
-        else if (Other.gameObject.name == "Cube6")
-        {
-            triggerAc = 6;
-            Dialogar();
-            StartCoroutine(MostrarDialogos());
-        }
-        else if (Other.gameObject.name == "Cube7")
-        {
-            triggerAc = 7;
-            Dialogar();
-            StartCoroutine(MostrarDialogos());
-        }
-        else if (Other.gameObject.name == "Cube8")
-        {
-            triggerAc = 8;
-            Dialogar();
-            StartCoroutine(MostrarDialogos());
-        }
-        else if (Other.gameObject.name == "Cube9")
-        {
-            triggerAc = 9;
-            Dialogar();
-            StartCoroutine(MostrarDialogos());
-        }
-        else if (Other.gameObject.name == "Cube10")
-        {
-            triggerAc = 10;
-            Dialogar();
-            StartCoroutine(MostrarDialogos());
-        }
-        else if (Other.gameObject.name == "Cube11")
-        {
-            triggerAc = 11;
-            Dialogar();
-            StartCoroutine(MostrarDialogos());
-        }
-        else if (Other.gameObject.name == "Cube12")
-        {
-            triggerAc = 12;
-            Dialogar();
-            StartCoroutine(MostrarDialogos());
-        }
-        else if (Other.gameObject.name == "Cube13")
-        {
-            triggerAc = 13;
-            Dialogar();
-            StartCoroutine(MostrarDialogos());
-        }
-        else if (Other.gameObject.name == "Cube14")
-        {
-            triggerAc = 14;
-            Dialogar();
-            StartCoroutine(MostrarDialogos());
-        }
-        else if (Other.gameObject.name == "Cube15")
-        {
-            triggerAc = 15;
-            Dialogar();
-            StartCoroutine(MostrarDialogos());
-        }
-        else if (Other.gameObject.name == "Cube16")
-        {
-            triggerAc = 16;
-            Dialogar();
-            StartCoroutine(MostrarDialogos());
-        }
-        else if (Other.gameObject.name == "Cube17")
-        {
-            triggerAc = 17;
-            Dialogar();
-            StartCoroutine(MostrarDialogos());
-        }
-        else if (Other.gameObject.name == "Cube18")
-        {
-            triggerAc = 18;
-            Dialogar();
-            StartCoroutine(MostrarDialogos());
+            if (Other.name == triggers[j].name)
+            {
+                triggerAc = j+1;
+                Dialogar();
+                StartCoroutine(MostrarDialogos());
+                Destroy(triggers[j].gameObject);
+                Debug.Log(triggerAc);
+                break;
+            }
         }
     }
 
@@ -184,7 +86,7 @@ public class TextosPrueba : MonoBehaviour
                 "Einar: A donde he llegado, que es este lugar tan extraño, nunca había visto una mina como esta.",
                 "Einar: Que es eso… Un… Se parece un humano.",
                 "Einar: Que extraño, está dormido, y atrapado entre esos cristales.",
-                "Einar: Voy a tratar de romper ese cristal.",
+                "Einar: Voy a tratar de romper ese cristal."
             } ;
         }
         //Conversacion con Sigurd cuando este Despierta
