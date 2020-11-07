@@ -59,8 +59,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.97931033
-        functionName: FinishHandSwordCombo
+      - time: 0.8413793
+        functionName: FinishMovement
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

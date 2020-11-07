@@ -40,19 +40,27 @@ public class TranslationMovement : MonoBehaviour
 
     Animator anim;
 
+    //Velocidades Direccionales
     public float speedRun;
     public float speedSide;
     public float speedReverse;
     public float impulso;
+
+    //Velocidades de Ataque
+    public float speedHandSwordCombo;
+    public float speedSwordJumpAttack;
+    public float speedRunJump;//Con o sin Espada
+
+    //Restrictores
     public bool armas;
-    float seg = 2;
+    //float seg = 2;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         armas = false;
-        seg = 2;
+        //seg = 2;
     }
 
     // Update is called once per frame
@@ -64,6 +72,10 @@ public class TranslationMovement : MonoBehaviour
 
     void checkConditions()
     {
+        if (currentState == STATES.HANDSWORDCOMBO || currentState == STATES.SWORDJUMPATACK || currentState == STATES.SWORDSLASH)
+        {
+            return;
+        }
         // SIN ESPADA.................................
         if (armas == false)
         {
@@ -133,7 +145,7 @@ public class TranslationMovement : MonoBehaviour
             //Adelante y combinaciones
             if (Input.GetKey(KeyCode.W))
             {
-                if (Input.GetKeyUp(KeyCode.Space))
+                if (Input.GetKey(KeyCode.Space))
                 {
                     if (Input.GetKey(KeyCode.Mouse0))
                     {
@@ -300,7 +312,6 @@ public class TranslationMovement : MonoBehaviour
             rb = GetComponent<Rigidbody>();
             rb.AddForce(transform.up * impulso, ForceMode.Impulse);
             anim.SetInteger("Estado", 8);
-    
     }
 
 
@@ -313,9 +324,9 @@ public class TranslationMovement : MonoBehaviour
     {
         Rigidbody rb;
         rb = GetComponent<Rigidbody>();
-        rb.AddForce(transform.up * impulso, ForceMode.Impulse);
+        rb.AddForce((new Vector3(0,70,0)) * impulso, ForceMode.Impulse);
         anim.SetInteger("Estado", 5);
-       
+        //transform.Translate(0, 0, speedRunJump * 1f);
     }
 
 
@@ -334,12 +345,12 @@ public class TranslationMovement : MonoBehaviour
     void RightRun()
     {
         anim.SetInteger("Estado", 2);
-        transform.Translate(speedRun * 1f, 0, 0);
+        transform.Translate(speedSide * 1f, 0, 0);
     }
     void LeftRun()
     {
         anim.SetInteger("Estado", 3);
-        transform.Translate(-speedRun * 1f, 0, 0);
+        transform.Translate(-speedSide * 1f, 0, 0);
     }
 
     void UnarmedImpact()
@@ -386,7 +397,7 @@ public class TranslationMovement : MonoBehaviour
     void SwordRunJump()
     {
         anim.SetInteger("Estado", 16);
-        transform.Translate(0, 0, speedRun * 1f);
+        transform.Translate(0, 0, speedRunJump * 1f);
     }
 
 
@@ -405,12 +416,12 @@ public class TranslationMovement : MonoBehaviour
     void SwordRightRun()
     {
         anim.SetInteger("Estado", 15);
-        transform.Translate(speedRun * 1f, 0, 0);
+        transform.Translate(speedSide * 1f, 0, 0);
     }
     void SwordLeftRun()
     {
         anim.SetInteger("Estado", 14);
-        transform.Translate(-speedRun * 1f, 0, 0);
+        transform.Translate(-speedSide * 1f, 0, 0);
     }
 
 
@@ -421,12 +432,12 @@ public class TranslationMovement : MonoBehaviour
     void SwordJumpAtack()
     {
         anim.SetInteger("Estado", 20);
-        transform.Translate(0, 0, speedRun * 1f);
+        transform.Translate(0, 0, speedSwordJumpAttack * 1f);
     }
     void HandSwordCombo()
     {
         anim.SetInteger("Estado", 21);
-        transform.Translate(0, 0, speedRun * 1f);
+        transform.Translate(0, 0, speedHandSwordCombo * 1f);
     }
 
 
@@ -437,5 +448,11 @@ public class TranslationMovement : MonoBehaviour
     void SwordDeath()
     {
         anim.SetInteger("Estado", 22);
+    }
+
+    //Finalizacion de animaciones de Espada
+    public void FinishMovement()
+    {
+        currentState = STATES.SWORDIDDLE;
     }
 }
