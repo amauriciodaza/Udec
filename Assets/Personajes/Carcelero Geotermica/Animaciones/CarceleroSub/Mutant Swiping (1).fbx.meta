@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 736a696b2777e494ebd187b6fcf3d410
+guid: 8da058c054d425a43b695993d5536c2e
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Mutantegolpe
+    second: "pu\xF1etazo"
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,15 +35,15 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Mutantegolpe
+      name: "pu\xF1etazo"
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 33
+      lastFrame: 100
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
-      cycleOffset: 400
+      cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1

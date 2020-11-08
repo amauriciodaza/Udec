@@ -26,7 +26,7 @@ public class DialogosScript : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.T) && fasedialogo <= fasedialogolimite)
             {
                 Debug.Log("Einar escucha " + fasedialogo);
-                other.GetComponent<PropiedadesScript>().dialogo(fasedialogo);
+               // other.GetComponent<PropiedadesScript>().dialogo(fasedialogo);
                 fasedialogo = fasedialogo + 1;
             }
             

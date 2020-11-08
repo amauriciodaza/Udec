@@ -22,7 +22,7 @@ public class PuertaLaberintoPuzzle : MonoBehaviour
     {
         if (other.name == Personaje.name) 
         {
-            if (Input.GetKeyUp(KeyCode.E))
+            if (Input.GetKeyUp(KeyCode.F))
             {
                 run = Personaje.GetComponent<PropiedadesScript>().runas;
                 if (run == 4)

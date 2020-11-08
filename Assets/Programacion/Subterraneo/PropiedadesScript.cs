@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.UI;
 public class PropiedadesScript : MonoBehaviour
@@ -7,15 +8,16 @@ public class PropiedadesScript : MonoBehaviour
     public int runas;
     public int salud;
     public Text Runastxt, Saludtxt;
+    public GameObject mano;
     //DIALOGOS
-    public Text Dialogostxt;
-    public Image Dialogosimg;
+   // public Text Dialogostxt;
+    //public Image Dialogosimg;
 
     // Start is called before the first frame update
     void Start()
     {
-        Dialogostxt.enabled = false;
-        Dialogosimg.enabled = false;
+       // Dialogostxt.enabled = false;
+       // Dialogosimg.enabled = false;
         runas = 0;
         salud = 100;
     }
@@ -38,7 +40,14 @@ public class PropiedadesScript : MonoBehaviour
         Saludtxt.text = "SALUD: " + salud;
     }
 
-    public void dialogo(int num)
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.name == mano.name)
+        {
+            Daño(5);
+        }
+    }
+    /*public void dialogo(int num)
     {
         Dialogostxt.enabled = true;
         Dialogosimg.enabled = true;
@@ -55,7 +64,7 @@ public class PropiedadesScript : MonoBehaviour
                 break;
         }
 
-    }
+    }*/
 
 }
 

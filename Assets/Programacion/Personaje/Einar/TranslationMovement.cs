@@ -325,7 +325,7 @@ public class TranslationMovement : MonoBehaviour
     {
         Rigidbody rb;
         rb = GetComponent<Rigidbody>();
-        rb.AddForce((new Vector3(0,70,0)) * impulso, ForceMode.Impulse);
+        rb.AddForce(transform.up * impulso, ForceMode.Impulse);
         anim.SetInteger("Estado", 5);
         //transform.Translate(0, 0, speedRunJump * 1f);
     }
@@ -340,6 +340,9 @@ public class TranslationMovement : MonoBehaviour
     {
         anim.SetInteger("Estado", 7);
         transform.Translate(0, 0, -speedRun*1f);
+        Rigidbody rb;
+        rb = GetComponent<Rigidbody>();
+        rb.AddForce(transform.up * impulso, ForceMode.Impulse);
     }
 
 
@@ -387,6 +390,10 @@ public class TranslationMovement : MonoBehaviour
     void SwordIddleJump()
     {
         anim.SetInteger("Estado", 16);
+        Rigidbody rb;
+        rb = GetComponent<Rigidbody>();
+        rb.AddForce(transform.up * impulso, ForceMode.Impulse);
+
     }
 
 
@@ -399,6 +406,9 @@ public class TranslationMovement : MonoBehaviour
     {
         anim.SetInteger("Estado", 16);
         transform.Translate(0, 0, speedRunJump * 1f);
+        Rigidbody rb;
+        rb = GetComponent<Rigidbody>();
+        rb.AddForce(transform.up * impulso, ForceMode.Impulse);
     }
 
 
@@ -411,6 +421,9 @@ public class TranslationMovement : MonoBehaviour
     {
         anim.SetInteger("Estado", 16);
         transform.Translate(0, 0, -speedReverse * 1f);
+        Rigidbody rb;
+        rb = GetComponent<Rigidbody>();
+        rb.AddForce(transform.up * impulso, ForceMode.Impulse);
     }
 
 
@@ -434,6 +447,9 @@ public class TranslationMovement : MonoBehaviour
     {
         anim.SetInteger("Estado", 20);
         transform.Translate(0, 0, speedSwordJumpAttack * 1f);
+        Rigidbody rb;
+        rb = GetComponent<Rigidbody>();
+        rb.AddForce(transform.up * impulso, ForceMode.Impulse);
     }
     void HandSwordCombo()
     {

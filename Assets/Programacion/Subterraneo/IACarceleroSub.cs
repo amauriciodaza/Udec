@@ -19,7 +19,7 @@ public class IACarceleroSub : MonoBehaviour
     public GameObject Character, Cuchilla, Cuchilla2;
     public float currentDistance, cuchillaDistancia, cuchillaDistancia2, vida, escudo;
     public float distanciaPerseguir;
-    public float distanciaAtacar, distanciaCorte;
+    public float distanciaAtacar, distanciaCorte,a,b;
     public Text protecciontxt, saludtxt;
     public bool esp;
     Animator Animaciones;
@@ -41,7 +41,13 @@ public class IACarceleroSub : MonoBehaviour
 
         Checkconditions();
         Makebehaviur();
-        if (escudo >= 1) { protecciontxt.text = "Escudo: " + escudo; } else { protecciontxt.text = "Escudo: 0 "; }
+        if (escudo >= 1) 
+        { 
+            protecciontxt.text = "Escudo: " + escudo; 
+        } else 
+        { 
+            protecciontxt.text = "Escudo: 0 "; 
+        }
         
         saludtxt.text = "Vida: " + vida;
     }
@@ -53,28 +59,33 @@ public class IACarceleroSub : MonoBehaviour
         cuchillaDistancia = Vector3.Distance(Cuchilla.transform.position, transform.position);
         cuchillaDistancia2 = Vector3.Distance(Cuchilla2.transform.position, transform.position);
 
-        if (currentDistance <= distanciaPerseguir && currentDistance >= distanciaAtacar && cuchillaDistancia > distanciaCorte && cuchillaDistancia2 > distanciaCorte)
+        if (currentDistance <= distanciaPerseguir && currentDistance >= distanciaAtacar && cuchillaDistancia > distanciaCorte && cuchillaDistancia2 > distanciaCorte && esp == false)
         {
 
             CurrentState = STATES.PERSEGUIR;
 
         }
-        else if (currentDistance < distanciaAtacar && cuchillaDistancia > distanciaCorte && cuchillaDistancia2 > distanciaCorte)
+        else if (currentDistance < distanciaAtacar && cuchillaDistancia > distanciaCorte && cuchillaDistancia2 > distanciaCorte && esp == false)
         {
             CurrentState = STATES.ATACAR;
         }
-        else if ((cuchillaDistancia < distanciaCorte || cuchillaDistancia2 < distanciaCorte))
+        else if ((cuchillaDistancia < distanciaCorte || cuchillaDistancia2 < distanciaCorte) && esp == false)
         {
             CurrentState = STATES.GOLPE;
+            a = 10f;
+            b = 0;
+
         }
-        else 
+        else if (esp == true)
+        {
+            CurrentState = STATES.GOLPE;
+            a = 0f;
+            b = 5f;
+            Debug.Log(" es" + esp);
+        }
+        else
         {
             CurrentState = STATES.IDLE;
-        }
-
-        if (esp == true) 
-        {
-            Reaccionar(0f, 10f);
         }
         
 
@@ -94,7 +105,7 @@ public class IACarceleroSub : MonoBehaviour
                 Atacar();
                 break;
             case STATES.GOLPE:
-                Reaccionar(10,0);
+                Reaccionar(a,b);
                 break;
             default:
                 break;
@@ -119,8 +130,9 @@ public class IACarceleroSub : MonoBehaviour
 
     void Atacar()
     {
+        transform.LookAt(Character.transform.position);
         Animaciones.SetInteger("Estado", 2);
-     
+      
     }
 
     public void Reaccionar(float dañoescudo, float dañovida )
@@ -132,8 +144,6 @@ public class IACarceleroSub : MonoBehaviour
         Debug.Log("En Reaccionar "+esp);
         if (escudo < 1) 
         {
-            dañovida = dañovida - 5;
-            protecciontxt.text = "Escudo: 0";
             vida = vida - dañovida;
            
             if (vida < 1)
