@@ -74,7 +74,7 @@ public class IACarceleroSub : MonoBehaviour
 
         if (esp == true) 
         {
-            CurrentState = STATES.GOLPE;
+            Reaccionar(0f, 10f);
         }
         
 
@@ -94,7 +94,7 @@ public class IACarceleroSub : MonoBehaviour
                 Atacar();
                 break;
             case STATES.GOLPE:
-                Reaccionar(10);
+                Reaccionar(10,0);
                 break;
             default:
                 break;
@@ -123,18 +123,18 @@ public class IACarceleroSub : MonoBehaviour
      
     }
 
-    public void Reaccionar(float daño)
+    public void Reaccionar(float dañoescudo, float dañovida )
     {
         
-        escudo = escudo - daño;
+        escudo = escudo - dañoescudo;
         Animaciones.SetInteger("Estado", 3);
       
         Debug.Log("En Reaccionar "+esp);
         if (escudo < 1) 
         {
-            daño = daño - 5;
+            dañovida = dañovida - 5;
             protecciontxt.text = "Escudo: 0";
-            vida = vida - daño;
+            vida = vida - dañovida;
            
             if (vida < 1)
             {
