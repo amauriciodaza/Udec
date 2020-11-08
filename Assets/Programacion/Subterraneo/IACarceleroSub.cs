@@ -1,10 +1,9 @@
-﻿using JetBrains.Annotations;
+﻿
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.AI;
-
+using UnityEngine.UI;
 public class IACarceleroSub : MonoBehaviour
 {
     enum STATES
@@ -17,11 +16,12 @@ public class IACarceleroSub : MonoBehaviour
 
     STATES CurrentState = STATES.IDLE;
     NavMeshAgent agent;
-    public GameObject Character, Cuchilla;
-    public float currentDistance, cuchillaDistancia, vida;
+    public GameObject Character, Cuchilla, Cuchilla2;
+    public float currentDistance, cuchillaDistancia, cuchillaDistancia2, vida, escudo;
     public float distanciaPerseguir;
     public float distanciaAtacar, distanciaCorte;
-
+    public Text protecciontxt, saludtxt;
+    public bool esp;
     Animator Animaciones;
 
 
@@ -31,7 +31,8 @@ public class IACarceleroSub : MonoBehaviour
         Animaciones = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         vida = 100f;
-
+        esp = false;
+        escudo = 100f;
     }
 
     // Update is called once per frame
@@ -40,6 +41,9 @@ public class IACarceleroSub : MonoBehaviour
 
         Checkconditions();
         Makebehaviur();
+        if (escudo >= 1) { protecciontxt.text = "Escudo: " + escudo; } else { protecciontxt.text = "Escudo: 0 "; }
+        
+        saludtxt.text = "Vida: " + vida;
     }
 
 
@@ -47,18 +51,19 @@ public class IACarceleroSub : MonoBehaviour
     {
         currentDistance = Vector3.Distance(Character.transform.position, transform.position);
         cuchillaDistancia = Vector3.Distance(Cuchilla.transform.position, transform.position);
+        cuchillaDistancia2 = Vector3.Distance(Cuchilla2.transform.position, transform.position);
 
-        if (currentDistance <= distanciaPerseguir && currentDistance >= distanciaAtacar && cuchillaDistancia > distanciaCorte)
+        if (currentDistance <= distanciaPerseguir && currentDistance >= distanciaAtacar && cuchillaDistancia > distanciaCorte && cuchillaDistancia2 > distanciaCorte)
         {
 
             CurrentState = STATES.PERSEGUIR;
 
         }
-        else if (currentDistance < distanciaAtacar && cuchillaDistancia > distanciaCorte)
+        else if (currentDistance < distanciaAtacar && cuchillaDistancia > distanciaCorte && cuchillaDistancia2 > distanciaCorte)
         {
             CurrentState = STATES.ATACAR;
         }
-        else if (cuchillaDistancia < distanciaCorte)
+        else if ((cuchillaDistancia < distanciaCorte || cuchillaDistancia2 < distanciaCorte))
         {
             CurrentState = STATES.GOLPE;
         }
@@ -67,6 +72,10 @@ public class IACarceleroSub : MonoBehaviour
             CurrentState = STATES.IDLE;
         }
 
+        if (esp == true) 
+        {
+            CurrentState = STATES.GOLPE;
+        }
         
 
     }
@@ -85,7 +94,7 @@ public class IACarceleroSub : MonoBehaviour
                 Atacar();
                 break;
             case STATES.GOLPE:
-                Reaccionar(1);
+                Reaccionar(10);
                 break;
             default:
                 break;
@@ -97,6 +106,7 @@ public class IACarceleroSub : MonoBehaviour
     void Idle()
     {
         Animaciones.SetInteger("Estado", 0);
+        transform.LookAt(Character.transform.position);
     }
 
     void Perseguir()
@@ -110,12 +120,43 @@ public class IACarceleroSub : MonoBehaviour
     void Atacar()
     {
         Animaciones.SetInteger("Estado", 2);
+     
     }
 
     public void Reaccionar(float daño)
     {
-        vida = vida - daño;
+        
+        escudo = escudo - daño;
         Animaciones.SetInteger("Estado", 3);
+      
+        Debug.Log("En Reaccionar "+esp);
+        if (escudo < 1) 
+        {
+            daño = daño - 5;
+            protecciontxt.text = "Escudo: 0";
+            vida = vida - daño;
+           
+            if (vida < 1)
+            {
+                transform.LookAt(Character.transform.position);
+                GetComponent<NavMeshAgent>().baseOffset = 0;
+                Animaciones.SetInteger("Estado", 4);
+                GetComponent<IACarceleroSub>().enabled = false;
+            }
+        }
+        esp = false;
     }
+
+   /* public void life(int num) 
+    {
+        vida = vida - num;
+              if (vida < 1)
+        {
+            transform.LookAt(Character.transform.position);
+            Animaciones.SetInteger("Estado", 4);
+            GetComponent<IACarceleroSub>().enabled = false;
+        }
+              
+    }*/
 
 }
