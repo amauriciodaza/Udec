@@ -51,7 +51,7 @@ public class prologo : MonoBehaviour
         //Inicio
         texto = new string[]
         {
-            "Hace 400  años los humanos vivian en la superficie donde el consumo de energia era mmedido y todo sevivia" +
+            "Hace 400  años los humanos vivian en la superficie donde el consumo de energia era mmedido y todo se vivia" +
             "de la mejor manera hasta que fue tomado por la Contaminación un ente originado por los antiguos habitantes" +
             "y que solo busca destruir la vida en la superficie obligando a los habitantes de la superficie a vivir bajo" +
             "tierra." +
