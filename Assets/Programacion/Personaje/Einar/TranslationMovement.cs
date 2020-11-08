@@ -72,7 +72,7 @@ public class TranslationMovement : MonoBehaviour
 
     void checkConditions()
     {
-        if (currentState == STATES.HANDSWORDCOMBO || currentState == STATES.SWORDJUMPATACK || currentState == STATES.SWORDSLASH)
+        if (currentState == STATES.HANDSWORDCOMBO || currentState == STATES.SWORDJUMPATACK)
         {
             return;
         }
@@ -82,6 +82,7 @@ public class TranslationMovement : MonoBehaviour
             //Adelante y combinaciones
             if (Input.GetKey(KeyCode.W))
             {
+              
                 if (Input.GetKeyUp(KeyCode.Space))
                 {
                     currentState = STATES.RUNNINGJUMP;
@@ -204,7 +205,7 @@ public class TranslationMovement : MonoBehaviour
             }
             else
             {
-                if (Input.GetKey(KeyCode.Mouse0))
+                if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     currentState = STATES.SWORDSLASH;
                 }
