@@ -15,7 +15,7 @@ public class AdministrarSonidos : MonoBehaviour
 
     public void AbrirPuerta()
     {
-        fuente.clip = sonidos[0];
+        fuente.clip = sonidos[1];
         fuente.Play();
     }
 }
