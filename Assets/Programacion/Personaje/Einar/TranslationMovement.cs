@@ -450,7 +450,14 @@ public class TranslationMovement : MonoBehaviour
     //Finalizacion de animaciones de Espada
     public void FinishMovement()
     {
-        currentState = STATES.SWORDIDDLE;
+        if (armas)
+        {
+            currentState = STATES.SWORDIDDLE;
+        }
+        else
+        {
+            currentState = STATES.IDDLE;
+        }
         Invert = 1;
         anim.speed = 1f;
     }
