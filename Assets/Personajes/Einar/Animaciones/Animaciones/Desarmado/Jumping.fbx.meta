@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 59c81647728fc1c499fb8a8834ad3ddd
+guid: 37fdd57e19e6f6f41b2364cde940d9b0
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: mixamo.com
+    second: Jumping
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: mixamo.com
+      name: Jumping
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 42
+      lastFrame: 92
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -59,29 +59,15 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.3649222
-        functionName: AnimVelocity
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 1
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.59498423
-        functionName: AnimVelocity
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 1
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.6813187
-        functionName: Invertir
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: -1
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.98901093
+      - time: 0.9450549
         functionName: FinishMovement
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.4285714
+        functionName: Invertir
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

@@ -68,7 +68,7 @@ public class TextosPrueba : MonoBehaviour
                 triggerAc = j+1;
                 Dialogar();
                 StartCoroutine(MostrarDialogos());
-                Destroy(triggers[j].gameObject);
+                Destroy(triggers[j].gameObject.GetComponent<Collider>());
                 Debug.Log(triggerAc);
                 break;
             }

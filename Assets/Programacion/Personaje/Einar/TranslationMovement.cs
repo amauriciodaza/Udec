@@ -31,20 +31,19 @@ public class TranslationMovement : MonoBehaviour
         SWORDSLASH,
         SWORDJUMPATACK,
         HANDSWORDCOMBO,
-        SWORDDEATH   
+        SWORDDEATH
     }
-
-
-
     STATES currentState = STATES.IDDLE;
 
     Animator anim;
+
+    Rigidbody rb;
 
     //Velocidades Direccionales
     public float speedRun;
     public float speedSide;
     public float speedReverse;
-    public float impulso;
+    public float Invert;
 
     //Velocidades de Ataque
     public float speedHandSwordCombo;
@@ -60,7 +59,8 @@ public class TranslationMovement : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         armas = false;
-        //seg = 2;
+        rb = GetComponent<Rigidbody>();
+        Invert = 1;
     }
 
     // Update is called once per frame
@@ -72,7 +72,8 @@ public class TranslationMovement : MonoBehaviour
 
     void checkConditions()
     {
-        if (currentState == STATES.HANDSWORDCOMBO || currentState == STATES.SWORDJUMPATACK)
+        if (currentState == STATES.HANDSWORDCOMBO || currentState == STATES.SWORDJUMPATACK || currentState == STATES.RUNNINGJUMP ||
+            currentState == STATES.SWORDRUNJUMP || currentState == STATES.SWORDIDDLEJUMP || currentState == STATES.IDDLEJUMP)
         {
             return;
         }
@@ -82,8 +83,8 @@ public class TranslationMovement : MonoBehaviour
             //Adelante y combinaciones
             if (Input.GetKey(KeyCode.W))
             {
-              
-                if (Input.GetKeyUp(KeyCode.Space))
+
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     currentState = STATES.RUNNINGJUMP;
                 }
@@ -146,16 +147,13 @@ public class TranslationMovement : MonoBehaviour
             //Adelante y combinaciones
             if (Input.GetKey(KeyCode.W))
             {
-                if (Input.GetKey(KeyCode.Space))
+                if (Input.GetKey(KeyCode.Space) && Input.GetKey(KeyCode.Mouse0))
                 {
-                    if (Input.GetKey(KeyCode.Mouse0))
-                    {
                         currentState = STATES.SWORDJUMPATACK;
-                    }
-                    else
-                    {
-                        currentState = STATES.SWORDRUNJUMP;
-                    }
+                }
+                else if (Input.GetKeyUp(KeyCode.Space))
+                {
+                    currentState = STATES.SWORDRUNJUMP;
                 }
                 else if (Input.GetKey(KeyCode.Mouse0))
                 {
@@ -309,40 +307,34 @@ public class TranslationMovement : MonoBehaviour
     }
     void IddleJump()
     {
-            Rigidbody rb;
-            rb = GetComponent<Rigidbody>();
-            rb.AddForce(transform.up * impulso, ForceMode.Impulse);
-            anim.SetInteger("Estado", 8);
+        anim.SetInteger("Estado", 8);
+        transform.Translate(0, 0.1f * Invert, 0);
     }
 
 
     void Running()
     {
         anim.SetInteger("Estado", 1);
-        transform.Translate(0, 0, speedRun*1f);
+        transform.Translate(0, 0, speedRun * 1f);
+        anim.speed = 1;
     }
     void RunningJump()
     {
-        Rigidbody rb;
-        rb = GetComponent<Rigidbody>();
-        rb.AddForce(transform.up * impulso, ForceMode.Impulse);
+        //rb.AddForce(transform.up * impulso, ForceMode.Impulse);
         anim.SetInteger("Estado", 5);
-        //transform.Translate(0, 0, speedRunJump * 1f);
+        transform.Translate(0, 0.115f * Invert, speedRun * 0.55f);
     }
 
 
     void Reverse()
     {
         anim.SetInteger("Estado", 6);
-        transform.Translate(0, 0, -speedRun*1f);
+        transform.Translate(0, 0, -speedReverse * 1f);
     }
     void ReverseJump()
     {
         anim.SetInteger("Estado", 7);
-        transform.Translate(0, 0, -speedRun*1f);
-        Rigidbody rb;
-        rb = GetComponent<Rigidbody>();
-        rb.AddForce(transform.up * impulso, ForceMode.Impulse);
+        transform.Translate(0, 0, -speedReverse * 1.3f);
     }
 
 
@@ -390,10 +382,7 @@ public class TranslationMovement : MonoBehaviour
     void SwordIddleJump()
     {
         anim.SetInteger("Estado", 16);
-        Rigidbody rb;
-        rb = GetComponent<Rigidbody>();
-        rb.AddForce(transform.up * impulso, ForceMode.Impulse);
-
+        transform.Translate(0, 0.135f * Invert,0);
     }
 
 
@@ -405,10 +394,7 @@ public class TranslationMovement : MonoBehaviour
     void SwordRunJump()
     {
         anim.SetInteger("Estado", 16);
-        transform.Translate(0, 0, speedRunJump * 1f);
-        Rigidbody rb;
-        rb = GetComponent<Rigidbody>();
-        rb.AddForce(transform.up * impulso, ForceMode.Impulse);
+        transform.Translate(0, 0.135f * Invert, speedRun * 0.55f);
     }
 
 
@@ -421,9 +407,6 @@ public class TranslationMovement : MonoBehaviour
     {
         anim.SetInteger("Estado", 16);
         transform.Translate(0, 0, -speedReverse * 1f);
-        Rigidbody rb;
-        rb = GetComponent<Rigidbody>();
-        rb.AddForce(transform.up * impulso, ForceMode.Impulse);
     }
 
 
@@ -447,9 +430,6 @@ public class TranslationMovement : MonoBehaviour
     {
         anim.SetInteger("Estado", 20);
         transform.Translate(0, 0, speedSwordJumpAttack * 1f);
-        Rigidbody rb;
-        rb = GetComponent<Rigidbody>();
-        rb.AddForce(transform.up * impulso, ForceMode.Impulse);
     }
     void HandSwordCombo()
     {
@@ -471,5 +451,17 @@ public class TranslationMovement : MonoBehaviour
     public void FinishMovement()
     {
         currentState = STATES.SWORDIDDLE;
+        Invert = 1;
+        anim.speed = 1f;
+    }
+    //Modificar velocidad de animator
+    public void AnimVelocity(float Vel)
+    {
+        anim.speed = Vel * 1f;
+    }
+    // Funcion llamada en los eventos de animacion de animaciones de salto para detener su transform en y
+    public void Invertir(float val)
+    {
+        Invert = Invert * val;
     }
 }

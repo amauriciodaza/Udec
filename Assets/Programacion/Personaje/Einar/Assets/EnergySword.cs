@@ -29,7 +29,6 @@ public class EnergySword : MonoBehaviour
         UbEspada = GetComponent<TranslationMovement>().armas;
         if (UbEspada && DownLife && SwordLife > 0 && superficie)
         {
-            Debug.Log("Bajo");
             SwordLife = SwordLife - 0.25f;
             DownLife = false;
             StartCoroutine(DeathSword());
