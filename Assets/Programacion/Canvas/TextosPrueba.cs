@@ -79,7 +79,7 @@ public class TextosPrueba : MonoBehaviour
     void Dialogar()
     {
         //Inicio
-        if (triggerAc == 1)
+       /* if (triggerAc == 1)
         {
             texto = new string[] 
             {
@@ -88,17 +88,19 @@ public class TextosPrueba : MonoBehaviour
                 "Einar: Que extraño, está dormido, y atrapado entre esos cristales.",
                 "Einar: Voy a tratar de romper ese cristal."
             } ;
-        }
+        }*/
         //Conversacion con Sigurd cuando este Despierta
-        else if (triggerAc == 2)
+        if (triggerAc == 1)
         {
             texto = new string[] 
             {
-                "Sigurd: (Despertando) ¿Qué es esto?, ¿Cuánto llevo aquí?...",
+                //"Sigurd: (Despertando) ¿Qué es esto?, ¿Cuánto llevo aquí?...",
                 "Sigurd: ¿Quién eres tú?... Eres un humano, pensé que Contaminación los había destruido a todos.",
 
-                "Einar: Ósea que es verdad, mi abuelo me había contado una historia, me dijo que hace muchos años los humanos vivían en un mundo muy diferente, uno en el que había algo llamado cielo, donde no teníamos que usar antorchas para poder ver,",
-                "en donde los días eran mitad llenos de luz, iluminados por un lucero inmenso e inalcanzable al que llamaban sol, y que al dormirse este es su reemplazo llegaba un lucero menos brillante pero no menos hermoso, el que llamaban luna,",
+                "Einar: Ósea que es verdad, mi abuelo me había contado una historia, me dijo que hace muchos años los humanos vivían en un mundo muy diferente, ",
+                "uno en el que había algo llamado cielo, donde no teníamos que usar antorchas para poder ver,",
+                "en donde los días eran mitad llenos de luz, iluminados por un lucero inmenso e inalcanzable al que llamaban sol,",
+                " y que al dormirse este es su reemplazo llegaba un lucero menos brillante pero no menos hermoso, el que llamaban luna,",
                 "el cual cambiaba de forma continuamente y que en la mitad oscura del día, junto con incontables y pequeñas luces te acompañaba a esta el despertar del sol, un mundo donde habían vientos frescos e interminables… ",
                 "Podías ver bastas ciudades de torres inmensas y algo que llamaban bosques llenos de plantas enormes donde podías perderte… Siempre pensé que eran solo historias.",
                 
@@ -113,7 +115,8 @@ public class TextosPrueba : MonoBehaviour
                 "Einar: ¿Qué es Contaminación?",
 
                 "Sigurd: En el pasado, cuando tu civilización aún estaba en la superficie, que es a lo que te referías con lo que me dijiste, esta estaba en el pico de su desarrollo, su crecimiento parecía ilimitado,",
-                "ellos crearon maquinas e instalaciones con el objetivo de satisfacer sus necesidades, pero no solo eso, estaban llenos de codicia, esa naturaleza hermosa de la que hablaban la destruían en nombre de crear esas máquinas e instalaciones,",
+                "ellos crearon maquinas e instalaciones con el objetivo de satisfacer sus necesidades, pero no solo eso, estaban llenos de codicia,",
+                " esa naturaleza hermosa de la que hablaban la destruían en nombre de crear esas máquinas e instalaciones,",
                 "todos estos sucesos y creaciones hacían mucho más fácil todo para los humanos, sin embargo estas generaban residuos en las cantidades enormes dada la cantidad descomunal de humanos, comenzó a intoxicar la naturaleza,",
                 "las fuentes de energías que esas creaciones usaban, generaban estos residuos los cuales se acumulaban en diferentes formas y lugares y al final la misma naturaleza colapso, ",
                 "y se creó este ente llamado contaminación el cual es la representación de la decadencia. ",
@@ -138,7 +141,7 @@ public class TextosPrueba : MonoBehaviour
             };
         }
         //Cuando llegan a las trampas
-        else if (triggerAc == 3)
+        else if (triggerAc == 2)
         {
             texto = new string[] 
             {
@@ -146,7 +149,7 @@ public class TextosPrueba : MonoBehaviour
             };
         }
         //En la sala de la secuencia de botones
-        else if (triggerAc == 4)
+        else if (triggerAc == 3)
         {
             texto = new string[]
             {
@@ -156,7 +159,7 @@ public class TextosPrueba : MonoBehaviour
             };
         }
         //Subiendo las escaleras luego de armas la secuencia
-        else if (triggerAc == 5)
+        else if (triggerAc == 4)
         {
             texto = new string[]
             {
@@ -164,7 +167,7 @@ public class TextosPrueba : MonoBehaviour
             };
         }
         //Entrando al laberinto despues del punto de Guardado
-        else if (triggerAc == 6)
+        else if (triggerAc == 5)
         {
             texto = new string[]
             {
@@ -172,7 +175,7 @@ public class TextosPrueba : MonoBehaviour
             };
         }
         //Al recoger las Runas **Debemos colocar un condicional para que este codigo se ejecute mientras no se hayan encontrado todas las runas
-        else if (triggerAc == 7)
+        else if (triggerAc == 6)
         {
             texto = new string[]
             {
@@ -180,7 +183,7 @@ public class TextosPrueba : MonoBehaviour
             };
         }
         //En la puerta del Templo Geotermico
-        else if (triggerAc == 8)
+        else if (triggerAc == 7)
         {
             //Si aun no esta abierta
             bool puerta = false;// Si implementamos GetComponent con un booleano en el codigo de la puerta quedaria listo
@@ -203,7 +206,7 @@ public class TextosPrueba : MonoBehaviour
             } 
         }
         //Poco despues de la mitad del pasillo a la puerta del tiempo
-        else if (triggerAc == 9)
+        else if (triggerAc == 8)
         {
             texto = new string[]
             {
@@ -211,7 +214,7 @@ public class TextosPrueba : MonoBehaviour
             };
         }
         //Al entrar al Templo
-        else if (triggerAc == 10)
+        else if (triggerAc == 9)
         {
             texto = new string[]
             {
@@ -221,7 +224,7 @@ public class TextosPrueba : MonoBehaviour
             };
         }
         //Al romperse el escudo del Enemigo y acercarse a la puerta de la prision de Feanor
-        else if (triggerAc == 11)
+        else if (triggerAc == 10)
         {
             texto = new string[]
             {
@@ -229,7 +232,7 @@ public class TextosPrueba : MonoBehaviour
             };
         }
         //Finalizacion de batalla con el Carcelero Geotermico
-        else if (triggerAc == 12)
+        else if (triggerAc == 11)
         {
             bool CarceleroG = false;//con un GetComponent podemos terminarlo
             if (CarceleroG)
@@ -252,7 +255,7 @@ public class TextosPrueba : MonoBehaviour
             } 
         }
         //Acercandose a la llave
-        else if (triggerAc == 13)
+        else if (triggerAc == 12)
         {
             texto = new string[]
             {
@@ -260,7 +263,7 @@ public class TextosPrueba : MonoBehaviour
             };
         }
         //Conversacion con feanor
-        else if (triggerAc == 14)
+        else if (triggerAc == 13)
         {
             texto = new string[]
             {
@@ -295,7 +298,7 @@ public class TextosPrueba : MonoBehaviour
             };
         }
         //Saliendo del templo del Sol
-        else if (triggerAc == 15)
+        else if (triggerAc == 14)
         {
             texto = new string[]
             {
@@ -305,7 +308,7 @@ public class TextosPrueba : MonoBehaviour
             };
         }
         //Frente al muro de las escaleras
-        else if (triggerAc == 16)
+        else if (triggerAc == 15)
         {
             texto = new string[]
             {
@@ -314,14 +317,14 @@ public class TextosPrueba : MonoBehaviour
                 "Sigurd: Bien, ahí están las escaleras, vamos."
             };
         }
-        else if (triggerAc == 17)
+        else if (triggerAc == 16)
         {
             texto = new string[]
             {
                 "Sigurd: Mira, ahí está la puerta de la que hablaba Feanor… Por ahora no podrás abrirla, necesitas tres llaves… Debemos seguir."
             };
         }
-        else if (triggerAc == 18)
+        else if (triggerAc == 17)
         {
             texto = new string[]
             {
