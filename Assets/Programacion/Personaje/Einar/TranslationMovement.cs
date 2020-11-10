@@ -31,7 +31,9 @@ public class TranslationMovement : MonoBehaviour
         SWORDSLASH,
         SWORDJUMPATACK,
         HANDSWORDCOMBO,
-        SWORDDEATH
+        SWORDDEATH,
+
+        SHOOTING
     }
     STATES currentState = STATES.IDDLE;
 
@@ -129,8 +131,13 @@ public class TranslationMovement : MonoBehaviour
             {
                 currentState = STATES.CAMBIOARMAS;
             }
+            else if (Input.GetKey(KeyCode.Mouse0) /*&& GetComponent<BracerFunction>().bracerCollected == true*/)
+            {
+                currentState = STATES.SHOOTING;
+            }
             else
             {
+                
                 if (Input.GetKeyUp(KeyCode.Space))
                 {
                     currentState = STATES.IDDLEJUMP;
@@ -297,6 +304,10 @@ public class TranslationMovement : MonoBehaviour
             case STATES.SWORDDEATH:
                 SwordDeath();
                 break;
+
+            case STATES.SHOOTING:
+                Shooting();
+                break;
         }
     }
 
@@ -445,6 +456,13 @@ public class TranslationMovement : MonoBehaviour
     void SwordDeath()
     {
         anim.SetInteger("Estado", 22);
+    }
+
+
+    void Shooting()
+    {
+        anim.SetInteger("Estado",23);
+        //GetComponent<BracerFunction>().bracerFunctional = true;
     }
 
     //Finalizacion de animaciones de Espada
