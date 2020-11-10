@@ -19,6 +19,7 @@ public class BracerFunction : MonoBehaviour
         bracerFunctional = false;
         bracerCollected = false;
         Recharge = true;
+        timeRecharging = 3f;
     }
 
     // Update is called once per frame
@@ -30,19 +31,27 @@ public class BracerFunction : MonoBehaviour
 
     public void Disparar()
     {
-        if (bracerFunctional)
+        if (bracerFunctional && bracerCollected)
         {
-            Debug.Log("Ohh me vengo");
-
             if (Input.GetKeyDown(KeyCode.Mouse0) && Recharge)
             {
                 StartCoroutine(Recharging(timeRecharging));
                 InstancePower();
                 Recharge = false;
+                GetComponent<Animator>().speed = 1;
+                bracerFunctional = false;
             }
-            else if (Input.GetKeyDown(KeyCode.Mouse0))
+            else if (Input.GetKeyDown(KeyCode.Mouse0) && Recharge == false)
             {
                 Debug.Log("Recargando");
+                GetComponent<Animator>().speed = 1;
+                GetComponent<TranslationMovement>().FinishMovement();
+            }
+            if (Input.GetKeyUp(KeyCode.Mouse1))
+            {
+                GetComponent<Animator>().speed = 1;
+                GetComponent<TranslationMovement>().FinishMovement();
+                bracerFunctional = false;
             }
         }
     }
@@ -75,5 +84,11 @@ public class BracerFunction : MonoBehaviour
     {
         yield return new WaitForSeconds(time * 1f);
         Recharge = true;
+    }
+
+    //Por evento de animacion.
+    void Apuntar()
+    {
+        GetComponent<Animator>().speed = 0;
     }
 }

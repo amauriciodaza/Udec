@@ -17,8 +17,6 @@ public class MouseCamLook : MonoBehaviour {
 
     public GameObject Einar;
 
-    public bool roto = true;
-
     //Sensibilidades de las camaras
     [SerializeField]
     public float sensitivity;
@@ -48,8 +46,7 @@ public class MouseCamLook : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        CameraThirdPerson();
-        /*if (characterShooting.GetComponent<BracerFunction>().bracerFunctional)
+        if (Einar.GetComponent<BracerFunction>().bracerFunctional && Einar.GetComponent<BracerFunction>().bracerCollected && Input.GetKey(KeyCode.Mouse1))
         {
             CameraPointing();
             ThirdPersonCamera.enabled = false;
@@ -57,11 +54,10 @@ public class MouseCamLook : MonoBehaviour {
         }
         else
         {
-            
+            CameraThirdPerson();
             ThirdPersonCamera.enabled = true;
             PointingCamera.enabled = false;
-
-        }*/
+        }
     }
 
     void CameraThirdPerson()
@@ -96,11 +92,5 @@ public class MouseCamLook : MonoBehaviour {
         transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
 
         characterShooting.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
-    }
-
-    IEnumerator Rotar()
-    {
-        yield return new WaitForSeconds(5f);
-        roto = true;
     }
 }

@@ -75,7 +75,7 @@ public class TranslationMovement : MonoBehaviour
     void checkConditions()
     {
         if (currentState == STATES.HANDSWORDCOMBO || currentState == STATES.SWORDJUMPATACK || currentState == STATES.RUNNINGJUMP ||
-            currentState == STATES.SWORDRUNJUMP || currentState == STATES.SWORDIDDLEJUMP || currentState == STATES.IDDLEJUMP)
+            currentState == STATES.SWORDRUNJUMP || currentState == STATES.SWORDIDDLEJUMP || currentState == STATES.IDDLEJUMP || currentState == STATES.SHOOTING)
         {
             return;
         }
@@ -131,13 +131,12 @@ public class TranslationMovement : MonoBehaviour
             {
                 currentState = STATES.CAMBIOARMAS;
             }
-            else if (Input.GetKey(KeyCode.Mouse0) /*&& GetComponent<BracerFunction>().bracerCollected == true*/)
+            else if (Input.GetKey(KeyCode.Mouse1) && GetComponent<BracerFunction>().bracerCollected == true)
             {
                 currentState = STATES.SHOOTING;
             }
             else
             {
-                
                 if (Input.GetKeyUp(KeyCode.Space))
                 {
                     currentState = STATES.IDDLEJUMP;
@@ -462,7 +461,7 @@ public class TranslationMovement : MonoBehaviour
     void Shooting()
     {
         anim.SetInteger("Estado",23);
-        //GetComponent<BracerFunction>().bracerFunctional = true;
+        GetComponent<BracerFunction>().bracerFunctional = true;
     }
 
     //Finalizacion de animaciones de Espada
