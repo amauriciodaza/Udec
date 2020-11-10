@@ -61,7 +61,7 @@ AnimatorController:
   m_Name: Puerta2FinEne
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: EstadoPue2
+  - m_Name: EstadoPuerta
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -115,7 +115,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: EstadoPue2
+    m_ConditionEvent: EstadoPuerta
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3196303590233451844}
