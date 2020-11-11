@@ -13,5 +13,10 @@ public class GanaroPerder : MonoBehaviour
     {
         SceneManager.LoadScene("Principal Scene", LoadSceneMode.Single);
     }
+
+    public void Prologo()
+    {
+        SceneManager.LoadScene("Prologo", LoadSceneMode.Single);
+    }
     
 }
