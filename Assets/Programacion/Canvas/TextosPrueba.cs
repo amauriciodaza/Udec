@@ -95,6 +95,7 @@ public class TextosPrueba : MonoBehaviour
             texto = new string[] 
             {
                 //"Sigurd: (Despertando) ¿Qué es esto?, ¿Cuánto llevo aquí?...",
+                "EINAR: ",
                 "Sigurd: ¿Quién eres tú?... Eres un humano, pensé que Contaminación los había destruido a todos.",
 
                 "Einar: Ósea que es verdad, mi abuelo me había contado una historia, me dijo que hace muchos años los humanos vivían en un mundo muy diferente, ",
