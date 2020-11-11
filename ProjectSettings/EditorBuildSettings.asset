@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/De Proyecto/JuegoFinalizado.unity
     guid: 7e32536dd45cc9744b8d1642adaf12db
+  - enabled: 1
+    path: Assets/Scenes/De Proyecto/Prologo.unity
+    guid: 4be425dfef9aa694a94bcfce9883ea26
   m_configObjects: {}

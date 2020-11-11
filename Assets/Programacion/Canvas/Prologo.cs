@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class prologo : MonoBehaviour
+public class Prologo : MonoBehaviour
 {
     public Text Dialogos;
 
@@ -13,7 +13,9 @@ public class prologo : MonoBehaviour
     int i;
     int s;
     void Update()
+
     {
+        Dialogar();
         if (Input.GetKeyDown(KeyCode.Q) && i < texto.Length)
         {
             if (s == texto[i].Length)
@@ -51,7 +53,7 @@ public class prologo : MonoBehaviour
         //Inicio
         texto = new string[]
         {
-            "Hace 400  años los humanos vivian en la superficie donde el consumo de energia era mmedido y todo se vivia" +
+            "Hace 400  años los humanos vivian en la superficie donde el consumo de energia era medido y todo se vivia" +
             "de la mejor manera hasta que fue tomado por la Contaminación un ente originado por los antiguos habitantes" +
             "y que solo busca destruir la vida en la superficie obligando a los habitantes de la superficie a vivir bajo" +
             "tierra." +
