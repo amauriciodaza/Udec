@@ -318,7 +318,7 @@ public class TranslationMovement : MonoBehaviour
     void IddleJump()
     {
         anim.SetInteger("Estado", 8);
-        transform.Translate(0, 0.1f * Invert, 0);
+        transform.Translate(0, 1f * Invert, 0);
     }
 
 
