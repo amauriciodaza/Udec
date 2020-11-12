@@ -4,26 +4,23 @@ using UnityEngine;
 
 public class ApuñalamientoScript : MonoBehaviour
 {
-    public GameObject Espada;
+    GameObject carcelero;
+    public bool op;
 
     // Start is called before the first frame update
     void Start()
     {
-      
+        op = false;
+        carcelero = GameObject.Find("CarceleroGeo");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
    
-    }
 
-
-    private void OnTriggerEnter(Collider other)
+    public void golpeEinar()
     {
-        if (other.name == Espada.name)
+        if (op)
         {
-            GetComponent<IACarceleroSub>().esp = true;
+            carcelero.GetComponent<IACarceleroSub>().esp = true;
             Debug.Log("lee el mouse");
 
         }

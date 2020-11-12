@@ -12,7 +12,7 @@ public class Instruccion2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        t = 0;
     }
 
     // Update is called once per frame
@@ -21,8 +21,9 @@ public class Instruccion2 : MonoBehaviour
         if (op == true)
         {
             t = t + Time.deltaTime;
-            if (t < 5)
+            if (t < 10)
             {
+                Instrucciontxt.enabled = true;
                 Instrucciontxt.text = "Para Derrotar al Carcelero Deberas Cortarlo";
                 protecciontxt.enabled = true;
                 saludtxt.enabled = true;
@@ -30,6 +31,7 @@ public class Instruccion2 : MonoBehaviour
             else
             {
                 op = false;
+                Instrucciontxt.enabled = false;
             }
         }
     } 
