@@ -16,7 +16,7 @@ public class Prologo : MonoBehaviour
 
     {
         Dialogar();
-        if (Input.GetKeyDown(KeyCode.Q) && i < texto.Length)
+        if ( i < texto.Length)
         {
             if (s == texto[i].Length)
             {
