@@ -8,7 +8,6 @@ public class PropiedadesScript : MonoBehaviour
     public int runas;
     public int salud;
     public Text Runastxt, Saludtxt;
-    public GameObject mano;
 
     public Scrollbar HealthBar;
     public float Health = 100;

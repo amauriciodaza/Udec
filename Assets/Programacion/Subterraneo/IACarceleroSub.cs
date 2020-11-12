@@ -75,7 +75,7 @@ public class IACarceleroSub : MonoBehaviour
         else if ((cuchillaDistancia < distanciaCorte || cuchillaDistancia2 < distanciaCorte) && esp == false)
         {
             CurrentState = STATES.GOLPE;
-            a = 10f;
+            a = 2f;
             b = 0;
 
         }
@@ -133,13 +133,10 @@ public class IACarceleroSub : MonoBehaviour
 
     void Atacar()
     {
-        t = t + Time.deltaTime;
-        if (t > 3)
-        {
+       
             transform.LookAt(Character.transform.position);
             Animaciones.SetInteger("Estado", 2);
-            t = 0;
-        }
+        
     }
 
     public void Reaccionar(float dañoescudo, float dañovida )
