@@ -18,4 +18,5 @@ public class AdministrarSonidos : MonoBehaviour
         fuente.clip = sonidos[0];
         fuente.Play();
     }
+
 }

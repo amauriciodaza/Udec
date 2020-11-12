@@ -43,4 +43,9 @@ public class MenuPrincipal : MonoBehaviour
     {
         OpcionesPanel.SetActive(true);
     }
+
+    public void Prologo()
+    {
+        SceneManager.LoadScene("Prologo", LoadSceneMode.Single);
+    }
 }

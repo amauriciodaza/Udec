@@ -5,13 +5,15 @@ using UnityEngine.UI;
 
 public class RunasScript : MonoBehaviour
 {
-    bool op;
+    bool op,b;
     public GameObject Personaje;
     GameObject other;
+    public Text Instrucciontxt;
     // Start is called before the first frame update
     void Start()
     {
         other = GameObject.Find("Einar");
+        b = true;
     }
 
     // Update is called once per frame
@@ -19,23 +21,30 @@ public class RunasScript : MonoBehaviour
     {
         if (op == true)
         {
-                if (Input.GetKeyUp(KeyCode.F))
+     
+            if (Input.GetKeyUp(KeyCode.F))
                 {
                     Personaje.GetComponent<PropiedadesScript>().ContarRunas(1);
                     Debug.Log("recogido");
                     Destroy(this.gameObject);
+                b = false;
+                Instrucciontxt.enabled = false;
 
-
-                }
+            }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.name == "Einar")
         {
             op = true;
-
+            if (b == true)
+            {
+                Instrucciontxt.enabled = true;
+                Instrucciontxt.text = "RECOGER RUNA (F)";
+            }
         }
     }
 
@@ -44,6 +53,7 @@ public class RunasScript : MonoBehaviour
         if (other.name == "Einar")
         {
             op = false;
+            Instrucciontxt.enabled = false;
         }
     }
 
