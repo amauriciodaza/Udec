@@ -9,8 +9,11 @@ public class PropiedadesScript : MonoBehaviour
     public int salud;
     public Text Runastxt, Saludtxt;
     public GameObject mano;
+
+    public Scrollbar HealthBar;
+    public float Health = 100;
     //DIALOGOS
-   // public Text Dialogostxt;
+    // public Text Dialogostxt;
     //public Image Dialogosimg;
 
     // Start is called before the first frame update
@@ -31,22 +34,24 @@ public class PropiedadesScript : MonoBehaviour
     public void ContarRunas(int num)
     {
         runas = runas + num;
-        Runastxt.text = "RUNAS: " + runas;
+        Runastxt.text = "RUNAS: " + runas+" / 4";
     }
 
     public void Daño(int num)
     {
         salud = salud - num;
-        Saludtxt.text = "SALUD: " + salud;
+        Saludtxt.text = "Salud:";
+        Health -= num;
+        HealthBar.size = Health / 100f;
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.name == mano.name)
         {
             Daño(5);
         }
-    }
+    }*/
     /*public void dialogo(int num)
     {
         Dialogostxt.enabled = true;

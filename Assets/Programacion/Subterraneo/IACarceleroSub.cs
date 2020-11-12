@@ -23,7 +23,7 @@ public class IACarceleroSub : MonoBehaviour
     public Text protecciontxt, saludtxt;
     public bool esp;
     Animator Animaciones;
-
+    float t;
 
 
     void Start()
@@ -33,6 +33,9 @@ public class IACarceleroSub : MonoBehaviour
         vida = 100f;
         esp = false;
         escudo = 100f;
+        t = 0;
+        protecciontxt.enabled = false;
+        saludtxt.enabled = false;
     }
 
     // Update is called once per frame
@@ -130,9 +133,13 @@ public class IACarceleroSub : MonoBehaviour
 
     void Atacar()
     {
-        transform.LookAt(Character.transform.position);
-        Animaciones.SetInteger("Estado", 2);
-      
+        t = t + Time.deltaTime;
+        if (t > 3)
+        {
+            transform.LookAt(Character.transform.position);
+            Animaciones.SetInteger("Estado", 2);
+            t = 0;
+        }
     }
 
     public void Reaccionar(float dañoescudo, float dañovida )
