@@ -8,8 +8,10 @@ public class MenuPrincipal : MonoBehaviour
     public static bool ParPan;
     public static bool OpcPan;
     public static bool NueParPan;
+    public static bool SalirPan;
+    public static bool CargarPan;
 
-    public GameObject PanelPartidas, OpcionesPanel, PanelNuePartida;
+    public GameObject PanelPartidas, OpcionesPanel, PanelNuePartida, PanelSalir, PanelCargar;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +19,8 @@ public class MenuPrincipal : MonoBehaviour
         PanelNuePartida.SetActive(false);
         PanelPartidas.SetActive(false);
         OpcionesPanel.SetActive(false);
+        PanelSalir.SetActive(false);
+        PanelCargar.SetActive(false);
     }
     public void EmpezarJuego()
     {
@@ -43,9 +47,28 @@ public class MenuPrincipal : MonoBehaviour
     {
         OpcionesPanel.SetActive(true);
     }
+    public void Panel4()
+    {
+        PanelSalir.SetActive(true);
+    }
 
     public void Prologo()
     {
         SceneManager.LoadScene("Prologo", LoadSceneMode.Single);
+    }
+
+    public void Salir()
+    {
+        Debug.Log("Se ha salido del juego");
+        Application.Quit();
+    }
+    public void Cancelar()
+    {
+        PanelCargar.SetActive(false);
+    }
+
+    public void Cargar()
+    {
+        PanelCargar.SetActive(true);
     }
 }

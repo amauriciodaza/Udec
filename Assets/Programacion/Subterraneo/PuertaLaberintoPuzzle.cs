@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PuertaLaberintoPuzzle : MonoBehaviour
 {
     public GameObject Personaje;
     int run;
+    public Text Instrucciontxt;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,8 @@ public class PuertaLaberintoPuzzle : MonoBehaviour
     {
         if (other.name == Personaje.name) 
         {
+            Instrucciontxt.enabled = true;
+            Instrucciontxt.text = "Abrir (F)";
             if (Input.GetKeyUp(KeyCode.F))
             {
                 run = Personaje.GetComponent<PropiedadesScript>().runas;
@@ -30,7 +34,16 @@ public class PuertaLaberintoPuzzle : MonoBehaviour
                     GetComponent<Animator>().SetBool("Estado", true);
                     GetComponent<AdministrarSonidos>().AbrirPuerta();
                 }
+                else
+                {
+                    Instrucciontxt.text = "Debes recoger todas las runas";
+                }
             }
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Instrucciontxt.enabled = false;
     }
 }
