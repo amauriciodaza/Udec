@@ -1307,7 +1307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.16458519}
-  m_AnchoredPosition: {x: 0, y: 5.8999634}
+  m_AnchoredPosition: {x: 0, y: 5.8999557}
   m_SizeDelta: {x: 0, y: 11.911652}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1427996150
@@ -1813,6 +1813,30 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1857893069 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1690212925229471083, guid: 682831ff831c2db4eb97e2026b5950ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 38183718}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1857893072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857893069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c9dea59f921ca24688c8e6d2484ef24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ThirdPersonCamera: {fileID: 1002926358}
+  PointingCamera: {fileID: 1973375182}
+  Einar: {fileID: 0}
+  sensitivity: 0
+  smoothing: 0
+  character: {fileID: 0}
 --- !u!1001 &1917024734
 PrefabInstance:
   m_ObjectHideFlags: 0

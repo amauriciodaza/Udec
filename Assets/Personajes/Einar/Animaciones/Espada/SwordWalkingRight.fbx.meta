@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 3cf3649014bf7564f86e399ae08688c4
+guid: bc025447fa434e14ebddd408f6e1ee44
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Climbing Ladder
+    second: SwordWalkingRight
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Climbing Ladder
+      name: SwordWalkingRight
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 46
+      lastFrame: 53
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -113,7 +113,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.024999999
+    globalScale: 2.5
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

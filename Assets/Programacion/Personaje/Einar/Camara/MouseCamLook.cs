@@ -17,15 +17,15 @@ public class MouseCamLook : MonoBehaviour {
 
     public GameObject Einar;
 
+    bool CameraActive;
+
     //Sensibilidades de las camaras
     [SerializeField]
     public float sensitivity;
-    public float sensitivityShooting;
     [SerializeField]
     public float smoothing;
     // the chacter is the capsule
     public GameObject character;
-    GameObject characterShooting;
     // get the incremental value of mouse moving
     private Vector2 mouseLook;
     // smooth the mouse moving
@@ -34,10 +34,8 @@ public class MouseCamLook : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        CameraActive = false;
         character = this.transform.parent.gameObject;
-        characterShooting = this.transform.parent.gameObject;
-        sensitivity = 5f;
-        sensitivityShooting = 2f;
         smoothing = 2f;
         PointingCamera.enabled = false;
         Einar = GameObject.Find("Einar");
@@ -46,24 +44,43 @@ public class MouseCamLook : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (Einar.GetComponent<BracerFunction>().bracerFunctional && Einar.GetComponent<BracerFunction>().bracerCollected && Input.GetKey(KeyCode.Mouse1))
+        ChangeCamera();
+        CameraSelection();
+    }
+
+
+    void ChangeCamera()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            CameraPointing();
-            ThirdPersonCamera.enabled = false;
-            PointingCamera.enabled = true;
-        }
-        else
-        {
-            CameraThirdPerson();
-            ThirdPersonCamera.enabled = true;
-            PointingCamera.enabled = false;
+            CameraActive = !CameraActive;
+            Debug.Log(CameraActive);
         }
     }
 
-    void CameraThirdPerson()
+    void CameraSelection()
+    {
+        if (Einar.GetComponent<BracerFunction>().bracerFunctional && Einar.GetComponent<BracerFunction>().bracerCollected
+            && Einar.GetComponent<TranslationMovement>().armas == false)
+        {
+            Camera();
+            ThirdPersonCamera.enabled = false;
+            PointingCamera.enabled = true;
+            sensitivity = 2f;
+        }
+        else
+        {
+            Camera();
+            ThirdPersonCamera.enabled = true;
+            PointingCamera.enabled = false;
+            sensitivity = 3.5f;
+        }
+    }
+
+    void Camera()
     {
         // md is mosue delta
-        var md = new Vector2(Input.GetAxisRaw("Mouse X"), 0 /*Input.GetAxisRaw("Mouse Y")*/);
+        var md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
         md = Vector2.Scale(md, new Vector2(sensitivity * smoothing, sensitivity * smoothing));
         // the interpolated float result between the two float values
         smoothV.x = Mathf.Lerp(smoothV.x, md.x, 1f / smoothing);
@@ -75,22 +92,5 @@ public class MouseCamLook : MonoBehaviour {
         transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
 
         character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
-    }
-
-    void CameraPointing()
-    {
-        // md is mosue delta
-        var md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
-        md = Vector2.Scale(md, new Vector2(sensitivityShooting * smoothing, sensitivityShooting * smoothing));
-        // the interpolated float result between the two float values
-        smoothV.x = Mathf.Lerp(smoothV.x, md.x, 1f / smoothing);
-        smoothV.y = Mathf.Lerp(smoothV.y, md.y, 1f / smoothing);
-        // incrementally add to the camera look
-        mouseLook += smoothV;
-
-        // vector3.right means the x-axis
-        transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
-
-        characterShooting.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
     }
 }

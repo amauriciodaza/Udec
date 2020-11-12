@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 1550cc1b967eafc47a068e1d597e0508
+guid: 59c81647728fc1c499fb8a8834ad3ddd
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Two Hand Sword Combo
+    second: Sword Jump
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Two Hand Sword Combo
+      name: Sword Jump
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 98
+      lastFrame: 42
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -47,7 +47,7 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
-      loopBlend: 1
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -59,7 +59,28 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.8413793
+      - time: 0.3649222
+        functionName: AnimVelocity
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 1
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.59498423
+        functionName: AnimVelocity
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 1
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.6813187
+        functionName: Invertir
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: -1
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.98901093
         functionName: FinishMovement
         data: 
         objectReferenceParameter: {instanceID: 0}

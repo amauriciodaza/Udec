@@ -44,15 +44,15 @@ public class BracerFunction : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.Mouse0) && Recharge == false)
             {
                 Debug.Log("Recargando");
-                GetComponent<Animator>().speed = 1;
                 GetComponent<TranslationMovement>().FinishMovement();
+                GetComponent<Animator>().speed = 1;
             }
-            if (Input.GetKeyUp(KeyCode.Mouse1))
+            /*if (Input.GetKey(KeyCode.Mouse1))
             {
                 GetComponent<Animator>().speed = 1;
                 GetComponent<TranslationMovement>().FinishMovement();
                 bracerFunctional = false;
-            }
+            }*/
         }
     }
 
