@@ -7,6 +7,8 @@ public class Sword : MonoBehaviour
     public GameObject Espada;
     public GameObject Espada2;
 
+    bool Change;
+
     void Start()
     {
         Espada.SetActive(false);
@@ -23,5 +25,36 @@ public class Sword : MonoBehaviour
     {
         Espada.SetActive(false);
         Espada2.SetActive(true);
+    }
+
+    public void PosSword()
+    {
+        if (GetComponent<TranslationMovement>().armas)
+        {
+            StartCoroutine(TCambio());
+            if (Change)
+            {
+                Espada.SetActive(true);
+                Espada2.SetActive(false);
+                Change = false;
+            }
+        }
+        else
+        {
+            StartCoroutine(TCambio());
+            if (Change)
+            {
+                Espada.SetActive(false);
+                Espada2.SetActive(true);
+                Change = false;
+            }
+        }
+    }
+
+    IEnumerator TCambio()
+    {
+        yield return new WaitForSeconds(1f);
+        Change = true;
+
     }
 }

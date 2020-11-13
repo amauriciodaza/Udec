@@ -54,7 +54,6 @@ public class MouseCamLook : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             CameraActive = !CameraActive;
-            Debug.Log(CameraActive);
         }
     }
 

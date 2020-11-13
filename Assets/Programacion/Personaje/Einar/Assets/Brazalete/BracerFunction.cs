@@ -46,19 +46,20 @@ public class BracerFunction : MonoBehaviour
                 Debug.Log("Recargando");
                 GetComponent<TranslationMovement>().FinishMovement();
                 GetComponent<Animator>().speed = 1;
-            }
-            /*if (Input.GetKey(KeyCode.Mouse1))
-            {
-                GetComponent<Animator>().speed = 1;
-                GetComponent<TranslationMovement>().FinishMovement();
                 bracerFunctional = false;
-            }*/
+            }
+        }
+        else
+        {
+            Debug.Log("Cancelado");
+            GetComponent<TranslationMovement>().FinishMovement();
+            GetComponent<Animator>().speed = 1;
+            bracerFunctional = false;
         }
     }
 
     public void InstancePower()
     {
-        Debug.Log("Salio Poder");
         GameObject obj;
         Rigidbody rb;
         obj = Instantiate(poder, InstancePosition.transform.position, InstancePosition.transform.rotation);
@@ -70,13 +71,16 @@ public class BracerFunction : MonoBehaviour
 
     public void point()
     {
-        if (Input.GetKey(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.Mouse1) && GetComponent<TranslationMovement>().armas == false)
         {
-            bracerFunctional = true;
-        }
-        else
-        {
-            bracerFunctional = false;
+            bracerFunctional = !bracerFunctional;
+            if (bracerFunctional == false)
+            {
+                Debug.Log("A la verga");
+                GetComponent<TranslationMovement>().FinishMovement();
+                GetComponent<Animator>().speed = 1;
+                bracerFunctional = false;
+            }
         }
     }
 

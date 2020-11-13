@@ -178,6 +178,16 @@ PrefabInstance:
       propertyPath: UpRunJump
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7429728735359687360, guid: 682831ff831c2db4eb97e2026b5950ea,
+        type: 3}
+      propertyPath: Espada
+      value: 
+      objectReference: {fileID: 199906070}
+    - target: {fileID: 7429728735359687360, guid: 682831ff831c2db4eb97e2026b5950ea,
+        type: 3}
+      propertyPath: Espada2
+      value: 
+      objectReference: {fileID: 1387695420}
     - target: {fileID: 7429728735359687363, guid: 682831ff831c2db4eb97e2026b5950ea,
         type: 3}
       propertyPath: triggers.Array.data[0]
@@ -296,6 +306,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 682831ff831c2db4eb97e2026b5950ea, type: 3}
+--- !u!1 &199906070 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7429728736737298948, guid: 682831ff831c2db4eb97e2026b5950ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 38183718}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &203160072 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 994f18d79e9aebc4b8a0ccc00d5f033f,
@@ -1303,6 +1319,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1387695420 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7429728735924765214, guid: 682831ff831c2db4eb97e2026b5950ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 38183718}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1427996148
 GameObject:
   m_ObjectHideFlags: 0

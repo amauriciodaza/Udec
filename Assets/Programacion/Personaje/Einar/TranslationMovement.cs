@@ -36,6 +36,8 @@ public class TranslationMovement : MonoBehaviour
 
     Rigidbody rb;
 
+    public GameObject Espada, Espada2;
+
     //Velocidades Direccionales
     public float speedRun;
     public float speedSide;
@@ -265,6 +267,7 @@ public class TranslationMovement : MonoBehaviour
     // Sin Espada
     void Iddle()
     {
+        GetComponent<Sword>().PosSword();
         anim.SetInteger("Estado", 0);
         anim.speed = 1f;
     }
@@ -272,12 +275,14 @@ public class TranslationMovement : MonoBehaviour
 
     void Running()
     {
+        GetComponent<Sword>().PosSword();
         anim.speed = 1f;
         anim.SetInteger("Estado", 1);
         transform.Translate(0, 0, speedRun * Time.deltaTime);
     }
     void RunningJump()
     {
+        GetComponent<Sword>().PosSword();
         anim.speed = 1f;
         anim.SetInteger("Estado", 5);
         transform.Translate(0, UpRunJump * Invert * Time.deltaTime, speedRun * Time.deltaTime);
@@ -286,6 +291,7 @@ public class TranslationMovement : MonoBehaviour
 
     void Reverse()
     {
+        GetComponent<Sword>().PosSword();
         anim.speed = 1f;
         anim.SetInteger("Estado", 6);
         transform.Translate(0, 0, -speedReverse * Time.deltaTime);
@@ -294,12 +300,14 @@ public class TranslationMovement : MonoBehaviour
 
     void RightRun()
     {
+        GetComponent<Sword>().PosSword();
         anim.speed = 1f;
         anim.SetInteger("Estado", 2);
         transform.Translate(speedSide * Time.deltaTime, 0, 0);
     }
     void LeftRun()
     {
+        GetComponent<Sword>().PosSword();
         anim.speed = 1f;
         anim.SetInteger("Estado", 3);
         transform.Translate(-speedSide * Time.deltaTime, 0, 0);
@@ -307,6 +315,7 @@ public class TranslationMovement : MonoBehaviour
 
     void UnarmedImpact()
     {
+        GetComponent<Sword>().PosSword();
         anim.speed = 1f;
         anim.SetInteger("Estado", 4);
     }
@@ -337,6 +346,7 @@ public class TranslationMovement : MonoBehaviour
 
     void SwordIddle()
     {
+        GetComponent<Sword>().PosSword();
         anim.speed = 1f;
         anim.SetInteger("Estado", 12);
     }
@@ -344,12 +354,14 @@ public class TranslationMovement : MonoBehaviour
 
     void SwordRun()
     {
+        GetComponent<Sword>().PosSword();
         anim.speed = 1f;
         anim.SetInteger("Estado", 13);
         transform.Translate(0, 0, speedRun * Time.deltaTime);
     }
     void SwordRunJump()
     {
+        GetComponent<Sword>().PosSword();
         anim.speed = 1f;
         anim.SetInteger("Estado", 16);
         transform.Translate(0, UpRunJump * Invert * Time.deltaTime, speedRun * Time.deltaTime);
@@ -358,6 +370,7 @@ public class TranslationMovement : MonoBehaviour
 
     void SwordReverse()
     {
+        GetComponent<Sword>().PosSword();
         anim.speed = 1f;
         anim.SetInteger("Estado", 17);
         transform.Translate(0, 0, -speedReverse * Time.deltaTime);
@@ -366,12 +379,14 @@ public class TranslationMovement : MonoBehaviour
 
     void SwordRightRun()
     {
+        GetComponent<Sword>().PosSword();
         anim.speed = 1f;
         anim.SetInteger("Estado", 15);
         transform.Translate(speedSide * Time.deltaTime, 0, 0);
     }
     void SwordLeftRun()
     {
+        GetComponent<Sword>().PosSword();
         anim.speed = 1f;
         anim.SetInteger("Estado", 14);
         transform.Translate(-speedSide * Time.deltaTime, 0, 0);
@@ -380,11 +395,13 @@ public class TranslationMovement : MonoBehaviour
 
     void SwordSlash()
     {
+        GetComponent<Sword>().PosSword(); ;
         anim.speed = 1f;
         anim.SetInteger("Estado", 19);
     }
     void SwordJumpAtack()
     {
+        GetComponent<Sword>().PosSword();
         anim.speed = 1f;
         anim.SetInteger("Estado", 20);
         transform.Translate(0, 0, speedSwordJumpAttack * Time.deltaTime);
@@ -393,20 +410,21 @@ public class TranslationMovement : MonoBehaviour
 
     void SwordImpact()
     {
+        GetComponent<Sword>().PosSword();
         anim.speed = 1f;
         anim.SetInteger("Estado", 18);
     }
     void SwordDeath()
     {
         anim.speed = 1f;
-        anim.SetInteger("Estado", 22);
+        anim.SetInteger("Estado", 21);
     }
 
 
     void Shooting()
     {
-        anim.SetInteger("Estado",23);
-        GetComponent<BracerFunction>().bracerFunctional = true;
+        GetComponent<Sword>().PosSword();
+        anim.SetInteger("Estado",7);
     }
 
     //Finalizacion de animaciones de Espada
@@ -434,4 +452,7 @@ public class TranslationMovement : MonoBehaviour
     {
         Invert = Invert * val;
     }
+
+    //Posicionar las espadas en caso de que se haga una transicion muy rapida
+
 }
