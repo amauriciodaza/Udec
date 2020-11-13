@@ -13,6 +13,7 @@ public class TranslationMovement : MonoBehaviour
         UNARMEDIMPACT,
         RUNNINGJUMP,
         REVERSE,
+        INTERACTING,
         DEATH,
 
         CAMBIOARMAS,
@@ -71,7 +72,7 @@ public class TranslationMovement : MonoBehaviour
     void checkConditions()
     {
         if (currentState == STATES.SWORDJUMPATACK || currentState == STATES.RUNNINGJUMP ||
-            currentState == STATES.SWORDRUNJUMP || currentState == STATES.SHOOTING)
+            currentState == STATES.SWORDRUNJUMP || currentState == STATES.SHOOTING || currentState == STATES.INTERACTING)
         {
             return;
         }
@@ -125,10 +126,15 @@ public class TranslationMovement : MonoBehaviour
             {
                 currentState = STATES.SHOOTING;
             }
+            else if (Input.GetKeyUp(KeyCode.F))
+            {
+                currentState = STATES.INTERACTING;
+            }
             else
             {
                 currentState = STATES.IDDLE;
             }
+
         }
         // CON ESPADA........................................
         else if (armas)
@@ -179,7 +185,10 @@ public class TranslationMovement : MonoBehaviour
                 currentState = STATES.SWORDDEATH;
             }*/
             //Reposo y Combinaciones
-            
+            else if (Input.GetKeyUp(KeyCode.F))
+            {
+                currentState = STATES.INTERACTING;
+            }
             else
             {
                 if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -218,6 +227,9 @@ public class TranslationMovement : MonoBehaviour
                 break;
             case STATES.REVERSE:
                 Reverse();
+                break;
+            case STATES.INTERACTING:
+                Interacting();
                 break;
             case STATES.DEATH:
                 Death();
@@ -425,6 +437,12 @@ public class TranslationMovement : MonoBehaviour
     {
         GetComponent<Sword>().PosSword();
         anim.SetInteger("Estado",7);
+    }
+
+    void Interacting()
+    {
+        GetComponent<Sword>().PosSword();
+        anim.SetInteger("Estado", 8);
     }
 
     //Finalizacion de animaciones de Espada

@@ -213,6 +213,11 @@ PrefabInstance:
       propertyPath: Panel
       value: 
       objectReference: {fileID: 1427996148}
+    - target: {fileID: 7429728735359687364, guid: 682831ff831c2db4eb97e2026b5950ea,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7429728735359687367, guid: 682831ff831c2db4eb97e2026b5950ea,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1956,6 +1961,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8621139856828010525, guid: 838f66d452e9dfb44b159ebd99fa1d9b,
+        type: 3}
+      propertyPath: m_Radius
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 838f66d452e9dfb44b159ebd99fa1d9b, type: 3}

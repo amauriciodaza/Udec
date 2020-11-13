@@ -31,7 +31,10 @@ public class Sword : MonoBehaviour
     {
         if (GetComponent<TranslationMovement>().armas)
         {
-            StartCoroutine(TCambio());
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                StartCoroutine(TCambio());
+            }
             if (Change)
             {
                 Espada.SetActive(true);
@@ -41,7 +44,10 @@ public class Sword : MonoBehaviour
         }
         else
         {
-            StartCoroutine(TCambio());
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                StartCoroutine(TCambio());
+            }
             if (Change)
             {
                 Espada.SetActive(false);
@@ -53,7 +59,7 @@ public class Sword : MonoBehaviour
 
     IEnumerator TCambio()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.35f);
         Change = true;
 
     }

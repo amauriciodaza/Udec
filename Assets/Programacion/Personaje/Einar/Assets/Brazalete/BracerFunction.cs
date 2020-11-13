@@ -12,6 +12,8 @@ public class BracerFunction : MonoBehaviour
     public bool bracerCollected;
     public bool Recharge;
 
+    public bool finish;
+
     public float timeRecharging;
     // Start is called before the first frame update
     void Start()
@@ -20,13 +22,17 @@ public class BracerFunction : MonoBehaviour
         bracerCollected = false;
         Recharge = true;
         timeRecharging = 3f;
+        finish = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        point();
-        Disparar();
+        if (bracerCollected)
+        {
+            point();
+            Disparar();
+        }
     }
 
     public void Disparar()
@@ -39,22 +45,22 @@ public class BracerFunction : MonoBehaviour
                 InstancePower();
                 Recharge = false;
                 GetComponent<Animator>().speed = 1;
-                bracerFunctional = false;
+                StartCoroutine(Esperar());
             }
             else if (Input.GetKeyDown(KeyCode.Mouse0) && Recharge == false)
             {
                 Debug.Log("Recargando");
+                //Atack.text = "Recargando";
                 GetComponent<TranslationMovement>().FinishMovement();
                 GetComponent<Animator>().speed = 1;
                 bracerFunctional = false;
             }
         }
-        else
+        else if (bracerFunctional == false && finish)
         {
-            Debug.Log("Cancelado");
+            StartCoroutine(Finishing());
             GetComponent<TranslationMovement>().FinishMovement();
             GetComponent<Animator>().speed = 1;
-            bracerFunctional = false;
         }
     }
 
@@ -74,9 +80,10 @@ public class BracerFunction : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse1) && GetComponent<TranslationMovement>().armas == false)
         {
             bracerFunctional = !bracerFunctional;
+
             if (bracerFunctional == false)
             {
-                Debug.Log("A la verga");
+                finish = true;
                 GetComponent<TranslationMovement>().FinishMovement();
                 GetComponent<Animator>().speed = 1;
                 bracerFunctional = false;
@@ -94,5 +101,17 @@ public class BracerFunction : MonoBehaviour
     void Apuntar()
     {
         GetComponent<Animator>().speed = 0;
+    }
+
+    IEnumerator Esperar()
+    {
+        yield return new WaitForSeconds(0.4f);
+        bracerFunctional = false;
+    }
+
+    IEnumerator Finishing()
+    {
+        yield return new WaitForSeconds(0.1f);
+        finish = false;
     }
 }
