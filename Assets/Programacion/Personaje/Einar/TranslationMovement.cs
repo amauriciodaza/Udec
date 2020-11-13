@@ -51,6 +51,7 @@ public class TranslationMovement : MonoBehaviour
 
     //Restrictores
     public bool armas;
+    bool noChange;
     //float seg = 2;
 
     // Start is called before the first frame update
@@ -60,6 +61,7 @@ public class TranslationMovement : MonoBehaviour
         armas = false;
         rb = GetComponent<Rigidbody>();
         Invert = 1;
+        noChange = true;
     }
 
     // Update is called once per frame
@@ -339,20 +341,24 @@ public class TranslationMovement : MonoBehaviour
     // Intermedios, Cambios de Arma
     void CambioArma()
     {
-        armas = !armas;
-        if (armas)
+        if (noChange)
         {
-            anim.speed = 1f;
-            anim.SetInteger("Estado", 10);
-            //anim.SetInteger("Estado", 12);
+            armas = !armas;
+            if (armas)
+            {
+                anim.speed = 1f;
+                anim.SetInteger("Estado", 10);
+                noChange = false;
+                StartCoroutine(NotChange());
+            }
+            else
+            {
+                anim.speed = 1f;
+                anim.SetInteger("Estado", 11);
+                noChange = false;
+                StartCoroutine(NotChange());
+            }
         }
-        else
-        {
-            anim.speed = 1f;
-            anim.SetInteger("Estado", 11);
-            //anim.SetInteger("Estado", 0);
-        }
-
     }
     //Con Espada
 
@@ -471,6 +477,11 @@ public class TranslationMovement : MonoBehaviour
         Invert = Invert * val;
     }
 
-    //Posicionar las espadas en caso de que se haga una transicion muy rapida
+    //Evitar error al hacer tecleos rapidos en cambio de espadas.
+    IEnumerator NotChange()
+    {
+        yield return new WaitForSeconds(0.25f);
+        noChange = true;
+    }
 
 }
