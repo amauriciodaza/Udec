@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class EnergySword : MonoBehaviour
 {
-    public GameObject[] lights;
-    public Material[] Materiales;
-
-    public GameObject SwordBlade;
+    public GameObject Sword1;
+    public GameObject Sword2;
+    public GameObject Sword3;
+    public GameObject Sword4;
 
     float SwordLife;
 
@@ -16,11 +16,19 @@ public class EnergySword : MonoBehaviour
     bool DownLife;
 
     public bool superficie;
+
+    public int currentSword;
+
+    public bool Cambio;
     // Start is called before the first frame update
     void Start()
     {
         SwordLife = 100;
         DownLife = true;
+        Sword1.SetActive(false);
+        Sword2.SetActive(false);
+        Sword3.SetActive(false);
+        Sword4.SetActive(false);
     }
 
     // Update is called once per frame
@@ -32,46 +40,69 @@ public class EnergySword : MonoBehaviour
             SwordLife = SwordLife - 0.25f;
             DownLife = false;
             StartCoroutine(DeathSword());
+            CurrentEnergySword();
         }
-        CurrentMaterial();
     }
 
-    void CurrentMaterial()
+    void CurrentEnergySword()
     {
-        Renderer rend = SwordBlade.GetComponent<Renderer>();
+        StartCoroutine(Esperar());
+        if (Cambio)
+        {
+            if (SwordLife >= 66)
+            {
+                Sword1.SetActive(true);
+                Sword2.SetActive(false);
+                Sword3.SetActive(false);
+                Sword4.SetActive(false);
+                currentSword = 0;
+            }
+            else if (SwordLife < 66 && SwordLife >= 33)
+            {
+                Sword1.SetActive(false);
+                Sword2.SetActive(true);
+                Sword3.SetActive(false);
+                Sword4.SetActive(false);
+                currentSword = 1;
+            }
+            else if (SwordLife < 33 && SwordLife >= 5)
+            {
+                Sword1.SetActive(false);
+                Sword2.SetActive(false);
+                Sword3.SetActive(true);
+                Sword4.SetActive(false);
+                currentSword = 2;
+            }
+            else
+            {
+                Sword1.SetActive(false);
+                Sword2.SetActive(false);
+                Sword3.SetActive(false);
+                Sword4.SetActive(true);
+                currentSword = 3;
+            }
+        } 
+    }
 
-        if (SwordLife >= 66)
+    public void Seleccionar(bool active)
+    {
+        if (currentSword == 0)
         {
-            lights[0].SetActive(true);
-            lights[1].SetActive(false);
-            lights[2].SetActive(false);
-            rend.material = Materiales[0];
+            Sword1.SetActive(active);
         }
-        else if (SwordLife < 66 && SwordLife >= 33)
+        else if (currentSword == 1)
         {
-            lights[0].SetActive(false);
-            lights[1].SetActive(true);
-            lights[2].SetActive(false);
-            rend.material = Materiales[1];
+            Sword2.SetActive(active);
         }
-        else if (SwordLife < 33 && SwordLife >= 5)
+        else if (currentSword == 2)
         {
-            lights[0].SetActive(false);
-            lights[1].SetActive(false);
-            lights[2].SetActive(true);
-            rend.material = Materiales[2];
+            Sword3.SetActive(active);
         }
-        else
+        else if (currentSword == 3)
         {
-            lights[0].SetActive(false);
-            lights[1].SetActive(false);
-            lights[2].SetActive(false);
-            rend.material = Materiales[3];
+            Sword4.SetActive(active);
         }
     }
-    
-
-
 
     IEnumerator DeathSword()
     {
@@ -79,4 +110,9 @@ public class EnergySword : MonoBehaviour
         DownLife = true;
     }
 
+    IEnumerator Esperar()
+    {
+        yield return new WaitForSeconds(0.175f);
+        Cambio = true;
+    }
 }

@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
-    public GameObject Espada;
     public GameObject Espada2;
 
     bool Change;
 
     void Start()
     {
-        Espada.SetActive(false);
+        GetComponent<EnergySword>().Seleccionar(false);
         Espada2.SetActive(true);
     }
 
     public void SacarEspada()
     {
-        Espada.SetActive(true);
+        GetComponent<EnergySword>().Seleccionar (true);
         Espada2.SetActive(false);
     }
 
     public void GuardarEspada()
     {
-        Espada.SetActive(false);
+        GetComponent<EnergySword>().Seleccionar (false);
+
         Espada2.SetActive(true);
     }
 
@@ -37,7 +37,8 @@ public class Sword : MonoBehaviour
             }
             if (Change)
             {
-                Espada.SetActive(true);
+                GetComponent<EnergySword>().Seleccionar (true);
+
                 Espada2.SetActive(false);
                 Change = false;
             }
@@ -50,7 +51,8 @@ public class Sword : MonoBehaviour
             }
             if (Change)
             {
-                Espada.SetActive(false);
+                GetComponent<EnergySword>().Seleccionar (false);
+
                 Espada2.SetActive(true);
                 Change = false;
             }

@@ -37,8 +37,6 @@ public class TranslationMovement : MonoBehaviour
 
     Rigidbody rb;
 
-    public GameObject Espada, Espada2;
-
     //Velocidades Direccionales
     public float speedRun;
     public float speedSide;
@@ -346,6 +344,7 @@ public class TranslationMovement : MonoBehaviour
             armas = !armas;
             if (armas)
             {
+                GetComponent<EnergySword>().Cambio = false;
                 anim.speed = 1f;
                 anim.SetInteger("Estado", 10);
                 noChange = false;
