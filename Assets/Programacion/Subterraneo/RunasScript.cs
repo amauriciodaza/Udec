@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class RunasScript : MonoBehaviour
 {
     bool op,b;
-    public GameObject Personaje;
+    GameObject Personaje;
     GameObject other;
     public Text Instrucciontxt;
     // Start is called before the first frame update
     void Start()
     {
+        Personaje = GameObject.Find("Einar");
         other = GameObject.Find("Einar");
         b = true;
     }

@@ -16,7 +16,8 @@ public class IACarceleroSub : MonoBehaviour
 
     STATES CurrentState = STATES.IDLE;
     NavMeshAgent agent;
-    public GameObject Character, Cuchilla, Cuchilla2;
+    public GameObject Cuchilla, Cuchilla2;
+    GameObject Character;
     public float currentDistance, cuchillaDistancia, cuchillaDistancia2, vida, escudo;
     public float distanciaPerseguir;
     public float distanciaAtacar, distanciaCorte,a,b;
@@ -28,6 +29,7 @@ public class IACarceleroSub : MonoBehaviour
 
     void Start()
     {
+        Character = GameObject.Find("Einar");
         Animaciones = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         vida = 100f;

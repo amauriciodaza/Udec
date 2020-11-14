@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class PuertaLaberintoPuzzle : MonoBehaviour
 {
-    public GameObject Personaje;
+    GameObject Personaje;
     int run;
     public Text Instrucciontxt;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Personaje = GameObject.Find("Einar");
     }
 
     // Update is called once per frame

@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class ValidacionGolpeEinar : MonoBehaviour
 {
-    public GameObject Einar;
+    GameObject Einar;
+    void Start()
+    {
+        Einar = GameObject.Find("Einar");
+    }
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
