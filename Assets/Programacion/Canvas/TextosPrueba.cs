@@ -42,6 +42,7 @@ public class TextosPrueba : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         int total = texto.Length;
         yield return null;//Seguridad de un null
+        GetComponent<TranslationMovement>().enabled = false;
         for (i = 0; i < total; i++)//Recorremos todas las frases
         {
             string res = "";
@@ -49,10 +50,11 @@ public class TextosPrueba : MonoBehaviour
             {
                 res = string.Concat(res, texto[i][s]);
                 Dialogos.text = res;
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.01f);
             }
             yield return new WaitForSeconds(1f);
         }
+        GetComponent<TranslationMovement>().enabled = true;
         Dialogos.text = "";
         yield return new WaitForSeconds(0.5f);
         Panel.SetActive(false);
@@ -65,9 +67,11 @@ public class TextosPrueba : MonoBehaviour
         {
             if (Other.name == triggers[j].name)
             {
+                
                 triggerAc = j+1;
                 Dialogar();
                 StartCoroutine(MostrarDialogos());
+         
                 Destroy(triggers[j].gameObject.GetComponent<Collider>());
                 Debug.Log(triggerAc);
                 break;
@@ -94,8 +98,10 @@ public class TextosPrueba : MonoBehaviour
         {
             texto = new string[] 
             {
+
+                " aasdasdasdasdasdasdasd"
                 //"Sigurd: (Despertando) ¿Qué es esto?, ¿Cuánto llevo aquí?...",
-                "EINAR: ",
+                /*"EINAR: ",
                 "Sigurd: ¿Quién eres tú?... Eres un humano, pensé que Contaminación los había destruido a todos.",
 
                 "Einar: Ósea que es verdad, mi abuelo me había contado una historia, me dijo que hace muchos años los humanos vivían en un mundo muy diferente, ",
@@ -138,8 +144,9 @@ public class TextosPrueba : MonoBehaviour
 
                 "Sigurd: Entonces lo haremos juntos. Yo estoy muy débil, no puedo enfrentarme a los peligros y dificultades solo. Entonces solo podre guiarte.",
 
-                "Sigurd: Debemos buscar al guardián de la energía Geotérmica, siento que está muy cerca."
+                "Sigurd: Debemos buscar al guardián de la energía Geotérmica, siento que está muy cerca."*/
             };
+            
         }
         //Cuando llegan a las trampas
         else if (triggerAc == 2)
