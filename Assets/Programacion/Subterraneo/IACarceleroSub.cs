@@ -23,7 +23,7 @@ public class IACarceleroSub : MonoBehaviour
     public Text protecciontxt, saludtxt;
     public bool esp;
     Animator Animaciones;
-    float t;
+
 
 
     void Start()
@@ -33,7 +33,7 @@ public class IACarceleroSub : MonoBehaviour
         vida = 100f;
         esp = false;
         escudo = 100f;
-        t = 0;
+     
         protecciontxt.enabled = false;
         saludtxt.enabled = false;
     }
