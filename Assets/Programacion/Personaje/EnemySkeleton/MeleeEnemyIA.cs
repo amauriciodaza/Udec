@@ -53,13 +53,13 @@ public class MeleeEnemyIA : MonoBehaviour
         else if (espa == false)
         {
             CurrentState = STATES.GOLPE;
-            dañovida = 0f;
+            dañovida = 2f;
         }
         else if (espa == true)
         {
             CurrentState = STATES.GOLPE;
-            dañovida = 2f;
-            Debug.Log(" espada" + espa);
+            dañovida = 0f;
+            Debug.Log(" espadaprueba" + espa);
         }
         else
         {
