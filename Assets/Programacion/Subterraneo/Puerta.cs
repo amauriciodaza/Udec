@@ -5,18 +5,19 @@ using UnityEngine.UI;
 
 public class Puerta : MonoBehaviour
 { 
-    public GameObject Personaje;
+    GameObject Personaje;
     public Text instrucciontxt;
 
     void Start()
     {
         instrucciontxt.enabled = false;
+        Personaje = GameObject.Find("Einar");
     }
 
     // Start is called before the first frame update
     private void OnTriggerStay(Collider other)
     {
-        if (other.name == Personaje.name)
+        if (other.gameObject.name == "Einar")
         {
          
             instrucciontxt.text = "ABRIR (F)";

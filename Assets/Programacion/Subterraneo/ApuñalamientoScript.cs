@@ -14,15 +14,12 @@ public class ApuñalamientoScript : MonoBehaviour
         carcelero = GameObject.Find("CarceleroGeo");
     }
 
-   
-
     public void golpeEinar()
     {
         if (op)
         {
             carcelero.GetComponent<IACarceleroSub>().esp = true;
             Debug.Log("lee el mouse");
-
         }
     }
 

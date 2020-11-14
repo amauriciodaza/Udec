@@ -5,11 +5,11 @@ using UnityEngine;
 public class TrampasScript : MonoBehaviour
 {
     public int herida;
-    public GameObject Personaje;
+    GameObject Personaje;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Personaje = GameObject.Find("Einar");
     }
 
     // Update is called once per frame

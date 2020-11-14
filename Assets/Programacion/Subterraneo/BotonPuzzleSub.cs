@@ -6,7 +6,8 @@ using UnityEngine.UIElements;
 
 public class BotonPuzzleSub : MonoBehaviour
 {
-    public GameObject Personaje, pared;
+    public GameObject pared;
+    GameObject Personaje;
     public int no;
     public Text Instrucciontxt;
     public int Orden;
@@ -15,6 +16,7 @@ public class BotonPuzzleSub : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Personaje = GameObject.Find("Einar");
         no = 0;
      
     }
