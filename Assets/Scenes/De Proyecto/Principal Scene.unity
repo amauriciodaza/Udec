@@ -3929,10 +3929,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -24160,8 +24160,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.34906, y: 5.3763113, z: 5.1344757}
-  m_Center: {x: 0.29003906, y: 2.1881557, z: 2.0672379}
+  m_Size: {x: 5.4309425, y: 4.9940586, z: 5.057476}
+  m_Center: {x: 0.03281212, y: 2.379282, z: 2.028738}
 --- !u!1 &1202617391
 GameObject:
   m_ObjectHideFlags: 0
@@ -25596,8 +25596,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.0888596, y: 4.0766163, z: 4.6398935}
-  m_Center: {x: -0.028438568, y: 1.0265512, z: 1.8199468}
+  m_Size: {x: 4.9151993, y: 4.333153, z: 4.6398935}
+  m_Center: {x: 0.25206375, y: 1.1548195, z: 1.8199468}
 --- !u!23 &1259040699
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33595,7 +33595,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -38006,7 +38006,7 @@ PrefabInstance:
     - target: {fileID: 104130079829402831, guid: dbc8112d988591541aae350744675cf8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 51.683083
+      value: 140.8
       objectReference: {fileID: 0}
     - target: {fileID: 104130079829402831, guid: dbc8112d988591541aae350744675cf8,
         type: 3}
@@ -38016,7 +38016,7 @@ PrefabInstance:
     - target: {fileID: 104130079829402831, guid: dbc8112d988591541aae350744675cf8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 53.169884
+      value: -142.3
       objectReference: {fileID: 0}
     - target: {fileID: 104130079829402831, guid: dbc8112d988591541aae350744675cf8,
         type: 3}
@@ -38083,7 +38083,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 562476832456331374, guid: dbc8112d988591541aae350744675cf8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dbc8112d988591541aae350744675cf8, type: 3}
 --- !u!1001 &1791896864
 PrefabInstance:
@@ -40161,7 +40162,7 @@ MonoBehaviour:
   vida: 0
   escudo: 0
   distanciaPerseguir: 40
-  distanciaAtacar: 10
+  distanciaAtacar: 8
   distanciaCorte: 5
   a: 0
   b: 0
