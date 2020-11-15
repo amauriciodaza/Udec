@@ -131,17 +131,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 994f18d79e9aebc4b8a0ccc00d5f033f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 45.353966
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 994f18d79e9aebc4b8a0ccc00d5f033f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.2807243e-18
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 994f18d79e9aebc4b8a0ccc00d5f033f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.891133
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 994f18d79e9aebc4b8a0ccc00d5f033f,
         type: 3}
@@ -205,9 +205,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 282880081}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 895399fb05f62834c9350e18d54e9414, type: 3}
+  m_Script: {fileID: 11500000, guid: 61909559b4b77d246b0cf97fad574d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Enemigo: {fileID: 282880081}
   op1: 0
 --- !u!114 &282880083
 MonoBehaviour:
@@ -221,10 +222,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c30c43b385ca63b44a7452fb38db6ae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Character: {fileID: 1375941583}
   currentDistance: 0
   vida: 0
-  distanciaPerseguir: 10
+  distanciaPerseguir: 20
   distanciaAtacar: 5
   "da\xF1ovida": 2
   saludtxt: {fileID: 0}
@@ -242,8 +242,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   herida: 5
-  Personaje: {fileID: 1375941583}
-  op1: 0
 --- !u!136 &282880085
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -293,19 +291,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2.5
   m_Center: {x: 0, y: 2, z: 0}
---- !u!114 &282880088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 282880081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61909559b4b77d246b0cf97fad574d1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enemigo: {fileID: 282880081}
 --- !u!95 &282880089
 Animator:
   serializedVersion: 3
@@ -564,13 +549,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 104130079829402827, guid: dbc8112d988591541aae350744675cf8,
         type: 3}
+      propertyPath: triggers.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 104130079829402827, guid: dbc8112d988591541aae350744675cf8,
+        type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 104130079829402831, guid: dbc8112d988591541aae350744675cf8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 104130079829402831, guid: dbc8112d988591541aae350744675cf8,
         type: 3}
@@ -645,7 +635,17 @@ PrefabInstance:
     - target: {fileID: 4943019561152694016, guid: dbc8112d988591541aae350744675cf8,
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 1e-45
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943019561152694016, guid: dbc8112d988591541aae350744675cf8,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943019561152694016, guid: dbc8112d988591541aae350744675cf8,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 1.1603e-41
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbc8112d988591541aae350744675cf8, type: 3}
@@ -685,7 +685,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 895399fb05f62834c9350e18d54e9414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  op1: 0
 --- !u!114 &1375941597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -699,6 +698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemigo: {fileID: 282880081}
+  op1: 0
 --- !u!1 &1478502188
 GameObject:
   m_ObjectHideFlags: 0
