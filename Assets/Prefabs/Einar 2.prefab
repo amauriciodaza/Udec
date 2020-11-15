@@ -46,7 +46,6 @@ GameObject:
   - component: {fileID: 104130079829402827}
   - component: {fileID: 104130079829402824}
   - component: {fileID: 104130079829402825}
-  - component: {fileID: 562476832456331374}
   - component: {fileID: 562476832456331383}
   - component: {fileID: 562476832456331375}
   - component: {fileID: 104130079829402839}
@@ -180,19 +179,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Espada2: {fileID: 2215685514951047222}
---- !u!65 &562476832456331374
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 104130079829402836}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.5568042, y: 2.5070186, z: 2.987259}
-  m_Center: {x: 0.028749228, y: 2.9002635, z: 1.3474731}
 --- !u!114 &562476832456331383
 MonoBehaviour:
   m_ObjectHideFlags: 0

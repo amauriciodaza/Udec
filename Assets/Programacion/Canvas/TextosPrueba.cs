@@ -42,7 +42,7 @@ public class TextosPrueba : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         int total = texto.Length;
         yield return null;//Seguridad de un null
-        GetComponent<TranslationMovement>().enabled = false;
+        //GetComponent<TranslationMovement>().enabled = false;
         for (i = 0; i < total; i++)//Recorremos todas las frases
         {
             string res = "";

@@ -57,7 +57,6 @@ public class TranslationMovement : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         armas = false;
-        rb = GetComponent<Rigidbody>();
         Invert = 1;
         noChange = true;
     }
