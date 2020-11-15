@@ -6,13 +6,16 @@ public class EnemyMelHaceDaño : MonoBehaviour
 {
     public int herida;
     GameObject Personaje;
-    public bool op1;
+    bool op1;
     // Start is called before the first frame update
     void Start()
     {
-        Personaje=GameObject.Find("Einar");
+        Personaje = GameObject.Find("Einar");
     }
-
+    void Update()
+    {
+        op1 = GetComponent<AtaqueEinarEnemigo>();
+    }
     public void DañoGarra()
     {
         if (op1)

@@ -15,16 +15,18 @@ public class MeleeEnemyIA : MonoBehaviour
     }
     STATES CurrentState = STATES.IDLE;
     NavMeshAgent agent;
-    public GameObject Character;
+    GameObject Character;
     public float currentDistance,vida;
     public float distanciaPerseguir;
     public float distanciaAtacar, dañovida;
     public Text saludtxt;
     public bool espa;
     Animator Animaciones;
-
+    bool op1;
+    // Start is called before the first frame update
     void Start()
     {
+        Character = GameObject.Find("Einar");
         Animaciones = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         vida = 100f;
@@ -34,6 +36,7 @@ public class MeleeEnemyIA : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        op1 = GetComponent<AtaqueEinarEnemigo>();
         Checkconditions();
         Makebehaviur();
         //saludtxt.text = "Vida: " + vida;
@@ -42,7 +45,7 @@ public class MeleeEnemyIA : MonoBehaviour
     {
         currentDistance = Vector3.Distance(Character.transform.position, transform.position);
         
-        if (currentDistance <= distanciaPerseguir && currentDistance >= distanciaAtacar && espa == false)
+        if (currentDistance <= distanciaPerseguir && currentDistance >= distanciaAtacar)
         {
             CurrentState = STATES.PERSEGUIR;
         }
@@ -50,16 +53,10 @@ public class MeleeEnemyIA : MonoBehaviour
         {
             CurrentState = STATES.ATACAR;
         }
-        else if (espa == false)
+        else if (espa==true)
         {
-            CurrentState = STATES.GOLPE;
-            dañovida = 2f;
-        }
-        else if (espa == true)
-        {
-            CurrentState = STATES.GOLPE;
-            dañovida = 0f;
-            Debug.Log(" espadaprueba" + espa);
+                CurrentState = STATES.GOLPE;
+                dañovida = 2f;
         }
         else
         {
@@ -91,7 +88,6 @@ public class MeleeEnemyIA : MonoBehaviour
         Animaciones.SetInteger("Estado", 0);
         transform.LookAt(Character.transform.position);
     }
-
     void Perseguir()
     {
         Animaciones.SetInteger("Estado", 1);
@@ -115,6 +111,6 @@ public class MeleeEnemyIA : MonoBehaviour
             Animaciones.SetInteger("Estado", 4);
             GetComponent<MeleeEnemyIA>().enabled = false;
         }
-        espa = false;
+        espa = true;
     }
 }

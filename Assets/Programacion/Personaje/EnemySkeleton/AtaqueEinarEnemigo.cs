@@ -6,12 +6,11 @@ public class AtaqueEinarEnemigo : MonoBehaviour
 {
     public GameObject Enemigo;
     GameObject other;
-    bool op1;
+    public bool op1;
     // Start is called before the first frame update
     void Start()
     {
-        op1 = false;
-        other = GameObject.Find("MeleeEnemy");
+        other = GameObject.Find("CarceleroGeo");
     }
 
     // Update is called once per frame
@@ -23,24 +22,27 @@ public class AtaqueEinarEnemigo : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    Enemigo.GetComponent<MeleeEnemyIA>().espa = true;
-                    Debug.Log("Activar espa Ataque Einar ");
+                    Enemigo.GetComponent<IACarceleroSub>().esp = true;
+                    Debug.Log("lee el mouse");
                 }
+
             }
         }
     }
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider col)
     {
-        if (other.name == "Einar")
+        if (col.name == "Einar")
         {
             op1 = true;
+            Debug.Log("Entrando");
         }
     }
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider col)
     {
-        if (other.name == "Einar")
+        if (col.name == "Einar")
         {
             op1 = false;
+            Debug.Log("Entrando");
         }
     }
 }
