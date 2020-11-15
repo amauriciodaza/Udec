@@ -4,22 +4,19 @@ using UnityEngine;
 
 public class ApuñalarEnemigo : MonoBehaviour
 {
-    GameObject carcelero;
-    public bool op;
-
+    GameObject Enemigo;
+    public bool op1;
     // Start is called before the first frame update
     void Start()
     {
-        op = false;
-        carcelero = GameObject.Find("MeleeEnemy");
+        op1 = false;
+        Enemigo = GameObject.Find("MeleeEnemy");
     }
-    public void golpeEinar2()
+    public void golpeEinar()
     {
-        if (op)
+        if (op1)
         {
-            carcelero.GetComponent<MeleeEnemyIA>().espa = true;
-            Debug.Log("lee el mouse");
-
+            Enemigo.GetComponent<MeleeEnemyIA>().espa = true;
         }
     }
 }

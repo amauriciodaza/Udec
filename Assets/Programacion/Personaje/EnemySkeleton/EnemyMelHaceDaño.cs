@@ -5,14 +5,21 @@ using UnityEngine;
 public class EnemyMelHaceDaño : MonoBehaviour
 {
     public int herida;
-    public GameObject Personaje;
-    public bool op;
+    GameObject Personaje;
+    bool op1;
     // Start is called before the first frame update
+    void Start()
+    {
+        Personaje = GameObject.Find("Einar");
+    }
+    void Update()
+    {
+        op1 = GetComponent<AtaqueEinarEnemigo>();
+    }
     public void DañoGarra()
     {
-        if (op)
+        if (op1)
         {
-            Debug.Log("golpeo");
             Personaje.GetComponent<PropiedadesScript>().Daño(herida);
         }
     }
