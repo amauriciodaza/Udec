@@ -10,11 +10,9 @@ public class TranslationMovement : MonoBehaviour
         RUNNING,
         RIGHTRUN,
         LEFTRUN,
-        UNARMEDIMPACT,
         RUNNINGJUMP,
         REVERSE,
         INTERACTING,
-        DEATH,
 
         CAMBIOARMAS,
 
@@ -24,12 +22,13 @@ public class TranslationMovement : MonoBehaviour
         SWORDRIGHTRUN,
         SWORDRUNJUMP,
         SWORDREVERSE,
-        SWORDIMPACT,
         SWORDSLASH,
         SWORDJUMPATACK,
-        SWORDDEATH,
 
-        SHOOTING
+        SHOOTING,
+
+        IMPACT,
+        DEATH
     }
     STATES currentState = STATES.IDDLE;
 
@@ -41,6 +40,7 @@ public class TranslationMovement : MonoBehaviour
     public float speedRun;
     public float speedSide;
     public float speedReverse;
+    //Determinante de anulacion o continuidad de transform en saltos
     public float Invert;
 
     //Velocidades de Ataque
@@ -70,8 +70,10 @@ public class TranslationMovement : MonoBehaviour
 
     void checkConditions()
     {
-        if (currentState == STATES.SWORDJUMPATACK || currentState == STATES.RUNNINGJUMP ||
-            currentState == STATES.SWORDRUNJUMP || currentState == STATES.SHOOTING || currentState == STATES.INTERACTING)
+        //Ciclo condicional para bloquear movimientos
+        if (currentState == STATES.SWORDJUMPATACK || currentState == STATES.RUNNINGJUMP || currentState == STATES.SWORDSLASH ||
+            currentState == STATES.SWORDRUNJUMP || currentState == STATES.SHOOTING || currentState == STATES.INTERACTING
+            || currentState == STATES.IMPACT || currentState == STATES.DEATH)
         {
             return;
         }
@@ -110,16 +112,6 @@ public class TranslationMovement : MonoBehaviour
             {
                 currentState = STATES.RIGHTRUN;
             }
-            //Daño sin Espada
-            /*else if ()
-            {
-                currentState = STATES.UNARMEDIMPACT;
-            }*/
-            //Muerte sin Espada
-            /*else if ()
-            {
-                currentState = STATES.DEATH;
-            }*/
             //Reposo y Combinaciones
             else if (Input.GetKey(KeyCode.Mouse1) && GetComponent<BracerFunction>().bracerCollected == true)
             {
@@ -158,6 +150,10 @@ public class TranslationMovement : MonoBehaviour
                     currentState = STATES.SWORDRUN;
                 }
             }
+            else if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                currentState = STATES.SWORDSLASH;
+            }
             //Reversa y combinaciones
             else if (Input.GetKey(KeyCode.S))
             {
@@ -173,16 +169,6 @@ public class TranslationMovement : MonoBehaviour
             {
                 currentState = STATES.SWORDRIGHTRUN;
             }
-            //Daño con Espada
-            /*else if ()
-            {
-                currentState = STATES.SWORDIMPACT;
-            }*/
-            //Muerte con Espada
-            /*else if ()
-            {
-                currentState = STATES.SWORDDEATH;
-            }*/
             //Reposo y Combinaciones
             else if (Input.GetKeyUp(KeyCode.F))
             {
@@ -190,14 +176,7 @@ public class TranslationMovement : MonoBehaviour
             }
             else
             {
-                if (Input.GetKeyDown(KeyCode.Mouse0))
-                {
-                    currentState = STATES.SWORDSLASH;
-                }
-                else
-                {
-                    currentState = STATES.SWORDIDDLE;
-                }
+                currentState = STATES.SWORDIDDLE;
             }
         }
     }
@@ -218,9 +197,6 @@ public class TranslationMovement : MonoBehaviour
             case STATES.LEFTRUN:
                 LeftRun();
                 break;
-            case STATES.UNARMEDIMPACT:
-                UnarmedImpact();
-                break;
             case STATES.RUNNINGJUMP:
                 RunningJump();
                 break;
@@ -229,9 +205,6 @@ public class TranslationMovement : MonoBehaviour
                 break;
             case STATES.INTERACTING:
                 Interacting();
-                break;
-            case STATES.DEATH:
-                Death();
                 break;
 
             case STATES.CAMBIOARMAS:
@@ -256,21 +229,22 @@ public class TranslationMovement : MonoBehaviour
             case STATES.SWORDREVERSE:
                 SwordReverse();
                 break;
-            case STATES.SWORDIMPACT:
-                SwordImpact();
-                break;
             case STATES.SWORDSLASH:
                 SwordSlash();
                 break;
             case STATES.SWORDJUMPATACK:
                 SwordJumpAtack();
                 break;
-            case STATES.SWORDDEATH:
-                SwordDeath();
-                break;
 
             case STATES.SHOOTING:
                 Shooting();
+                break;
+
+            case STATES.IMPACT:
+                Impact();
+                break;
+            case STATES.DEATH:
+                Death();
                 break;
         }
     }
@@ -324,17 +298,6 @@ public class TranslationMovement : MonoBehaviour
         transform.Translate(-speedSide * Time.deltaTime, 0, 0);
     }
 
-    void UnarmedImpact()
-    {
-        GetComponent<Sword>().PosSword();
-        anim.speed = 1f;
-        anim.SetInteger("Estado", 4);
-    }
-    void Death()
-    {
-        anim.speed = 1f;
-        anim.SetInteger("Estado", 9);
-    }
     // Intermedios, Cambios de Arma
     void CambioArma()
     {
@@ -367,7 +330,6 @@ public class TranslationMovement : MonoBehaviour
         anim.SetInteger("Estado", 12);
     }
 
-
     void SwordRun()
     {
         GetComponent<Sword>().PosSword();
@@ -383,7 +345,6 @@ public class TranslationMovement : MonoBehaviour
         transform.Translate(0, UpRunJump * Invert * Time.deltaTime, speedRun * Time.deltaTime);
     }
 
-
     void SwordReverse()
     {
         GetComponent<Sword>().PosSword();
@@ -391,7 +352,6 @@ public class TranslationMovement : MonoBehaviour
         anim.SetInteger("Estado", 17);
         transform.Translate(0, 0, -speedReverse * Time.deltaTime);
     }
-
 
     void SwordRightRun()
     {
@@ -423,20 +383,6 @@ public class TranslationMovement : MonoBehaviour
         transform.Translate(0, 0, speedSwordJumpAttack * Time.deltaTime);
     }
 
-
-    void SwordImpact()
-    {
-        GetComponent<Sword>().PosSword();
-        anim.speed = 1f;
-        anim.SetInteger("Estado", 18);
-    }
-    void SwordDeath()
-    {
-        anim.speed = 1f;
-        anim.SetInteger("Estado", 21);
-    }
-
-
     void Shooting()
     {
         GetComponent<Sword>().PosSword();
@@ -448,7 +394,38 @@ public class TranslationMovement : MonoBehaviour
         GetComponent<Sword>().PosSword();
         anim.SetInteger("Estado", 8);
     }
+    //Imapctos al recibir Daño y Muertes
+    void Impact()
+    {
+        currentState = STATES.IMPACT;
+        if (armas)
+        {
+            GetComponent<Sword>().PosSword();
+            anim.speed = 1f;
+            anim.SetInteger("Estado", 18);
+        }
+        else
+        {
+            GetComponent<Sword>().PosSword();
+            anim.speed = 1f;
+            anim.SetInteger("Estado", 4);
+        }
+    }
 
+    void Death()
+    {
+        currentState = STATES.DEATH;
+        if (armas)
+        {
+            anim.speed = 1f;
+            anim.SetInteger("Estado", 21);
+        }
+        else
+        {
+            anim.speed = 1f;
+            anim.SetInteger("Estado", 9);
+        }
+    }
     //Finalizacion de animaciones de Espada
     public void FinishMovement()
     {

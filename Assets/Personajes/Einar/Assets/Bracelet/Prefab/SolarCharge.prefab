@@ -124,7 +124,7 @@ Light:
   serializedVersion: 10
   m_Type: 3
   m_Shape: 0
-  m_Color: {r: 1, g: 0.4406838, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.21484114, b: 0, a: 1}
   m_Intensity: 5
   m_Range: 10
   m_SpotAngle: 30
@@ -199,4 +199,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4875492a4a4479f4fab16360f3f428c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChargeDamage: 15

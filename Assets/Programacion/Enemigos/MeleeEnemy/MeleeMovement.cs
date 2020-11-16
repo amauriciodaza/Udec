@@ -5,8 +5,6 @@ using UnityEngine.AI;
 
 public class MeleeMovement : MonoBehaviour
 {
-
-    // Start is called before the first frame update
     enum STATES
     {
         IDDLE,

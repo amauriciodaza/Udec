@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyLife : MonoBehaviour
 {
+    public int EnemyType;
+
     public float life;
     bool DoDamage;
 
@@ -19,7 +21,7 @@ public class EnemyLife : MonoBehaviour
             DoDamage = false;
             StartCoroutine(NoDamage(0.5f));
             life = life - Dam;
-            if (this.gameObject.name == "DistanceEnemy")
+            if (EnemyType == 1)
             {
                 if (life >= 1)
                 {
@@ -32,7 +34,7 @@ public class EnemyLife : MonoBehaviour
                 }
 
             }
-            else if (this.gameObject.name == "MeleeEnemy")
+            else if (EnemyType == 2)
             {
                 if (life >= 1)
                 {
@@ -55,14 +57,14 @@ public class EnemyLife : MonoBehaviour
 
     IEnumerator Matar()
     {
-        if (this.gameObject.name == "DistanceEnemy")
+        if (EnemyType == 1)
         {
             yield return new WaitForSeconds(0.25f);
 
             GetComponent<DistanceMovement>().death();
             Destroy(this.gameObject, 5f);
         }
-        else if (this.gameObject.name == "MeleeEnemy")
+        else if (EnemyType == 2)
         {
             yield return new WaitForSeconds(0.25f);
 

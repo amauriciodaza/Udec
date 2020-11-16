@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.AI;
 public class DistanceMovement : MonoBehaviour
 {
-
-    // Start is called before the first frame update
     enum STATES
     {
         IDDLE,
