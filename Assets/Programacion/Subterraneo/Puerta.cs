@@ -25,7 +25,7 @@ public class Puerta : MonoBehaviour
             if (Input.GetKey(KeyCode.F))
             {
                 GetComponent<Animator>().SetBool("EstadoPuerta", true);
-                GetComponent<AdministrarSonidos>().AbrirPuerta();
+                GetComponent<AdministrarSonidos>().SonidoObjeto();
                 instrucciontxt.enabled = false;
             }                
         }
