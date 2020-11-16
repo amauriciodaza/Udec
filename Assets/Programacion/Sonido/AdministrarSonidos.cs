@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class AdministrarSonidos : MonoBehaviour
 {
-    public AudioClip[] sonidos;
+    public AudioClip sonido;
     AudioSource fuente;
     // Start is called before the first frame update
     void Start()
     {
         fuente = GetComponent<AudioSource>();
-        fuente.clip = sonidos[0];
-    }
+        fuente.clip = sonido;
 
-    public void AbrirPuerta()
+    }
+    public void SonidoObjeto()
     {
-        fuente.clip = sonidos[0];
+        fuente.clip = sonido;
         fuente.Play();
     }
+    
+
+
+
 
 }
