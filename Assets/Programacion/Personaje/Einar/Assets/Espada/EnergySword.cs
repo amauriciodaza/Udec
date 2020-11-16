@@ -20,6 +20,8 @@ public class EnergySword : MonoBehaviour
     public int currentSword;
 
     public bool Cambio;
+
+    public float SwordDamage;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +58,8 @@ public class EnergySword : MonoBehaviour
                 Sword3.SetActive(false);
                 Sword4.SetActive(false);
                 currentSword = 0;
+
+                SwordDamage = GetComponent<AtackDamageEinar>().SwordDamage;
             }
             else if (SwordLife < 66 && SwordLife >= 33)
             {
@@ -64,6 +68,8 @@ public class EnergySword : MonoBehaviour
                 Sword3.SetActive(false);
                 Sword4.SetActive(false);
                 currentSword = 1;
+
+                SwordDamage = GetComponent<AtackDamageEinar>().SwordDamage * 0.75f;
             }
             else if (SwordLife < 33 && SwordLife >= 5)
             {
@@ -72,6 +78,8 @@ public class EnergySword : MonoBehaviour
                 Sword3.SetActive(true);
                 Sword4.SetActive(false);
                 currentSword = 2;
+
+                SwordDamage = GetComponent<AtackDamageEinar>().SwordDamage * 0.5f;
             }
             else
             {
@@ -80,6 +88,8 @@ public class EnergySword : MonoBehaviour
                 Sword3.SetActive(false);
                 Sword4.SetActive(true);
                 currentSword = 3;
+
+                SwordDamage = GetComponent<AtackDamageEinar>().SwordDamage * 0.25f;
             }
         } 
     }

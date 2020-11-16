@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-public class DistanceMovement : MonoBehaviour
+
+public class MeleeMovement : MonoBehaviour
 {
 
     // Start is called before the first frame update
@@ -10,8 +11,6 @@ public class DistanceMovement : MonoBehaviour
     {
         IDDLE,
         RUNNING,
-        REVERSE,
-        POINTING,
         ATACK,
         IMPACT,
         DEATH
@@ -22,24 +21,20 @@ public class DistanceMovement : MonoBehaviour
     NavMeshAgent agent;
     GameObject character;
 
-    Animator DistanceAnimator;
+    Animator MeleeAnimator;
 
     public float currentDistance;
     public float distanceToMovement;
-    public float distanceToReverse;
     public float distanceToAtack;
-    public float distanceToPointing;
-    public float speedRunning;
-    public float speedReverse;
 
-    public float RunTime;
+    public float speedRunning;
 
     bool EnemyActive;
 
     void Start()
     {
         EnemyActive = true;
-        DistanceAnimator = GetComponent<Animator>();
+        MeleeAnimator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         character = GameObject.Find("Einar");
     }
@@ -56,26 +51,17 @@ public class DistanceMovement : MonoBehaviour
     {
         currentDistance = Vector3.Distance(transform.position, character.transform.position);
 
-        if (currentState == STATES.IMPACT || currentState == STATES.DEATH || currentState == STATES.ATACK
-        || currentState == STATES.REVERSE)
+        if (currentState == STATES.IMPACT || currentState == STATES.DEATH || currentState == STATES.ATACK)
         {
             return;
         }
-        if (currentDistance > distanceToPointing && currentDistance <= distanceToMovement)
+        if (currentDistance > distanceToAtack && currentDistance <= distanceToMovement)
         {
             currentState = STATES.RUNNING;
         }
-        else if (currentDistance <= distanceToPointing && currentDistance > distanceToAtack)
-        {
-            currentState = STATES.POINTING;
-        }
-        else if (currentDistance <= distanceToAtack && currentDistance > distanceToReverse )
+        else if (currentDistance <= distanceToAtack )
         {
             currentState = STATES.ATACK;
-        }
-        else if (currentDistance <= distanceToReverse)
-        {
-            currentState = STATES.REVERSE;
         }
         else if (currentDistance > distanceToMovement)
         {
@@ -93,12 +79,6 @@ public class DistanceMovement : MonoBehaviour
             case STATES.RUNNING:
                 running();
                 break;
-            case STATES.REVERSE:
-                reverse();
-                break;
-            case STATES.POINTING:
-                pointing();
-                break;
             case STATES.ATACK:
                 atack();
                 break;
@@ -115,38 +95,26 @@ public class DistanceMovement : MonoBehaviour
     void iddle()
     {
         agent.SetDestination(transform.position);
-        DistanceAnimator.SetInteger("Estado",0);
+        MeleeAnimator.SetInteger("Estado", 0);
     }
     //El Stopping distance debe ser igual a la distanceToPointing
     void running()
     {
         agent.SetDestination(character.transform.position);
-        DistanceAnimator.SetInteger("Estado", 1);
-        transform.Translate( 0, 0, speedRunning * Time.deltaTime);
-    }
-    void reverse()
-    {
-        DistanceAnimator.SetInteger("Estado", 2);
-        transform.Translate( 0, 0, - speedReverse * Time.deltaTime);
-        StartCoroutine(MantenerCarrera());
-    }
-    void pointing()
-    {
-        agent.SetDestination(transform.position);
-
-        DistanceAnimator.SetInteger("Estado", 5);
+        MeleeAnimator.SetInteger("Estado", 1);
+        transform.Translate(0, 0, speedRunning * Time.deltaTime);
     }
     void atack()
     {
         agent.SetDestination(transform.position);
-        DistanceAnimator.SetInteger("Estado", 3);
+        MeleeAnimator.SetInteger("Estado", 2);
     }
     public void impact()
     {
         currentState = STATES.IMPACT;
         agent.SetDestination(transform.position);
 
-        DistanceAnimator.SetInteger("Estado", 4);
+        MeleeAnimator.SetInteger("Estado", 3);
     }
     public void death()
     {
@@ -154,12 +122,7 @@ public class DistanceMovement : MonoBehaviour
         currentState = STATES.DEATH;
         agent.SetDestination(transform.position);
 
-        DistanceAnimator.SetInteger("Estado", 6);
-    }
-
-    void Atacar()
-    {
-        currentState = STATES.ATACK;
+        MeleeAnimator.SetInteger("Estado", 4);
     }
 
     public void DesblockMovements()
@@ -167,11 +130,6 @@ public class DistanceMovement : MonoBehaviour
         currentState = STATES.IDDLE;
     }
 
-    IEnumerator MantenerCarrera()
-    {
-        yield return new WaitForSeconds(RunTime);
-        Atacar();
-    }
     //Funcion para mirar al personaje a cierta distancia
     void Seguir()
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rotar : MonoBehaviour
+public class LifeManager : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

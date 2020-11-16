@@ -9,6 +9,8 @@ public class DistanceAtack : MonoBehaviour
     public GameObject disparador;
     public float Impulse;
 
+    //public float DamageAtack;
+
     // Start is called before the first frame update
     void Start()
     {

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PropiedadesScript : MonoBehaviour
 {
     public int runas;
-    public int salud;
+    public float salud;
     public Text Runastxt, Saludtxt;
 
     public Scrollbar HealthBar;
@@ -21,7 +21,7 @@ public class PropiedadesScript : MonoBehaviour
        // Dialogostxt.enabled = false;
        // Dialogosimg.enabled = false;
         runas = 0;
-        salud = 100;
+        salud = 100f;
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class PropiedadesScript : MonoBehaviour
         Runastxt.text = "RUNAS: " + runas+" / 4";
     }
 
-    public void Daño(int num)
+    public void Daño(float num)
     {
         salud = salud - num;
         Saludtxt.text = "Salud:";
