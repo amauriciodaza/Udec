@@ -22,7 +22,7 @@ public class CharacterController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         // turn off the cursor
-        Cursor.lockState = CursorLockMode.Locked;
+       // Cursor.lockState = CursorLockMode.Locked;
         //runas = 0;
         //salud = 100;
         }
@@ -43,6 +43,7 @@ public class CharacterController : MonoBehaviour {
         // You can furthor set it on Unity. (Edit, Project Settings, Input)
         translation = Input.GetAxis("Vertical") * speedModifier * Time.deltaTime;
         straffe = Input.GetAxis("Horizontal") * speedModifier * Time.deltaTime;
+
         transform.Translate(straffe, 0, translation);
 
         if (Input.GetKeyDown("escape")) {
