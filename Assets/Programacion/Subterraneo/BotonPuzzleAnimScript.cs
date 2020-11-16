@@ -31,6 +31,7 @@ public class BotonPuzzleAnimScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 GetComponent<Animator>().SetInteger("Estado", 1);
+                GetComponent<AdministrarSonidos>().SonidoObjeto();
                 Numero1.GetComponent<BotonPuzzleSub>().no = 0;
                 Numero2.GetComponent<BotonPuzzleSub>().no = 0;
                 Numero3.GetComponent<BotonPuzzleSub>().no = 0;

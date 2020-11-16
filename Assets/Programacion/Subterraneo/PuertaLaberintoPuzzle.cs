@@ -32,7 +32,7 @@ public class PuertaLaberintoPuzzle : MonoBehaviour
                 if (run == 4)
                 {
                     GetComponent<Animator>().SetBool("Estado", true);
-                    GetComponent<AdministrarSonidos>().AbrirPuerta();
+                    GetComponent<AdministrarSonidos>().SonidoObjeto();
                 }
                 else
                 {
