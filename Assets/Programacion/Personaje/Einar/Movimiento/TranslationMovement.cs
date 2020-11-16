@@ -395,7 +395,7 @@ public class TranslationMovement : MonoBehaviour
         anim.SetInteger("Estado", 8);
     }
     //Imapctos al recibir Daño y Muertes
-    void Impact()
+    public void Impact()
     {
         currentState = STATES.IMPACT;
         if (armas)
@@ -412,7 +412,7 @@ public class TranslationMovement : MonoBehaviour
         }
     }
 
-    void Death()
+    public void Death()
     {
         currentState = STATES.DEATH;
         if (armas)

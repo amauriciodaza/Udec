@@ -26,6 +26,7 @@ public class EnemyLife : MonoBehaviour
                 if (life >= 1)
                 {
                     GetComponent<DistanceMovement>().impact();
+                    GetComponent<MeleeAtack>().AtackState = false;
                 }
                 else
                 {

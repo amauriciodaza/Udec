@@ -57,11 +57,11 @@ public class MeleeMovement : MonoBehaviour
         {
             currentState = STATES.RUNNING;
         }
-        else if (currentDistance <= distanceToAtack )
+        else if (currentDistance <= distanceToAtack && character.GetComponent<LifeManager>().life > 1)
         {
             currentState = STATES.ATACK;
         }
-        else if (currentDistance > distanceToMovement)
+        else if (currentDistance > distanceToMovement || character.GetComponent<LifeManager>().life < 1)
         {
             currentState = STATES.IDDLE;
         }

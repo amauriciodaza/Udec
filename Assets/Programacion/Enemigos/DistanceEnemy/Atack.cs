@@ -17,8 +17,7 @@ public class Atack : MonoBehaviour
         if (other.name == Character.name)
         {
             Destroy(this.gameObject);
-            Character.GetComponent<PropiedadesScript>().Daño(AtackDamage);
-
+            Character.GetComponent<LifeManager>().Damage(AtackDamage);
         }
     }
 }

@@ -19,7 +19,7 @@ public class ClawAtack : MonoBehaviour
     {
         if (other.name == Character.name && MeleeEnemy.GetComponent<MeleeAtack>().AtackState)
         {
-            Character.GetComponent<PropiedadesScript>().Daño(AtackDamage);
+            Character.GetComponent<LifeManager>().Damage(AtackDamage);
         }
     }
 }

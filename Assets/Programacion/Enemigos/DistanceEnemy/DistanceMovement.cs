@@ -59,15 +59,15 @@ public class DistanceMovement : MonoBehaviour
         {
             return;
         }
-        if (currentDistance > distanceToPointing && currentDistance <= distanceToMovement)
+        if (currentDistance > distanceToPointing && currentDistance <= distanceToMovement && character.GetComponent<LifeManager>().life > 1)
         {
             currentState = STATES.RUNNING;
         }
-        else if (currentDistance <= distanceToPointing && currentDistance > distanceToAtack)
+        else if (currentDistance <= distanceToPointing && currentDistance > distanceToAtack && character.GetComponent<LifeManager>().life > 1)
         {
             currentState = STATES.POINTING;
         }
-        else if (currentDistance <= distanceToAtack && currentDistance > distanceToReverse )
+        else if (currentDistance <= distanceToAtack && currentDistance > distanceToReverse && character.GetComponent<LifeManager>().life > 1)
         {
             currentState = STATES.ATACK;
         }
@@ -75,7 +75,7 @@ public class DistanceMovement : MonoBehaviour
         {
             currentState = STATES.REVERSE;
         }
-        else if (currentDistance > distanceToMovement)
+        else if (currentDistance > distanceToMovement || character.GetComponent<LifeManager>().life < 1)
         {
             currentState = STATES.IDDLE;
         }
