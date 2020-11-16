@@ -89,6 +89,7 @@ public class TranslationMovement : MonoBehaviour
             }
             else if (Input.GetKey(KeyCode.W))
             {
+                //GetComponent<SonidosPersonaje>().Caminar();
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     currentState = STATES.RUNNINGJUMP;

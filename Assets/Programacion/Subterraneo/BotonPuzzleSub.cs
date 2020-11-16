@@ -38,8 +38,8 @@ public class BotonPuzzleSub : MonoBehaviour
             // If para validar el orden dentro de la secuencia de botones para saber que variable setear en la verificacion de la puerta
             if (Input.GetKeyUp(KeyCode.F)&& no==0)
             {
-                GetComponent<AdministrarSonidos>().SonidoObjeto();
                 GetComponent<Animator>().SetBool("Estado", true);
+                GetComponent<AdministrarSonidos>().SonidoObjeto();
                 if (Orden == 1) 
                 {
                     Debug.Log("1 boton");

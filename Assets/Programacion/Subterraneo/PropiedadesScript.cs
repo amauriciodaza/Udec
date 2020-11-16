@@ -27,13 +27,17 @@ public class PropiedadesScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 
     public void ContarRunas(int num)
     {
         runas = runas + num;
         Runastxt.text = "RUNAS: " + runas+" / 4";
+        if (runas >= 1 && runas <= 4)
+        {
+            GetComponent<SonidosPersonaje>().Runas();
+        }
     }
 
     public void Daño(float num)
@@ -43,6 +47,7 @@ public class PropiedadesScript : MonoBehaviour
         Health -= num;
         HealthBar.size = Health / 100f;
     }
+
 
     /*private void OnTriggerEnter(Collider other)
     {
