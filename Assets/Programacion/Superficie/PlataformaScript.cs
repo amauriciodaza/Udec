@@ -13,8 +13,8 @@ public class PlataformaScript : MonoBehaviour
     bool isGrounded = true;
     
 
-    //Quaternion actualRot;
-    //Quaternion lastRot;
+    Quaternion actualRot;
+    Quaternion lastRot;
 
 
     // Start is called before the first frame update
@@ -26,31 +26,33 @@ public class PlataformaScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isGrounded)
+        
+
+        if (isGrounded==true)
         {
 
             RaycastHit hit;
-
+            Debug.Log("isGrounded");
             if (Physics.SphereCast(transform.position, 2f / 2.5f, -transform.up, out hit))
             {
                 GameObject groundedIn = hit.collider.gameObject;
                 groundName = groundedIn.name;
                 groundPosition = groundedIn.transform.position;
 
-                //actualRot = groundedIn.transform.rotation;
+                actualRot = groundedIn.transform.rotation;
 
                 if (groundPosition != lastGroundPosition && groundName == lastGroundName)
                 {
                     this.transform.position += groundPosition - lastGroundPosition;
                 }
 
-               /* if (actualRot != lastRot && groundName == lastGroundName)
+                if (actualRot != lastRot && groundName == lastGroundName)
                 {
                     var newRot = this.transform.rotation * (actualRot.eulerAngles - lastRot.eulerAngles);
                     this.transform.RotateAround(groundedIn.transform.position, Vector3.up, newRot.y);
-                }*/
+                }
 
-                //lastRot = actualRot;               
+                lastRot = actualRot;               
                 lastGroundName = groundName;
                 lastGroundPosition = groundPosition;
 
@@ -58,11 +60,11 @@ public class PlataformaScript : MonoBehaviour
 
 
         }
-        else if (!isGrounded) 
+        else if (isGrounded==false) 
         {
             lastGroundName = null;
             lastGroundPosition = Vector3.zero;
-            //lastRot = Quaternion.Euler(0, 0, 0);
+            lastRot = Quaternion.Euler(0, 0, 0);
         }
         
     }
@@ -78,17 +80,20 @@ public class PlataformaScript : MonoBehaviour
 
     void OnCollisionEnter(Collision Colisionado)
     {
-        if (Colisionado.gameObject.tag == "Plataforma") 
+
+        if (Colisionado.gameObject.CompareTag("Plataforma")) 
         {
+            Debug.Log("Colisionando true");
             isGrounded = true;
         }
     }
 
     void OnCollisionExit(Collision Colisionado)
     {
-        if (Colisionado.gameObject.tag == "Plataforma")
+ 
+        if (Colisionado.gameObject.CompareTag("Plataforma"))
         {
-            isGrounded = false;
+          
         }
     }
 
