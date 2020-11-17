@@ -90,7 +90,7 @@ public class TextosPrueba : MonoBehaviour
         {
             GetComponent<TranslationMovement>().FinishMovement();
             GetComponent<TranslationMovement>().enabled = false;
-            texto = new string[] 
+            texto = new string[]
             {
                 "Einar: ¡¿Qué es esto?!, de repente esa espada llameante salto a mi espalda, pensé que me quemaría, pero… Se siente una energía increíble en mi cuerpo...",
                 "Einar: ¿Que acabo de escuchar en mi mente?…El sable?… esta espada…",
@@ -143,29 +143,15 @@ public class TextosPrueba : MonoBehaviour
         }
         
         //En la puerta del Templo Geotermico
-        else if (triggerAc == 7)
+        else if (triggerAc == 6 && GetComponent<PropiedadesScript>().runas == 4)
         {
-            //Si aun no esta abierta
-            bool puerta = false;// Si implementamos GetComponent con un booleano en el codigo de la puerta quedaria listo
-
-            if (puerta == false)
+            texto = new string[]
             {
-                texto = new string[]
-                {
-                    "Einar: Por como se ve esto parece ser que son necesarias mas runas"
-                };
-            }
-            //Si ya se abrio
-            else
-            {
-                texto = new string[]
-                {
-                    "Einar: Bien las runas me permitieron abrir la puerta"
-                };
-            } 
+                "Einar: Bien las runas me permitieron abrir la puerta"
+            };
         }
         //Poco despues de la mitad del pasillo a la puerta del tiempo
-        else if (triggerAc == 8)
+        else if (triggerAc == 7)
         {
             texto = new string[]
             {
@@ -173,8 +159,10 @@ public class TextosPrueba : MonoBehaviour
             };
         }
         //Al entrar al Templo
-        else if (triggerAc == 9)
+        else if (triggerAc == 8)
         {
+            GetComponent<TranslationMovement>().FinishMovement();
+            GetComponent<TranslationMovement>().enabled = false;
             texto = new string[]
             {
                 "Einar: Pero que demonios es eso!!",
@@ -185,25 +173,14 @@ public class TextosPrueba : MonoBehaviour
             };
         }
         //Al romperse el escudo del Enemigo y acercarse a la puerta de la prision de Feanor
-        else if (triggerAc == 10)
+        else if (triggerAc == 9)
         {
-            if (CarceleroGeo.GetComponent<EnemyLife>().life > 0 && GetComponent<LifeManager>().life <= 0)
-            {
-                texto = new string[]
-                {
-                    "Carcelero: Así que aún quedan humanos, es hora de terminar con esto.",
-                    "Sigurd: ¡Ohh no!, hemos fallado."
-                };
-            }
-            else if(CarceleroGeo.GetComponent<EnemyLife>().life > 0 && GetComponent<LifeManager>().life <= 0)
-            {
-                texto = new string[]
+            texto = new string[]
                 {
                     "Carcelero: No puede ser, quien es este humano",
                     "Einar: Que monstruo mas complicado!",
                     "Einar: ¿Una llave?, si este es un carcelero, esta debe abrir la prsion del Guardián  "
                 };
-            }
         }
         //Finalizacion de batalla con el Carcelero Geotermico
         else if (triggerAc == 11)

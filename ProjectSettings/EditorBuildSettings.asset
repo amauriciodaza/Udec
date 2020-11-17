@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/De Proyecto/Prologo.unity
     guid: 4be425dfef9aa694a94bcfce9883ea26
+  - enabled: 1
+    path: Assets/Scenes/De Proyecto/Superficie.unity
+    guid: 838800baf5d93214095039d9118717c7
   m_configObjects: {}

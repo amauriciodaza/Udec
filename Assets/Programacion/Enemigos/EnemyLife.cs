@@ -12,8 +12,11 @@ public class EnemyLife : MonoBehaviour
     bool DoDamage;
     public Text EnemyLifeTXT;
 
+    public GameObject trigger;
+
     void Start()
     {
+        trigger.SetActive(false);
         EnemyLifeTXT.text = "Salud: "+(int)life;
         DoDamage = true;
     }
@@ -111,6 +114,7 @@ public class EnemyLife : MonoBehaviour
             Destroy(this.gameObject, 10f);
             yield return new WaitForSeconds(1.5f);
             SceneManager.LoadScene("Superficie", LoadSceneMode.Single);
+            trigger.SetActive(true);
         }
     }
 }
