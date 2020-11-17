@@ -46,19 +46,17 @@ public class PuertaPuzzleScript : MonoBehaviour
         {
             Debug.Log("cuarto");
             sec = 4;
+            abrir = 1;
 
         }
-        if (e == 1 && sec == 4)
+        if (e == 1 && sec == 4 && Input.GetKeyUp(KeyCode.F)&& abrir==1)
         {
             Debug.Log("abrio");
             GetComponent<Animator>().SetBool("Estado", true);
-            abrir = 1;       
-        }
-        if (Input.GetKeyUp(KeyCode.F)&& abrir==1)
-        {
-            //Debug.Log("Abriendo " + abrir);
             GetComponent<AdministrarSonidos>().SonidoObjeto();
+            abrir = 0;
         }
+
 
     }
 
