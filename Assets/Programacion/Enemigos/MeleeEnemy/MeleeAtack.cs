@@ -19,6 +19,7 @@ public class MeleeAtack : MonoBehaviour
 
     void UnactiveAtack()
     {
+        Debug.Log("Desactivado");
         AtackState = false;
     }
 }
