@@ -61,6 +61,8 @@ public class LifeManager : MonoBehaviour
         ThirdPersonCamera.enabled = true;
         ThirdPersonCamera.GetComponent<MouseCamLook>().enabled = false;
 
+        StartCoroutine(GameOver());
+
     }
 
     IEnumerator GameOver()
