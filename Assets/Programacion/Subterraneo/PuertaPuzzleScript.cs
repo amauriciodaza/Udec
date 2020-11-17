@@ -6,7 +6,7 @@ using UnityEngine;
 public class PuertaPuzzleScript : MonoBehaviour
 {
     public int a, b, c, d, e;
-    int sec;
+    int sec, abrir;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +16,8 @@ public class PuertaPuzzleScript : MonoBehaviour
         c = 0;
         d = 0;
         e = 0;
-        sec = 0;    
+        sec = 0;
+        abrir = 0;
     }
 
     // Update is called once per frame
@@ -51,6 +52,12 @@ public class PuertaPuzzleScript : MonoBehaviour
         {
             Debug.Log("abrio");
             GetComponent<Animator>().SetBool("Estado", true);
+            abrir = 1;       
+        }
+        if (Input.GetKeyUp(KeyCode.F)&& abrir==1)
+        {
+            //Debug.Log("Abriendo " + abrir);
+            GetComponent<AdministrarSonidos>().SonidoObjeto();
         }
 
     }
