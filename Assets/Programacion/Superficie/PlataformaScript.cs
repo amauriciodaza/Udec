@@ -33,7 +33,7 @@ public class PlataformaScript : MonoBehaviour
 
             RaycastHit hit;
             Debug.Log("isGrounded");
-            if (Physics.SphereCast(transform.position, 2f / 2.5f, -transform.up, out hit))
+            if (Physics.SphereCast(transform.position, 0.01f, -transform.up, out hit))
             {
                 GameObject groundedIn = hit.collider.gameObject;
                 groundName = groundedIn.name;
@@ -71,7 +71,7 @@ public class PlataformaScript : MonoBehaviour
 
      void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(this.gameObject.transform.position, 2f/2.5f);        
+        Gizmos.DrawWireSphere(this.gameObject.transform.position, 0.01f);        
     }
 
 
