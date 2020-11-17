@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LifeManager : MonoBehaviour
 {
@@ -9,9 +10,14 @@ public class LifeManager : MonoBehaviour
 
     public Camera PointingCamera, ThirdPersonCamera;
 
+    //public Scrollbar HealthBar;
+    //float Health;
+    //public Text saludTxt;
+
     void Start()
     {
         DoDamage = true;
+        //Health = life;
     }
 
     public void Damage(float Dam)
@@ -31,6 +37,7 @@ public class LifeManager : MonoBehaviour
                 GetComponent<TranslationMovement>().Impact();
                 StartCoroutine(Matar());
             }
+            //HealthBar.size = life / Health;
         }
     }
 
