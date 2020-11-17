@@ -13,7 +13,7 @@ public class LifeManager : MonoBehaviour
 
     public Scrollbar HealthBar;
     float Health;
-    public Text saludTxt;
+    // public Text saludTxt;
 
     void Start()
     {
