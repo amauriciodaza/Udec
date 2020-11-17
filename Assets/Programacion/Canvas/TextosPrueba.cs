@@ -14,6 +14,8 @@ public class TextosPrueba : MonoBehaviour
 
     public GameObject[] triggers;
 
+    GameObject CarceleroGeo;
+
     //Variables del ciclo for anidado que muestra los dialogos (i , s)
     int i;
     int s;
@@ -21,6 +23,7 @@ public class TextosPrueba : MonoBehaviour
     void Start()
     {
         Panel.SetActive(false);
+        CarceleroGeo = GameObject.Find("CarceleroGeo");
     }
 
     void Update()
@@ -82,69 +85,27 @@ public class TextosPrueba : MonoBehaviour
     //##################### Escritura de Dialogos ###########################
     void Dialogar()
     {
-        //Inicio
-       /* if (triggerAc == 1)
-        {
-            texto = new string[] 
-            {
-                "Einar: A donde he llegado, que es este lugar tan extraño, nunca había visto una mina como esta.",
-                "Einar: Que es eso… Un… Se parece un humano.",
-                "Einar: Que extraño, está dormido, y atrapado entre esos cristales.",
-                "Einar: Voy a tratar de romper ese cristal."
-            } ;
-        }*/
-        //Conversacion con Sigurd cuando este Despierta
+        //Dialogo con LuxTerra al encontrarla.
         if (triggerAc == 1)
         {
+            GetComponent<TranslationMovement>().FinishMovement();
+            GetComponent<TranslationMovement>().enabled = false;
             texto = new string[] 
             {
+                "Einar: ¡¿Qué es esto?!, de repente esa espada llameante salto a mi espalda, pensé que me quemaría, pero… Se siente una energía increíble en mi cuerpo...",
+                "Einar: ¿Que acabo de escuchar en mi mente?…El sable?… esta espada…",
+                "LuxTerra: Joven guerrero, no temas, el destino te ha elegido para portar los tesoros de los guardianes… Y la misión de recuperar el mundo que hace 20 años se perdió por los errores de tus antepasados… En este sable esta la esencia viva de la tierra misma, porta su energía, y su poder, como ya tu mismo lo pudiste sentir.",
+                "Einar: Osea que este es… El sable del que mi padre me contaba en sus historias. Pero si se supone eran solo historias.",
+                "LuxTerra: A veces la realidad pasa a ser solo un cuento ya que no hay como o quien la atestigüe.",
+                "Einar: Es increíble… Mi padre me contaba que en el pasado la humanidad estaba llena de codicia y consumismo, destruían la naturaleza solo pensando en si mismos, y esto alimentaba a la esencia del caos, a Contaminación… Sin embargo entre ellos habían personas que luchaban incansablemente para hacer entender a la humanidad el daño que estaban haciendo, sin embargo fueron ignorados y al final contaminacion cobro una fuerza descomunal y destruyo todo…",
+                "LuxTerra: Así es muchacho, Contaminación ha esperado por milenios para romper el equilibrio natural y alimentar el caos que porta, al final hace 20 años lo logro… Sin embargo no todo está perdido, supongo que también sabes del origen de los tesoros de los guardianes.",
+                "Einar: Por lo que me han y me has contado, solo se que existe una espada legendaria que nació del fuego y se perdió entre la tierra.",
+                "LuxTerra: Naci del fuego o más bien, fui creada del fuego de la tierra por la esencia de la naturaleza… Hace más de 20 años cuando el caos estaba cerca, la naturaleza premio a dos guardianes por su luchar incansable y su amor inconmensurable por la vida en el mundo, los convirtió en seres trascendentales denominados Guardianes de las Energías, uno de ellos representa a la energía de la tierra, el otro a la energía del sol.",
+                "LuxTerra: Asi mismo les entrego a cada uno un tesoro, yo fui entregado a Feanor, Guardián de la Tierra; el tesoro del sol Sidus, fue entregado a Lena, la Guardiana del Sol.",
+                "LuxTerra: La naturaleza al entregarles los tesoros también les dio una profecía: Al pasar las décadas una nueva luz se levantara en la humanidad, su propio brillo le permitirá llegar a los tesoros que os he encomendado y la vida volverá nuevamente al mundo.",
+                "LuxTerra: Einar, eres la esperanza de este mundo, debes ayudarme a encontrar a mi Guardián antes de que se entregado a Contaminación, lo necesitamos para poder enfrentar a ese monstruo. Siento que está cerca… en algún lugar de estos pasillos.",
+                "Einar: Esta bien, vamos!!"
 
-                " aasdasdasdasdasdasdasd"
-                //"Sigurd: (Despertando) ¿Qué es esto?, ¿Cuánto llevo aquí?...",
-                /*"EINAR: ",
-                "Sigurd: ¿Quién eres tú?... Eres un humano, pensé que Contaminación los había destruido a todos.",
-
-                "Einar: Ósea que es verdad, mi abuelo me había contado una historia, me dijo que hace muchos años los humanos vivían en un mundo muy diferente, ",
-                "uno en el que había algo llamado cielo, donde no teníamos que usar antorchas para poder ver,",
-                "en donde los días eran mitad llenos de luz, iluminados por un lucero inmenso e inalcanzable al que llamaban sol,",
-                " y que al dormirse este es su reemplazo llegaba un lucero menos brillante pero no menos hermoso, el que llamaban luna,",
-                "el cual cambiaba de forma continuamente y que en la mitad oscura del día, junto con incontables y pequeñas luces te acompañaba a esta el despertar del sol, un mundo donde habían vientos frescos e interminables… ",
-                "Podías ver bastas ciudades de torres inmensas y algo que llamaban bosques llenos de plantas enormes donde podías perderte… Siempre pensé que eran solo historias.",
-                
-                "Einar: Me llamo Einar, y este es el año 2470, o eso dice el viejo de los relojes.",
-
-                "Sigurd: Ohh entiendo, Pero… No estamos en la superficie, esto es, una mina… ",
-
-                "Einar: Por estos lados se le conoce como la Sociedad Subterránea.",
-
-                "Sigurd: Ahora entiendo por qué siguen vivos, llevan más de 400 años viviendo bajo la tierra, llevan 400 años atrapados aquí en su propio castigo por crear a ese ente maldito llamado Contaminación.",
-
-                "Einar: ¿Qué es Contaminación?",
-
-                "Sigurd: En el pasado, cuando tu civilización aún estaba en la superficie, que es a lo que te referías con lo que me dijiste, esta estaba en el pico de su desarrollo, su crecimiento parecía ilimitado,",
-                "ellos crearon maquinas e instalaciones con el objetivo de satisfacer sus necesidades, pero no solo eso, estaban llenos de codicia,",
-                " esa naturaleza hermosa de la que hablaban la destruían en nombre de crear esas máquinas e instalaciones,",
-                "todos estos sucesos y creaciones hacían mucho más fácil todo para los humanos, sin embargo estas generaban residuos en las cantidades enormes dada la cantidad descomunal de humanos, comenzó a intoxicar la naturaleza,",
-                "las fuentes de energías que esas creaciones usaban, generaban estos residuos los cuales se acumulaban en diferentes formas y lugares y al final la misma naturaleza colapso, ",
-                "y se creó este ente llamado contaminación el cual es la representación de la decadencia. ",
-                "Este ente odia la vida, es la destrucción y desolación en sí mismo, ataco a todos los seres vivos de la superficie, los humanos no fueron la excepción, de hecho fueron el blanco de Contaminación, ",
-                "todas y cada una de las ciudades de la humanidad cayeron y hasta ahora ustedes son los únicos sobrevivientes que veo.",
-
-                "Einar: ¿Entonces los humanos fuimos los culpables de todo?",
-
-                "Sigurd: Así es, todo se destruyó debido a su codicia y deseo de poder… ",
-                "Creyeron que este mundo era suyo, nada más alejado de la realidad, ustedes solo son una fracción del tiempo, materia y espacio de un universo implacable y lleno de caos,",
-                "en donde este mundo es un paraíso… Y ustedes los únicos culpables de la decadencia de su propio hogar.",
-
-                "Sigurd: En el pasado existieron seres trascendentales que representaban las esencias de la naturaleza. Cada uno de ellos fue destruido por Contaminación, solo quedan dos de ellos, que ",
-                "representan a la energía del Sol y de la Tierra, estos quedaron dormidos debido a la afección natural que causo Contaminación.",
-
-                "Sigurd: Debemos despertarlos y ayudarles a recuperar su poder… Tal vez con la ayuda de ellos lograremos vencer a Contaminación y recuperar el mundo. ¿Estás conmigo?",
-                "Einar: Si realmente fue nuestra culpa, debo ayudar a cambiar esto, quiero llevar a mi pueblo a ese mundo increíble que me relataba mi abuelo.",
-
-                "Sigurd: Entonces lo haremos juntos. Yo estoy muy débil, no puedo enfrentarme a los peligros y dificultades solo. Entonces solo podre guiarte.",
-
-                "Sigurd: Debemos buscar al guardián de la energía Geotérmica, siento que está muy cerca."*/
             };
             
         }
@@ -153,7 +114,7 @@ public class TextosPrueba : MonoBehaviour
         {
             texto = new string[] 
             {
-                "Sigurd: ¿Qué es esto?, ¡Son Trampas!, Einar, debes ser muy cuidadoso al pasar."
+                "Einar: ¿Trampas?, esto cada vez se pone mas raro y siniestro"
             };
         }
         //En la sala de la secuencia de botones
@@ -161,9 +122,7 @@ public class TextosPrueba : MonoBehaviour
         {
             texto = new string[]
             {
-                "Sigurd: Oh no, este piso era falso, debemos buscar una forma de salir.",
-                "Sigurd: Eso de allá es… Es una Runa Geotérmica, tómala, probablemente nos va a servir de mucho.",
-                "Sigurd: Einar, parece haber un mecanismo, y aquí hay una especie de secuencia."
+                "LuxTerra: Estas son Runas, tomala, puede que la necesitemos"
             };
         }
         //Subiendo las escaleras luego de armas la secuencia
@@ -171,7 +130,7 @@ public class TextosPrueba : MonoBehaviour
         {
             texto = new string[]
             {
-                "Sigurd: Bien hecho, logramos salir, ahora debemos continuar, debemos seguir moviéndonos por estos túneles."
+                "Einar: Parecen ser botones, supongo debo hacer algo aqui para poder pasar al otro lado"
             };
         }
         //Entrando al laberinto despues del punto de Guardado
@@ -179,17 +138,10 @@ public class TextosPrueba : MonoBehaviour
         {
             texto = new string[]
             {
-                "Sigurd: Esto… ¿Parece ser un laberinto?, ahh lo que faltaba, debemos entrar y ver a donde logramos llegar, debemos estar atentos para no perdernos"
+                "Einar: Bien logre salir, ¿y ahora que sigue?... Parece ser un laberinto. A ver a donde llego"
             };
         }
-        //Al recoger las Runas **Debemos colocar un condicional para que este codigo se ejecute mientras no se hayan encontrado todas las runas
-        else if (triggerAc == 6)
-        {
-            texto = new string[]
-            {
-                "Sigurd: Otra runa más!!"
-            };
-        }
+        
         //En la puerta del Templo Geotermico
         else if (triggerAc == 7)
         {
@@ -200,8 +152,7 @@ public class TextosPrueba : MonoBehaviour
             {
                 texto = new string[]
                 {
-                    "Sigurd: Parece ser que… las runas son las piezas que faltan en el Mecanismo para abrir la puerta.",
-                    "Sigurd: Aun nos faltan algunas Runas."
+                    "Einar: Por como se ve esto parece ser que son necesarias mas runas"
                 };
             }
             //Si ya se abrio
@@ -209,7 +160,7 @@ public class TextosPrueba : MonoBehaviour
             {
                 texto = new string[]
                 {
-                    "Sigurd: Ohh se ha abierto la puerta, esto parece ser… Una especie de templo, tengo un buen y un mal presentimiento sobre esto."
+                    "Einar: Bien las runas me permitieron abrir la puerta"
                 };
             } 
         }
@@ -218,7 +169,7 @@ public class TextosPrueba : MonoBehaviour
         {
             texto = new string[]
             {
-                "Sigurd: Mira, una sala y allá parece haber un ser… Extraño"
+                "Einar: Que extraño, parece la entrada a un templo..." 
             };
         }
         //Al entrar al Templo
@@ -226,24 +177,17 @@ public class TextosPrueba : MonoBehaviour
         {
             texto = new string[]
             {
-                "Sigurd: Oh no, es uno de los grandes servidores de Contaminación, El Carcelero Geotérmico, debemos salir de aquí…",
-                "Sigurd: No puede ser, la entrada esta sellada… Einar, debes derrotarlo.",
-                "Einar: Ggggg, ¡Lo intentare, pero es un oponente muy complicado!"
+                "Einar: Pero que demonios es eso!!",
+                "LuxTerra: Es el destructor que atrapo a Feanor, ¡Mira al fondo, alla esta feanor!",
+                "Einar: ¡Mira al fondo, alla esta alguien atrapado!",
+                "LuxTerra: Al fin, es Feanor, debes derrotar al destructor para liberarlo",
+                "Einar: Hoy me siento mas valiente de lo normal... Vamos!!!"
             };
         }
         //Al romperse el escudo del Enemigo y acercarse a la puerta de la prision de Feanor
         else if (triggerAc == 10)
         {
-            texto = new string[]
-            {
-                "Feanor: ¡Humano!, Toma esta espada, te servirá para derrotarlo"
-            };
-        }
-        //Finalizacion de batalla con el Carcelero Geotermico
-        else if (triggerAc == 11)
-        {
-            bool CarceleroG = false;//con un GetComponent podemos terminarlo
-            if (CarceleroG)
+            if (CarceleroGeo.GetComponent<EnemyLife>().life > 0 && GetComponent<LifeManager>().life <= 0)
             {
                 texto = new string[]
                 {
@@ -251,24 +195,25 @@ public class TextosPrueba : MonoBehaviour
                     "Sigurd: ¡Ohh no!, hemos fallado."
                 };
             }
-            else
+            else if(CarceleroGeo.GetComponent<EnemyLife>().life > 0 && GetComponent<LifeManager>().life <= 0)
             {
                 texto = new string[]
                 {
-                    "Carcelero: No puede ser, quienes son… Sigurd?, aun sigues vi-vo…",
-                    "Sigurd: No creí que pudiéramos con este monstruo…",
-                    "Einar: Que falta de fe",
-                    "Sigurd: Lo siento... Ufff!! Aun sigo sorprendido"
+                    "Carcelero: No puede ser, quien es este humano",
+                    "Einar: Que monstruo mas complicado!",
+                    "Einar: ¿Una llave?, si este es un carcelero, esta debe abrir la prsion del Guardián  "
                 };
-            } 
+            }
+        }
+        //Finalizacion de batalla con el Carcelero Geotermico
+        else if (triggerAc == 11)
+        {
+             
         }
         //Acercandose a la llave
         else if (triggerAc == 12)
         {
-            texto = new string[]
-            {
-                "Sigurd: Mira Einar, el Carcelero dejo caer una llave, puede que con ella liberemos al guardián."
-            };
+
         }
         //Conversacion con feanor
         else if (triggerAc == 13)
