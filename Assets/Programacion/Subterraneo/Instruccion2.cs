@@ -13,6 +13,8 @@ public class Instruccion2 : MonoBehaviour
     void Start()
     {
         t = 0;
+        protecciontxt.enabled = false;
+        saludtxt.enabled = false;
     }
 
     // Update is called once per frame

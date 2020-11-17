@@ -19,7 +19,7 @@ public class Carcelerohacedaño : MonoBehaviour
         if (op)
         {
           Debug.Log("golpeo");
-            Personaje.GetComponent<PropiedadesScript>().Daño(herida);
+            //Personaje.GetComponent<PropiedadesScript>().Daño(herida);
         }
     }
    

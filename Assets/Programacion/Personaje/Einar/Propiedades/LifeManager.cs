@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LifeManager : MonoBehaviour
 {
@@ -10,14 +11,14 @@ public class LifeManager : MonoBehaviour
 
     public Camera PointingCamera, ThirdPersonCamera;
 
-    //public Scrollbar HealthBar;
-    //float Health;
-    //public Text saludTxt;
+    public Scrollbar HealthBar;
+    float Health;
+    public Text saludTxt;
 
     void Start()
     {
         DoDamage = true;
-        //Health = life;
+        Health = life;
     }
 
     public void Damage(float Dam)
@@ -37,7 +38,7 @@ public class LifeManager : MonoBehaviour
                 GetComponent<TranslationMovement>().Impact();
                 StartCoroutine(Matar());
             }
-            //HealthBar.size = life / Health;
+            HealthBar.size = life / Health;
         }
     }
 
@@ -60,5 +61,11 @@ public class LifeManager : MonoBehaviour
         ThirdPersonCamera.enabled = true;
         ThirdPersonCamera.GetComponent<MouseCamLook>().enabled = false;
 
+    }
+
+    IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(7f);
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
     }
 }

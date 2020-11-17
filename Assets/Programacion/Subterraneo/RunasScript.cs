@@ -25,13 +25,11 @@ public class RunasScript : MonoBehaviour
      
             if (Input.GetKeyUp(KeyCode.F))
             {
-                    Personaje.GetComponent<PropiedadesScript>().ContarRunas(1);
-                    Debug.Log("recogido");
-                    Destroy(this.gameObject);
+                Personaje.GetComponent<PropiedadesScript>().ContarRunas(1);
+                Destroy(this.gameObject);
                 
                 b = false;
                 Instrucciontxt.enabled = false;
-
             }
         }
     }
@@ -45,7 +43,6 @@ public class RunasScript : MonoBehaviour
             {
                 Instrucciontxt.enabled = true;
                 Instrucciontxt.text = "RECOGER RUNA (F)";
-
             }
         }
     }
