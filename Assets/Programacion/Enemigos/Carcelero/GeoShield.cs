@@ -36,7 +36,7 @@ public class GeoShield : MonoBehaviour
         {
             if (Shield >= 1)
             {
-                Shield = Shield - Shield * 0.0035f;
+                Shield = Shield - Shield * 0.05f;
                 if (destructible == true)
                 {
                     GetComponent<GeoMovement>().impact();

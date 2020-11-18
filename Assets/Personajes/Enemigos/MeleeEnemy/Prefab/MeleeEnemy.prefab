@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 543417912464344335}
   - component: {fileID: 543417912464344332}
   m_Layer: 0
-  m_Name: MeleeEnemy 1
+  m_Name: MeleeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -432,7 +432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AtackState: 0
-  AtackDamage: 25
+  AtackDamage: 5
 --- !u!114 &543417912464344334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,6 +463,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyType: 2
   life: 100
+  EnemyLifeTXT: {fileID: 0}
+  trigger: {fileID: 0}
 --- !u!195 &543417912464344332
 NavMeshAgent:
   m_ObjectHideFlags: 0
