@@ -10,11 +10,11 @@ public class EnemyLife : MonoBehaviour
 
     public float life;
     bool DoDamage;
-    public Text EnemyLifeTXT;
+    //public Text EnemyLifeTXT;
 
     void Start()
     {
-        EnemyLifeTXT.text = "Salud: "+(int)life;
+        //EnemyLifeTXT.text = "Salud: "+(int)life;
         DoDamage = true;
     }
 
@@ -65,14 +65,14 @@ public class EnemyLife : MonoBehaviour
                 {
                     GetComponent<GeoMovement>().impact();
                     GetComponent<GeoAtackActive>().AtackState = false;
-                    EnemyLifeTXT.text = "Salud: " + (int)life;
+                   // EnemyLifeTXT.text = "Salud: " + (int)life;
                 }
                 else
                 {
                     GetComponent<GeoMovement>().impact();
                     StartCoroutine(Matar(10));
                     life = 0;
-                    EnemyLifeTXT.enabled = false;
+                   // EnemyLifeTXT.enabled = false;
                 }
             }
             else if (EnemyType == 4)
