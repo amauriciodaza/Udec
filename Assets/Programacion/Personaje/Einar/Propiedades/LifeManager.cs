@@ -20,7 +20,10 @@ public class LifeManager : MonoBehaviour
         DoDamage = true;
         Health = life;
     }
-
+    void Update()
+    {
+        HealthBar.size = life / Health;
+    }
     public void Damage(float Dam)
     {
         if (DoDamage)
@@ -38,7 +41,7 @@ public class LifeManager : MonoBehaviour
                 GetComponent<TranslationMovement>().Impact();
                 StartCoroutine(Matar());
             }
-            HealthBar.size = life / Health;
+          
         }
     }
 
@@ -69,5 +72,10 @@ public class LifeManager : MonoBehaviour
     {
         yield return new WaitForSeconds(7f);
         SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+    }
+
+    public void Curar(float n) 
+    {
+        life = life + n;
     }
 }

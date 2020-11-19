@@ -35,7 +35,7 @@ public class TextosPrueba : MonoBehaviour
                 i++;
             }
             s = texto[i].Length-1;
-            Dialogos.text = texto[i];
+            //Dialogos.text = texto[i];
         }
     }
 
@@ -90,6 +90,7 @@ public class TextosPrueba : MonoBehaviour
         {
             GetComponent<TranslationMovement>().FinishMovement();
             GetComponent<TranslationMovement>().enabled = false;
+            GetComponent<Animator>().SetInteger("Estado", 0);
             texto = new string[]
             {
                 "Einar: ¡¿Qué es esto?!, de repente esa espada llameante salto a mi espalda, pensé que me quemaría, pero… Se siente una energía increíble en mi cuerpo...",
@@ -163,6 +164,7 @@ public class TextosPrueba : MonoBehaviour
         {
             GetComponent<TranslationMovement>().FinishMovement();
             GetComponent<TranslationMovement>().enabled = false;
+            GetComponent<Animator>().SetInteger("Estado", 0);
             texto = new string[]
             {
                 "Einar: Pero que demonios es eso!!",
