@@ -851,11 +851,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d314b48c1cc90c846a9e752e55347860, type: 3}
-    m_FontSize: 28
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 40
+    m_MaxSize: 245
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1

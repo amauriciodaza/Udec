@@ -35,7 +35,7 @@ public class TextosPrueba : MonoBehaviour
                 i++;
             }
             s = texto[i].Length-1;
-            //Dialogos.text = texto[i];
+            Dialogos.text = texto[i];
         }
     }
 

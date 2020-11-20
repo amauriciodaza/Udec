@@ -35,7 +35,7 @@ public class Prologo : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             s = texto[i].Length - 1;
-            Dialogar();
+            Dialogos.text = texto[i];
         }
     }
 
