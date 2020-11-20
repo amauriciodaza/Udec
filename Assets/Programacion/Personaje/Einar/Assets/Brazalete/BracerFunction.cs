@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BracerFunction : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class BracerFunction : MonoBehaviour
     public bool bracerFunctional;
     public bool bracerCollected;
     public bool Recharge;
-
+    public Image Mira;
     public bool finish;
 
     public float timeRecharging;
@@ -21,8 +22,9 @@ public class BracerFunction : MonoBehaviour
         bracerFunctional = false;
         bracerCollected = false;
         Recharge = true;
-        timeRecharging = 3f;
+        timeRecharging = 2f;
         finish = true;
+        Mira.enabled = false;
     }
 
     // Update is called once per frame
@@ -41,6 +43,7 @@ public class BracerFunction : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0) && Recharge)
             {
+                Mira.enabled = false;
                 StartCoroutine(Recharging(timeRecharging));
                 InstancePower();
                 Recharge = false;
@@ -49,6 +52,7 @@ public class BracerFunction : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.Mouse0) && Recharge == false)
             {
+                Mira.enabled = false;
                 Debug.Log("Recargando");
                 //Atack.text = "Recargando";
                 GetComponent<TranslationMovement>().FinishMovement();
@@ -79,6 +83,7 @@ public class BracerFunction : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse1) && GetComponent<TranslationMovement>().armas == false)
         {
+            Mira.enabled = true;
             bracerFunctional = !bracerFunctional;
 
             if (bracerFunctional == false)

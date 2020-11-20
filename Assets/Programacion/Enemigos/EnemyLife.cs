@@ -11,11 +11,17 @@ public class EnemyLife : MonoBehaviour
     public float life;
     bool DoDamage;
     //public Text EnemyLifeTXT;
+    public GameObject HP_Bar;
 
     void Start()
     {
         //EnemyLifeTXT.text = "Salud: "+(int)life;
         DoDamage = true;
+    }
+
+    private void Update()
+    {
+        update_HP();
     }
 
     public void Damage(float Dam)
@@ -113,4 +119,12 @@ public class EnemyLife : MonoBehaviour
             SceneManager.LoadScene("Superficie", LoadSceneMode.Single);
         }
     }
+
+    void update_HP() 
+    {
+        float z = life / 100;
+        Vector3 ScaleBar = new Vector3(1, 1, z);
+        HP_Bar.transform.localScale = ScaleBar;
+    }
+
 }
