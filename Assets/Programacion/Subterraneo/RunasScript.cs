@@ -9,12 +9,20 @@ public class RunasScript : MonoBehaviour
     GameObject Personaje;
     GameObject other;
     public Text Instrucciontxt;
+    public Text Runasinfotxt;
+    public string hola;
+    float t;
+    public Image InfoRunasimg;
     // Start is called before the first frame update
     void Start()
     {
         Personaje = GameObject.Find("Einar");
         other = GameObject.Find("Einar");
         b = true;
+        Runasinfotxt.enabled = false;
+        InfoRunasimg.enabled = false;
+
+        t = 0f;
     }
 
     // Update is called once per frame
@@ -22,15 +30,31 @@ public class RunasScript : MonoBehaviour
     {
         if (op == true)
         {
-     
-            if (Input.GetKeyUp(KeyCode.F))
+            t += Time.deltaTime;
+            Debug.Log(t + ": tiempo");
+            if (t < 8)
             {
-                Personaje.GetComponent<PropiedadesScript>().ContarRunas(1);
-                Destroy(this.gameObject);
-                
-                b = false;
-                Instrucciontxt.enabled = false;
+                InfoRunasimg.enabled = true;
+                Runasinfotxt.enabled = true;
+                Runasinfotxt.text = hola;
             }
+            else 
+            {
+                Runasinfotxt.enabled = false;
+                InfoRunasimg.enabled = false;
+            }    
+                if (Input.GetKeyUp(KeyCode.F))
+                {
+               
+                            Personaje.GetComponent<PropiedadesScript>().ContarRunas(1);
+                         b = false;
+                        Instrucciontxt.enabled = false;
+                            t = 0;
+                     Runasinfotxt.enabled = false;
+                InfoRunasimg.enabled = false;
+                Destroy(this.gameObject);
+                }
+            
         }
     }
     private void OnTriggerEnter(Collider other)

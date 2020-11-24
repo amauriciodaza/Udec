@@ -7,6 +7,7 @@ public class PropiedadesScript : MonoBehaviour
 {
     public int runas;
     public Text Runastxt;
+    public int totalrunas;
     void Start()
     {
         runas = 0;
@@ -22,7 +23,7 @@ public class PropiedadesScript : MonoBehaviour
     {
         runas = runas + num;
         Runastxt.enabled = true;
-        Runastxt.text = "RUNAS: " + runas+" / 4";
+        Runastxt.text = "RUNAS: " + runas+ " / "+totalrunas;
         if (runas >= 1 && runas <= 4)
         {
             GetComponent<SonidosPersonaje>().Runas();

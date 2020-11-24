@@ -27,8 +27,7 @@ public class Instruccion2 : MonoBehaviour
             {
                 Instrucciontxt.enabled = true;
                 Instrucciontxt.text = "Para Derrotar al Carcelero Deberas Cortarlo";
-                protecciontxt.enabled = true;
-                saludtxt.enabled = true;
+               
             }
             else
             {

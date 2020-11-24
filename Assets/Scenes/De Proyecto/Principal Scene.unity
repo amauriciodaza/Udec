@@ -4811,6 +4811,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Instrucciontxt: {fileID: 350643176}
+  Runasinfotxt: {fileID: 472488604}
+  hola: "El funcionamiento de la Geotermica se basa, principalmente, en el uso y
+    administraci\xF3n del calor que se acumula en el subsuelo"
+  InfoRunasimg: {fileID: 1532374715}
 --- !u!65 &224147944
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11243,6 +11247,84 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3095027673429ac43888f84f7de0b80e, type: 3}
+--- !u!1 &472488602
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 472488603}
+  - component: {fileID: 472488605}
+  - component: {fileID: 472488604}
+  m_Layer: 5
+  m_Name: Runasinfotxt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &472488603
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472488602}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1532374714}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.67056364, y: 0.5621056}
+  m_AnchorMax: {x: 0.97259945, y: 0.90878886}
+  m_AnchoredPosition: {x: -104.34003, y: -71.40949}
+  m_SizeDelta: {x: 172.02644, y: -1.027771}
+  m_Pivot: {x: 0.49999997, y: 0.5}
+--- !u!114 &472488604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472488602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.5566038, g: 0.04988429, b: 0.114941925, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 74a8e230123a40e46b3578e0539c83ad, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 2
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &472488605
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472488602}
+  m_CullTransparentMesh: 0
 --- !u!1 &477755951
 GameObject:
   m_ObjectHideFlags: 0
@@ -12872,7 +12954,7 @@ PrefabInstance:
     - target: {fileID: 8739538354621505779, guid: 9b47443c3c315d34ba4f60549e96415f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 29.312859
+      value: 33.47
       objectReference: {fileID: 0}
     - target: {fileID: 8739538354621505779, guid: 9b47443c3c315d34ba4f60549e96415f,
         type: 3}
@@ -13553,6 +13635,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Instrucciontxt: {fileID: 350643176}
+  Runasinfotxt: {fileID: 472488604}
+  hola: "Los recursos geot\xE9rmicos, a d\xEDa de hoy en la realidad, son casi inagotables
+    para el ser humano, su precio es bajo y no supone riesgos."
+  InfoRunasimg: {fileID: 1532374715}
 --- !u!65 &578705170
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19073,7 +19159,7 @@ PrefabInstance:
     - target: {fileID: 404927162934597273, guid: 9be7199f4457be44a8dcd81f253a8cf7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 145.5
+      value: 51.7
       objectReference: {fileID: 0}
     - target: {fileID: 404927162934597273, guid: 9be7199f4457be44a8dcd81f253a8cf7,
         type: 3}
@@ -19083,7 +19169,7 @@ PrefabInstance:
     - target: {fileID: 404927162934597273, guid: 9be7199f4457be44a8dcd81f253a8cf7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.6
+      value: 49.4
       objectReference: {fileID: 0}
     - target: {fileID: 404927162934597273, guid: 9be7199f4457be44a8dcd81f253a8cf7,
         type: 3}
@@ -29629,6 +29715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runas: 0
   Runastxt: {fileID: 149956429}
+  totalrunas: 0
 --- !u!1001 &1225947950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30777,6 +30864,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9122802f90381f84d8b8a93daaf9717a, type: 3}
+--- !u!224 &1268731243 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7214076861891890174, guid: 515a0a3449bcbaf4c86236ed938ca341,
+    type: 3}
+  m_PrefabInstance: {fileID: 7214076862670787965}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1269986426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31963,6 +32056,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Game Over Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193881627864534366, guid: f492f283c2f7e9f448f5c633a57ecdf5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f492f283c2f7e9f448f5c633a57ecdf5, type: 3}
@@ -38376,6 +38474,81 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3095027673429ac43888f84f7de0b80e, type: 3}
+--- !u!1 &1532374713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1532374714}
+  - component: {fileID: 1532374716}
+  - component: {fileID: 1532374715}
+  m_Layer: 5
+  m_Name: infoRunasImg
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1532374714
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532374713}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 472488603}
+  m_Father: {fileID: 1268731243}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.6568729, y: 0.21131676}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.10006714, y: 36.499985}
+  m_SizeDelta: {x: 0.6867676, y: 73.51233}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1532374715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532374713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 529fb3e04cbdc3a4aac2ddf0f636589c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1532374716
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532374713}
+  m_CullTransparentMesh: 0
 --- !u!1001 &1539705145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40866,7 +41039,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625451715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 145.5, y: 12, z: -10.6}
+  m_LocalPosition: {x: 52.87, y: 13.11, z: 54.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -40884,7 +41057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99e72f35755e2184d864731d53365983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastCheckPointPost: {x: 131.12, y: 14.28, z: 9.73}
+  lastCheckPointPost: {x: 52.87, y: 13.11, z: 51.63}
 --- !u!1 &1629975959
 GameObject:
   m_ObjectHideFlags: 0
@@ -43298,6 +43471,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Instrucciontxt: {fileID: 350643176}
+  Runasinfotxt: {fileID: 472488604}
+  hola: Las principales aplicaciones de la energia Geotermica son los procesos agricolas,
+    energia electrica y calefaccion de estructuras
+  InfoRunasimg: {fileID: 1532374715}
 --- !u!65 &1760473572
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -46295,6 +46472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runas: 0
   Runastxt: {fileID: 149956429}
+  totalrunas: 0
 --- !u!114 &1868013285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52469,6 +52647,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Instrucciontxt: {fileID: 350643176}
+  Runasinfotxt: {fileID: 472488604}
+  hola: "la energ\xEDa geot\xE9rmica es aquella energ\xEDa que se obtiene mediante
+    la extracci\xF3n y aprovechamiento del calor del interno de La Tierra "
+  InfoRunasimg: {fileID: 1532374715}
 --- !u!65 &2115348544
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -53337,6 +53519,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214076862525043248, guid: 515a0a3449bcbaf4c86236ed938ca341,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214076862525043249, guid: 515a0a3449bcbaf4c86236ed938ca341,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.2900391
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214076862525043249, guid: 515a0a3449bcbaf4c86236ed938ca341,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214076862525043249, guid: 515a0a3449bcbaf4c86236ed938ca341,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -5.4246674
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214076862525043249, guid: 515a0a3449bcbaf4c86236ed938ca341,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -1.5673828
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214076862525043249, guid: 515a0a3449bcbaf4c86236ed938ca341,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.82936656
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214076862525043249, guid: 515a0a3449bcbaf4c86236ed938ca341,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.17585452
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214076862525043249, guid: 515a0a3449bcbaf4c86236ed938ca341,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.72247213
       objectReference: {fileID: 0}
     - target: {fileID: 7214076862861751962, guid: 515a0a3449bcbaf4c86236ed938ca341,
         type: 3}
