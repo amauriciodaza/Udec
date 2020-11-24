@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class FinalPlattform : MonoBehaviour
 {
-    GameObject SunEnemy;
+    public GameObject Plataforma;
     Animator Anim;
 
     void Start()
     {
-        SunEnemy = GameObject.Find("SunEnemyMelee");
-        Anim = GetComponent<Animator>();
+        Anim = Plataforma.GetComponent<Animator>();
     }
 
     void Update()
     {
-        if (SunEnemy.GetComponent<EnemyLife>().life < 1)
+        if (GetComponent<EnemyLife>().life < 1)
         {
             Anim.SetInteger("Estado", 1);
         }
