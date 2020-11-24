@@ -8,7 +8,7 @@ public class GeoShield : MonoBehaviour
     bool destructible;
     public float Shield;
     public bool DamageActive;
-
+    public GameObject HP_Bar;
     public Text ShieldTXT;
     // Start is called before the first frame update
     void Start()
@@ -16,10 +16,12 @@ public class GeoShield : MonoBehaviour
         ShieldTXT.text = "";
         destructible = true;
         DamageActive = false;
+        Shield = 100f;
     }
 
     void Update()
     {
+        update_HP();
         if (Shield == 0)
         {
             ShieldTXT.enabled = false;
@@ -58,4 +60,12 @@ public class GeoShield : MonoBehaviour
         yield return new WaitForSeconds(t);
         destructible = true;
     }
+
+    void update_HP()
+    {
+        float z = Shield / 100;
+        Vector3 ScaleBar = new Vector3(1, 1, z);
+        HP_Bar.transform.localScale = ScaleBar;
+    }
+
 }
