@@ -25,11 +25,18 @@ public class TextosPrueba : MonoBehaviour
     int i;
     int s;
 
+    //Booleano para la activacion del paso de dialogos
+    bool next;
+
     //Inicia el objeto panel desactivado
     void Start()
     {
         Panel.SetActive(false);
         CarceleroGeo = GameObject.Find("CarceleroGeo");
+        next = true;
+
+        // Seccion de deshabilitacion de triggers
+
     }
 
     void Update()
@@ -46,9 +53,9 @@ public class TextosPrueba : MonoBehaviour
     }
 
     //Esta corrutina muestra los dialogos bajo restricciones de tiempo en segundos
-    IEnumerator MostrarDialogos(float t)
+    IEnumerator MostrarDialogos()
     {
-        yield return new WaitForSeconds(t);
+        int trig = triggerAc;
         Panel.SetActive(true);//Activa panel de dialogos
         yield return new WaitForSeconds(0.5f);
         int total = texto.Length;//se le asigna el tamaño del array texto a la variable total
@@ -68,22 +75,24 @@ public class TextosPrueba : MonoBehaviour
         Dialogos.text = "";//Vacia el texto
         yield return new WaitForSeconds(0.5f);
         Panel.SetActive(false);//Deasactiva el panel de dialogos
+        triggers[trig+1].gameObject.GetComponent<Collider>().enabled = true;
+        next = true;
     }
 
     //##################### Validacion de Triggers ##########################
-    void OnTriggerEnter(Collider Other)
+    void OnTriggerStay(Collider Other)
     {
-        for (int j = 0; j < triggers.Length; j++)//Recorre el array de triggers
+        if (next)
         {
-            if (Other.name == triggers[j].name)//Si el nombre del objeto en el que personaje entro es igual al del array trigger en su posicion j, ejecuta
+            for (int j = 0; j < triggers.Length; j++)//Recorre el array de triggers
             {
-                
-                triggerAc = j+1;//Como j arranca de cero y triggerAc funciona desde 1, entonces se le asigna el valor j+1
-                Dialogar();
-         
-                Destroy(triggers[j].gameObject.GetComponent<Collider>());
-                Debug.Log(triggerAc);
-                break;
+                if (Other.name == triggers[j].name)//Si el nombre del objeto en el que personaje entro es igual al del array trigger en su posicion j, ejecuta
+                {
+                    triggerAc = j;//Como j arranca de cero y triggerAc funciona desde 1, entonces se le asigna el valor j+1
+                    Dialogar();
+                    StartCoroutine(MostrarDialogos());
+                    break;
+                }
             }
         }
     }
@@ -92,7 +101,7 @@ public class TextosPrueba : MonoBehaviour
     void Dialogar()//Se asignan los dialogos al array segun la variable triggerAc
     {
         //Dialogo con LuxTerra al encontrarla.
-        if (triggerAc == 1)
+        if (triggerAc == 0)
         {
             GetComponent<TranslationMovement>().DialogDetention();//funciones lost energy(Desactiva movimientos), no funciona bien
             texto = new string[]
@@ -113,60 +122,73 @@ public class TextosPrueba : MonoBehaviour
                 "LuxTerra: Einar, eres la esperanza de este mundo, debes ayudarme a encontrar a mi Guardián antes de que se entregado a Contaminación, lo necesitamos para poder enfrentar a ese monstruo. Siento que está cerca… en algún lugar de estos pasillos.",
                 "Einar: Esta bien, vamos!!"
             };
-            StartCoroutine(MostrarDialogos(0));
+            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
+            next = false;
         }
         //Cuando llegan a las trampas
-        else if (triggerAc == 2)
+        else if (triggerAc == 1)
         {
             texto = new string[] 
             {
                 "Einar: ¿Trampas?, esto cada vez se pone mas raro y siniestro"
             };
+            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
+            next = false;
         }
         //En la sala de la secuencia de botones
-        else if (triggerAc == 3)
+        else if (triggerAc == 2)
         {
             texto = new string[]
             {
                 "LuxTerra: Estas son Runas, tomala, puede que la necesitemos"
             };
+            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
+            next = false;
         }
         //Subiendo las escaleras luego de armas la secuencia
-        else if (triggerAc == 4)
+        else if (triggerAc == 3)
         {
             texto = new string[]
             {
                 "Einar: Parecen ser botones, supongo debo hacer algo aqui para poder pasar al otro lado"
             };
+            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
+            next = false;
         }
         //Entrando al laberinto despues del punto de Guardado
-        else if (triggerAc == 5)
+        else if (triggerAc == 4)
         {
             texto = new string[]
             {
                 "Einar: Bien logre salir, ¿y ahora que sigue?... Parece ser un laberinto. A donde llegare..."
             };
+            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
+            next = false;
         }
         
         //En la puerta del Templo Geotermico
-        else if (triggerAc == 6 && GetComponent<PropiedadesScript>().runas == 4)
+        else if (triggerAc == 5 && GetComponent<PropiedadesScript>().runas == 4)
         {
             texto = new string[]
             {
                 "Einar: Bien las runas me permitieron abrir la puerta"
             };
+            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
+            next = false;
         }
         //Poco despues de la mitad del pasillo a la puerta del tiempo
-        else if (triggerAc == 7)
+        else if (triggerAc == 6)
         {
             GetComponent<TranslationMovement>().DialogDetention();
             texto = new string[]
             {
                 "Einar: Que extraño, parece la entrada a un templo..." 
             };
+            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
+            next = false;
         }
         //Al entrar al Templo
-        else if (triggerAc == 8)
+        else if (triggerAc == 7)
         {
             GetComponent<TranslationMovement>().DialogDetention();
             texto = new string[]
@@ -177,28 +199,36 @@ public class TextosPrueba : MonoBehaviour
                 "LuxTerra: Al fin, es Feanor, debes derrotar al destructor para liberarlo",
                 "Einar: Hoy me siento mas valiente de lo normal... Vamos!!!"
             };
+            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
+            next = false;
         }
-        //Al romperse el escudo del Enemigo y acercarse a la puerta de la prision de Feanor
-        else if (triggerAc == 9)
+        //Al derrotar al carcelero
+        else if (triggerAc == 8 && CarceleroGeo.GetComponent<EnemyLife>().life < 1)
         {
             texto = new string[]
             {
                 "Carcelero: No puede ser, quien es este humano",
-                "Einar: Que monstruo mas complicado!",
-                "Einar: ¿Una llave?, si este es un carcelero, esta debe abrir la prision del Guardián donde se encuentra el guardian"
+                "Einar: Con que estos son los servidores de contaminacion, ¡son unos demonios!",
+                "Einar: ¿Una llave?, si este es un carcelero, esta debe abrir la prision donde se encuentra el Guardián"
             };
+            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
+            triggers[triggerAc + 1].gameObject.GetComponent<Collider>().enabled = false;
+            next = false;
         }
-        //Finalizacion de batalla con el Carcelero Geotermico
-        else if (triggerAc == 10)
+        //Al acercarse a la puerta con la llave
+        else if (triggerAc == 9)
         {
             texto = new string[]
            {
                 "Einar: La llave coincide con la entrada de la celda, perfecto!!",
                 "LuxTerra: Al fin!!"
            };
+            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
+            triggers[triggerAc + 1].gameObject.GetComponent<Collider>().enabled = false;
+            next = false;
         }
-        //Acercandose a la llave
-        else if (triggerAc == 11)
+        //Conversacion con el guardian
+        else if (triggerAc == 10 && triggers[9].GetComponent<Collider>().enabled == false)
         {
             texto = new string[]
            {
@@ -231,17 +261,25 @@ public class TextosPrueba : MonoBehaviour
 
                 "Einar: No te fallare."
            };
+            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
+            next = false;
         }
+
+
+
+
         //Conversacion con feanor
-        else if (triggerAc == 13)
+        else if (triggerAc == 11)
         {
             texto = new string[]
             {
                 
             };
+            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
+            next = false;
         }
         //Saliendo del templo del Sol
-        else if (triggerAc == 14)
+        else if (triggerAc == 12)
         {
             texto = new string[]
             {
@@ -249,9 +287,11 @@ public class TextosPrueba : MonoBehaviour
                 "Sigurd: Y pensar que estaba tan cerca…",
                 "Sigurd: Vamos"
             };
+            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
+            next = false;
         }
         //Frente al muro de las escaleras
-        else if (triggerAc == 15)
+        else if (triggerAc == 13)
         {
             texto = new string[]
             {
@@ -259,20 +299,26 @@ public class TextosPrueba : MonoBehaviour
                 //Luego de romper el muro
                 "Sigurd: Bien, ahí están las escaleras, vamos."
             };
+            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
+            next = false;
         }
-        else if (triggerAc == 16)
+        else if (triggerAc == 14)
         {
             texto = new string[]
             {
                 "Sigurd: Mira, ahí está la puerta de la que hablaba Feanor… Por ahora no podrás abrirla, necesitas tres llaves… Debemos seguir."
             };
+            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
+            next = false;
         }
-        else if (triggerAc == 17)
+        else if (triggerAc == 15)
         {
             texto = new string[]
             {
                 "Sigurd: Ahh hace tanto que no veo la superficie, tengo curiosidad… Aunque no espero que este nada bien."
             };
+            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
+            next = false;
         }
     }
 }
