@@ -8,6 +8,7 @@ public class LifeManager : MonoBehaviour
 {
     public float life;
     bool DoDamage;
+    public Canvas canvas;
 
     public Camera PointingCamera, ThirdPersonCamera;
 
@@ -17,6 +18,7 @@ public class LifeManager : MonoBehaviour
 
     void Start()
     {
+        canvas.enabled = false;
         DoDamage = true;
         Health = life;
     }
@@ -71,7 +73,9 @@ public class LifeManager : MonoBehaviour
     IEnumerator GameOver()
     {
         yield return new WaitForSeconds(7f);
-        SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+
+        //SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+        canvas.enabled = true;
     }
 
     public void Curar(float n) 

@@ -28,8 +28,17 @@ public class Curacion : MonoBehaviour
             if (Input.GetKey(KeyCode.F))
             {
                 other.GetComponent<LifeManager>().Curar(curacion);
+                Instrucciontxt.enabled = false;
                 Destroy(this.gameObject);
             }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.name == "Einar")
+        {
+            Instrucciontxt.enabled = false;
         }
     }
 
