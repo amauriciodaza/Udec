@@ -9,19 +9,21 @@ public class EnemyLife : MonoBehaviour
     public int EnemyType;//Type 1: Distancia, Type2: Cuerpo a Cuerpo, Type3: CarceleroGeotermico,Type 4: CarceleroSolar, Type 5: Contaminacion
 
     public float life;
+    float lifeinit;
+
     bool DoDamage;
-    //public Text EnemyLifeTXT;
     public GameObject HP_Bar;
 
     void Start()
     {
-        //EnemyLifeTXT.text = "Salud: "+(int)life;
+        lifeinit = life;
         DoDamage = true;
     }
 
     private void Update()
     {
         update_HP();
+        
     }
 
     public void Damage(float Dam)
@@ -84,6 +86,17 @@ public class EnemyLife : MonoBehaviour
             else if (EnemyType == 4)
             {
                 life = life - Dam;
+                if (life >= 1)
+                {
+                    GetComponent<MeleeMovement>().impact();
+                    //GetComponent<MeleeAtack>().AtackState = false;
+                }
+                else
+                {
+                    GetComponent<MeleeMovement>().impact();
+                    StartCoroutine(Matar(10));
+                    life = 0;
+                }
             }
             else if (EnemyType == 5)
             {
@@ -118,11 +131,16 @@ public class EnemyLife : MonoBehaviour
             yield return new WaitForSeconds(1.5f);
            // SceneManager.LoadScene("Superficie", LoadSceneMode.Single);
         }
+        else if (EnemyType == 4)
+        {
+            GetComponent<MeleeMovement>().death();
+            Destroy(this.gameObject, 10f);
+        }
     }
 
     void update_HP() 
     {
-        float z = life / 100;
+        float z = life / lifeinit;
         Vector3 ScaleBar = new Vector3(1, 1, z);
         HP_Bar.transform.localScale = ScaleBar;
     }
