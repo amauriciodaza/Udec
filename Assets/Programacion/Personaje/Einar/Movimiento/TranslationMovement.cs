@@ -50,6 +50,7 @@ public class TranslationMovement : MonoBehaviour
     //Restrictores
     public bool armas;
     bool noChange;
+    public bool detention;
     //float seg = 2;
 
     // Start is called before the first frame update
@@ -59,6 +60,7 @@ public class TranslationMovement : MonoBehaviour
         armas = false;
         Invert = 1;
         noChange = true;
+        detention = false;
     }
 
     // Update is called once per frame
@@ -73,7 +75,7 @@ public class TranslationMovement : MonoBehaviour
         //Ciclo condicional para bloquear movimientos
         if (currentState == STATES.SWORDJUMPATACK || currentState == STATES.RUNNINGJUMP || currentState == STATES.SWORDSLASH ||
             currentState == STATES.SWORDRUNJUMP || currentState == STATES.SHOOTING || currentState == STATES.INTERACTING
-            || currentState == STATES.IMPACT || currentState == STATES.DEATH)
+            || currentState == STATES.IMPACT || currentState == STATES.DEATH || detention)
         {
             return;
         }
@@ -458,6 +460,19 @@ public class TranslationMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(0.25f);
         noChange = true;
+    }
+
+    public void DialogDetention()
+    {
+        detention = true;
+        if (armas)
+        {
+            currentState = STATES.SWORDIDDLE;
+        }
+        else
+        {
+            currentState = STATES.IDDLE;
+        }
     }
 
 }

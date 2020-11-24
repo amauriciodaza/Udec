@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using MySql.Data.MySqlClient;
 using UnityEngine.SceneManagement;
 
-public class Login : MonoBehaviour
+public class Login1 : MonoBehaviour
 {
     public string direccionLostEnergy;
 

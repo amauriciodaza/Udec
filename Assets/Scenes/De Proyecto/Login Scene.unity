@@ -277,7 +277,6 @@ GameObject:
   - component: {fileID: 226765944}
   - component: {fileID: 226765943}
   - component: {fileID: 226765942}
-  - component: {fileID: 226765946}
   m_Layer: 5
   m_Name: Login
   m_TagString: Untagged
@@ -365,22 +364,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &226765946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 226765941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: faa148c600718ad4d81420e94fb5e1f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direccionLostEnergy: https://app.infinityfree.net/login
-  usuarioTxt: {fileID: 797543230}
-  "contrase\xF1aTxt": {fileID: 914136594}
-  Incorrecto: {fileID: 36319396}
 --- !u!1 &437518370
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,7 +903,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 226765946}
+      - m_Target: {fileID: 1149165187}
         m_MethodName: RedireccionaraPagLostEnergy
         m_Mode: 1
         m_Arguments:
@@ -1134,13 +1117,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1149165186}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da4d079dfea88954b9eed10224fbebba, type: 3}
+  m_Script: {fileID: 11500000, guid: f00be9df3efacbf4dacd3dae46e244c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  servidorBaseDatos: localhost
-  nombreBaseDatos: udec
-  usuarioBaseDatos: root
-  "contrase\xF1aBaseDatos": 
+  direccionLostEnergy: app.infinityfree.net/loginet/login
+  usuario: {fileID: 1189205028}
+  experimento: {fileID: 914136594}
+  mensaje: {fileID: 36319396}
+  convertir1: 
+  convertir2: 
 --- !u!4 &1149165188
 Transform:
   m_ObjectHideFlags: 0
@@ -1641,8 +1626,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 226765946}
-        m_MethodName: logear
+      - m_Target: {fileID: 1149165187}
+        m_MethodName: iniciarsesion
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -5,21 +5,27 @@ using UnityEngine.UI;
 
 public class TextosPrueba : MonoBehaviour
 {
+    //Se le asigna el panel y el texto de dialogos en el inspector
     public Text Dialogos;
     public GameObject Panel;
 
+    //Esta variable indicara el trigger de dialogo en el que entro el personaje, y sera usado en la funcion Dialogar()
     int triggerAc;
 
+    //Este estring se llenara con los dialogos. esto se hara en la funcion Dialogar()
     string[] texto;
 
+    //Es un array de objetos el cual se llenara con los triggers que se van a usar para los dialogos, se hara desde el inspector
     public GameObject[] triggers;
 
+    //Esta variable es alternativa de mi codigo. Innecesaria
     GameObject CarceleroGeo;
 
-    //Variables del ciclo for anidado que muestra los dialogos (i , s)
+    //Variables del ciclo for anidado que muestra los dialogos en la corrutina(i , s)
     int i;
     int s;
 
+    //Inicia el objeto panel desactivado
     void Start()
     {
         Panel.SetActive(false);
@@ -28,52 +34,52 @@ public class TextosPrueba : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && i < texto.Length)
+        if (Input.GetKeyDown(KeyCode.Q) && i < texto.Length)//Si se oprime Q y en la corrutina MostrarDialogos(), i es menor al valor de la longitud del array texto[]
         {
-            if (s == texto[i].Length)
+            if (s == texto[i].Length)//Si s es igual a la longitud de la posicion i del arreglo texto, incrementa i
             {
                 i++;
             }
-            s = texto[i].Length-1;
-            Dialogos.text = texto[i];
+            s = texto[i].Length-1;//s=longitud de la posicion i-1 del array texto[]
+            Dialogos.text = texto[i];//Mostrar texto completo de la posicion i
         }
     }
 
-    IEnumerator MostrarDialogos()
+    //Esta corrutina muestra los dialogos bajo restricciones de tiempo en segundos
+    IEnumerator MostrarDialogos(float t)
     {
-        Panel.SetActive(true);
+        yield return new WaitForSeconds(t);
+        Panel.SetActive(true);//Activa panel de dialogos
         yield return new WaitForSeconds(0.5f);
-        int total = texto.Length;
+        int total = texto.Length;//se le asigna el tamaño del array texto a la variable total
         yield return null;//Seguridad de un null
-        //GetComponent<TranslationMovement>().enabled = false;
         for (i = 0; i < total; i++)//Recorremos todas las frases
         {
             string res = "";
             for (s = 0; s < texto[i].Length; s++)//Recorremos char por char esa frase
             {
-                res = string.Concat(res, texto[i][s]);
-                Dialogos.text = res;
-                yield return new WaitForSeconds(0.01f);
+                res = string.Concat(res, texto[i][s]);//Concatena letra por letra en la variable res
+                Dialogos.text = res;//Muestra las letras concatenadas
+                yield return new WaitForSeconds(0.005f);
             }
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
         }
-        GetComponent<TranslationMovement>().enabled = true;
-        Dialogos.text = "";
+        GetComponent<TranslationMovement>().detention = false;//Esto reactiva los movimientos del personaje, funcion propia de lost energy
+        Dialogos.text = "";//Vacia el texto
         yield return new WaitForSeconds(0.5f);
-        Panel.SetActive(false);
+        Panel.SetActive(false);//Deasactiva el panel de dialogos
     }
 
     //##################### Validacion de Triggers ##########################
     void OnTriggerEnter(Collider Other)
     {
-        for (int j = 0; j < triggers.Length; j++)
+        for (int j = 0; j < triggers.Length; j++)//Recorre el array de triggers
         {
-            if (Other.name == triggers[j].name)
+            if (Other.name == triggers[j].name)//Si el nombre del objeto en el que personaje entro es igual al del array trigger en su posicion j, ejecuta
             {
                 
-                triggerAc = j+1;
+                triggerAc = j+1;//Como j arranca de cero y triggerAc funciona desde 1, entonces se le asigna el valor j+1
                 Dialogar();
-                StartCoroutine(MostrarDialogos());
          
                 Destroy(triggers[j].gameObject.GetComponent<Collider>());
                 Debug.Log(triggerAc);
@@ -83,14 +89,12 @@ public class TextosPrueba : MonoBehaviour
     }
 
     //##################### Escritura de Dialogos ###########################
-    void Dialogar()
+    void Dialogar()//Se asignan los dialogos al array segun la variable triggerAc
     {
         //Dialogo con LuxTerra al encontrarla.
         if (triggerAc == 1)
         {
-            GetComponent<TranslationMovement>().FinishMovement();
-            GetComponent<TranslationMovement>().enabled = false;
-            GetComponent<Animator>().SetInteger("Estado", 0);
+            GetComponent<TranslationMovement>().DialogDetention();//funciones lost energy(Desactiva movimientos), no funciona bien
             texto = new string[]
             {
                 "Einar: ¡¿Qué es esto?!, de repente esa espada llameante salto a mi espalda, pensé que me quemaría, pero… Se siente una energía increíble en mi cuerpo...",
@@ -98,17 +102,18 @@ public class TextosPrueba : MonoBehaviour
                 "LuxTerra: Joven guerrero, no temas, el destino te ha elegido para portar los tesoros de los guardianes… Y la misión de recuperar el mundo que hace 20 años se perdió por los errores de tus antepasados… En este sable esta la esencia viva de la tierra misma, porta su energía, y su poder, como ya tu mismo lo pudiste sentir.",
                 "Einar: Osea que este es… El sable del que mi padre me contaba en sus historias. Pero si se supone eran solo historias.",
                 "LuxTerra: A veces la realidad pasa a ser solo un cuento ya que no hay como o quien la atestigüe.",
-                "Einar: Es increíble… Mi padre me contaba que en el pasado la humanidad estaba llena de codicia y consumismo, destruían la naturaleza solo pensando en si mismos, y esto alimentaba a la esencia del caos, a Contaminación… Sin embargo entre ellos habían personas que luchaban incansablemente para hacer entender a la humanidad el daño que estaban haciendo, sin embargo fueron ignorados y al final contaminacion cobro una fuerza descomunal y destruyo todo…",
+                "Einar: Es increíble… Mi padre me contaba que en el pasado la humanidad estaba llena de codicia y consumismo, destruían la naturaleza solo pensando en si mismos, y esto alimentaba a la esencia del caos, a Contaminación…",
+                "Einar: Sin embargo entre ellos habían personas que luchaban incansablemente para hacer entender a la humanidad el daño que estaban haciendo, sin embargo fueron ignorados y al final contaminacion cobro una fuerza descomunal y destruyo todo…",
                 "LuxTerra: Así es muchacho, Contaminación ha esperado por milenios para romper el equilibrio natural y alimentar el caos que porta, al final hace 20 años lo logro… Sin embargo no todo está perdido, supongo que también sabes del origen de los tesoros de los guardianes.",
                 "Einar: Por lo que me han y me has contado, solo se que existe una espada legendaria que nació del fuego y se perdió entre la tierra.",
-                "LuxTerra: Naci del fuego o más bien, fui creada del fuego de la tierra por la esencia de la naturaleza… Hace más de 20 años cuando el caos estaba cerca, la naturaleza premio a dos guardianes por su luchar incansable y su amor inconmensurable por la vida en el mundo, los convirtió en seres trascendentales denominados Guardianes de las Energías, uno de ellos representa a la energía de la tierra, el otro a la energía del sol.",
+                "LuxTerra: Naci del fuego o más bien, fui creada del fuego de la tierra por la esencia de la naturaleza… ",
+                "LuxTerra: Hace más de 20 años cuando el caos estaba cerca, la naturaleza premio a dos guardianes por su luchar incansable y su amor inconmensurable por la vida en el mundo, los convirtió en seres trascendentales denominados Guardianes de las Energías, uno de ellos representa a la energía de la tierra, el otro a la energía del sol.",
                 "LuxTerra: Asi mismo les entrego a cada uno un tesoro, yo fui entregado a Feanor, Guardián de la Tierra; el tesoro del sol Sidus, fue entregado a Lena, la Guardiana del Sol.",
                 "LuxTerra: La naturaleza al entregarles los tesoros también les dio una profecía: Al pasar las décadas una nueva luz se levantara en la humanidad, su propio brillo le permitirá llegar a los tesoros que os he encomendado y la vida volverá nuevamente al mundo.",
                 "LuxTerra: Einar, eres la esperanza de este mundo, debes ayudarme a encontrar a mi Guardián antes de que se entregado a Contaminación, lo necesitamos para poder enfrentar a ese monstruo. Siento que está cerca… en algún lugar de estos pasillos.",
                 "Einar: Esta bien, vamos!!"
-
             };
-            
+            StartCoroutine(MostrarDialogos(0));
         }
         //Cuando llegan a las trampas
         else if (triggerAc == 2)
@@ -139,7 +144,7 @@ public class TextosPrueba : MonoBehaviour
         {
             texto = new string[]
             {
-                "Einar: Bien logre salir, ¿y ahora que sigue?... Parece ser un laberinto. A ver a donde llego"
+                "Einar: Bien logre salir, ¿y ahora que sigue?... Parece ser un laberinto. A donde llegare..."
             };
         }
         
@@ -154,6 +159,7 @@ public class TextosPrueba : MonoBehaviour
         //Poco despues de la mitad del pasillo a la puerta del tiempo
         else if (triggerAc == 7)
         {
+            GetComponent<TranslationMovement>().DialogDetention();
             texto = new string[]
             {
                 "Einar: Que extraño, parece la entrada a un templo..." 
@@ -162,9 +168,7 @@ public class TextosPrueba : MonoBehaviour
         //Al entrar al Templo
         else if (triggerAc == 8)
         {
-            GetComponent<TranslationMovement>().FinishMovement();
-            GetComponent<TranslationMovement>().enabled = false;
-            GetComponent<Animator>().SetInteger("Estado", 0);
+            GetComponent<TranslationMovement>().DialogDetention();
             texto = new string[]
             {
                 "Einar: Pero que demonios es eso!!",
@@ -178,27 +182,26 @@ public class TextosPrueba : MonoBehaviour
         else if (triggerAc == 9)
         {
             texto = new string[]
-                {
-                    "Carcelero: No puede ser, quien es este humano",
-                    "Einar: Que monstruo mas complicado!",
-                    "Einar: ¿Una llave?, si este es un carcelero, esta debe abrir la prsion del Guardián  "
-                };
+            {
+                "Carcelero: No puede ser, quien es este humano",
+                "Einar: Que monstruo mas complicado!",
+                "Einar: ¿Una llave?, si este es un carcelero, esta debe abrir la prision del Guardián donde se encuentra el guardian"
+            };
         }
         //Finalizacion de batalla con el Carcelero Geotermico
-        else if (triggerAc == 11)
-        {
-             
-        }
-        //Acercandose a la llave
-        else if (triggerAc == 12)
-        {
-
-        }
-        //Conversacion con feanor
-        else if (triggerAc == 13)
+        else if (triggerAc == 10)
         {
             texto = new string[]
-            {
+           {
+                "Einar: La llave coincide con la entrada de la celda, perfecto!!",
+                "LuxTerra: Al fin!!"
+           };
+        }
+        //Acercandose a la llave
+        else if (triggerAc == 11)
+        {
+            texto = new string[]
+           {
                 "Feanor: Gracias, me han salvado, desde aquella gran catástrofe he estado muy débil, dormido durante muchos años, y ese Carcelero me encontró y me atrapo hace poco tiempo, y estaba esperando el momento para llevarme con Contaminación… ",
 
                 "Sigurd: Feanor, Guardián de la energía Geotérmica, necesitamos ayuda para acabar con esto.",
@@ -227,6 +230,14 @@ public class TextosPrueba : MonoBehaviour
                 "Sigurd: Muchas gracias Feanor.",
 
                 "Einar: No te fallare."
+           };
+        }
+        //Conversacion con feanor
+        else if (triggerAc == 13)
+        {
+            texto = new string[]
+            {
+                
             };
         }
         //Saliendo del templo del Sol
