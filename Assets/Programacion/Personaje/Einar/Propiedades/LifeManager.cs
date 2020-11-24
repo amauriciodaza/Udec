@@ -80,6 +80,6 @@ public class LifeManager : MonoBehaviour
 
     public void Curar(float n) 
     {
-        life = life + n;
+        life = n;
     }
 }
