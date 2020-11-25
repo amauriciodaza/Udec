@@ -117,24 +117,26 @@ public class EnemyLife : MonoBehaviour
         if (EnemyType == 1)
         {
             GetComponent<DistanceMovement>().death();
-            Destroy(this.gameObject, 7f);
+            yield return new WaitForSeconds(7f);
+            gameObject.SetActive(false);
         }
         else if (EnemyType == 2)
         {
             GetComponent<MeleeMovement>().death();
-            Destroy(this.gameObject, 7f);
+            yield return new WaitForSeconds(7f);
+            gameObject.SetActive(false);
         }
         else if (EnemyType == 3)
         {
             GetComponent<GeoMovement>().death();
-            Destroy(this.gameObject, 10f);
-            yield return new WaitForSeconds(1.5f);
-           // SceneManager.LoadScene("Superficie", LoadSceneMode.Single);
+            yield return new WaitForSeconds(7f);
+            gameObject.SetActive(false);
         }
         else if (EnemyType == 4)
         {
             GetComponent<MeleeMovement>().death();
-            Destroy(this.gameObject, 10f);
+            yield return new WaitForSeconds(7f);
+            gameObject.SetActive(false);
         }
     }
 

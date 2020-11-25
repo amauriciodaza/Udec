@@ -296,6 +296,7 @@ public class TextosPrueba : MonoBehaviour
             triggers[5].GetComponent<Collider>().enabled = false;
             triggers[8].GetComponent<Collider>().enabled = false;
             triggers[9].GetComponent<Collider>().enabled = false;
+            triggers[11].GetComponent<Collider>().enabled = false;
             habilitar = false;
         }
 
@@ -303,6 +304,7 @@ public class TextosPrueba : MonoBehaviour
         {
             triggers[8].GetComponent<Collider>().enabled = true;
             triggers[9].GetComponent<Collider>().enabled = true;
+            triggers[11].GetComponent<Collider>().enabled = true;
             a = false;
         }
 
