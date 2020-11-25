@@ -8,8 +8,10 @@ public class PropiedadesScript : MonoBehaviour
     public int runas;
     public Text Runastxt;
     public int totalrunas;
+    public Image dialogos;
     void Start()
     {
+        dialogos.enabled = false;
         runas = 0;
         Runastxt.enabled = false;
     }
