@@ -4746,6 +4746,31 @@ PrefabInstance:
       propertyPath: m_StoppingDistance
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2652810847902674839, guid: 2d9649ee83d85a040a049a4da7010491,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.7868201
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652810847902674839, guid: 2d9649ee83d85a040a049a4da7010491,
+        type: 3}
+      propertyPath: m_Height
+      value: 3.659749
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652810847902674839, guid: 2d9649ee83d85a040a049a4da7010491,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.021255014
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652810847902674839, guid: 2d9649ee83d85a040a049a4da7010491,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.8201252
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652810847902674839, guid: 2d9649ee83d85a040a049a4da7010491,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.0863179
+      objectReference: {fileID: 0}
     - target: {fileID: 2652810847902674840, guid: 2d9649ee83d85a040a049a4da7010491,
         type: 3}
       propertyPath: m_Name
