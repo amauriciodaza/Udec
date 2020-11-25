@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LifeManager : MonoBehaviour
 {
+   
     public float life;
     bool DoDamage;
     public Canvas canvas;
@@ -15,12 +16,13 @@ public class LifeManager : MonoBehaviour
     public Scrollbar HealthBar;
     float Health;
     // public Text saludTxt;
-
+  
     void Start()
     {
         canvas.enabled = false;
         DoDamage = true;
         Health = life;
+        life = 100;
     }
     void Update()
     {

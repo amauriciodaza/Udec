@@ -32,7 +32,7 @@ public class PuertaLaberintoPuzzle : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.F))
             {
                 run = Personaje.GetComponent<PropiedadesScript>().runas;
-                if (run == 4)
+                if (run == Personaje.GetComponent<PropiedadesScript>().totalrunas)
                 {
                     GetComponent<Animator>().SetBool("Estado", true);
                     GetComponent<AdministrarSonidos>().SonidoObjeto();

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameMaster : MonoBehaviour
-{
+{   public int runas;
     private static GameMaster instance;
     public Vector3 lastCheckPointPost;
+  
+  
     // Start is called before the first frame update
 
     void Awake()
@@ -14,6 +16,7 @@ public class GameMaster : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(instance);
+
         }
         else {
             Destroy(gameObject);
@@ -22,12 +25,12 @@ public class GameMaster : MonoBehaviour
 
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 }

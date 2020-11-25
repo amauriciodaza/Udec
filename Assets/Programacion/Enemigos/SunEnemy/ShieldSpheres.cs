@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShieldSpheres : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class ShieldSpheres : MonoBehaviour
     GameObject SunEnemy;
 
     public float Damage;
+    public Text Instrucciontxt;
 
     void Start()
     {
@@ -19,10 +21,13 @@ public class ShieldSpheres : MonoBehaviour
     {
         if (other.gameObject.name == "Einar")
         {
+            Instrucciontxt.enabled = true;
+            Instrucciontxt.text = "Desactivar (F)";
             if (Input.GetKeyDown(KeyCode.F))
             {
                 SunEnemy.GetComponent<SunShield>().DestroyShield(Damage);
                 Destroy(gameObject);
+                Instrucciontxt.enabled = false;
             }
         }
     }
