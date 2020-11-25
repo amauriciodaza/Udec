@@ -121,7 +121,7 @@ public class TextosPrueba : MonoBehaviour
                 "LuxTerra: Así mismo les entrego a cada uno un tesoro, yo fui entregado a Feanor, Guardián de la Tierra; el tesoro del sol Sidus, fue entregado a Lena, la Guardiana del Sol.",
                 "LuxTerra: La naturaleza al entregarles los tesoros también les dio una profecía: Al pasar las décadas una nueva luz se levantará en la humanidad, su propio brillo le permitirá llegar a los tesoros que os he encomendado y la vida volverá nuevamente al mundo.",
                 "LuxTerra: Einar, eres la esperanza de este mundo, debes ayudarme a encontrar a mi Guardián antes de que se entregado a Contaminación, lo necesitamos para poder enfrentar a ese monstruo. Siento que está cerca… en algún lugar de estos pasillos.",
-                "Einar: Esta bien, ¡vamos!
+                "Einar: Esta bien, ¡vamos!"
             };
             triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
             next = false;
@@ -245,7 +245,7 @@ public class TextosPrueba : MonoBehaviour
                 "Feanor: Esa espada está basada en la energía geotérmica, la energía de la tierra, y yo soy su guardián, nuestra esencia está vinculada",
                 "Einar: ¡Sorprendente!",
                 "Feanor: Ahora es tu espada, tu eres su portador, su maestro y ella tu guía, y su misión salvar a este mundo",
-                "Feanor: Escúchame:”,
+                "Feanor: Escúchame:",
                 "Feanor: Desde hace 20 años la guardiana del sol y yo, hemos sido perseguidos por los destructores de Contaminación",
                 "Feanor: Ella y yo como guardianes de las energías somos los protectores de la vida, por eso desean acabar con nosotros",
                 "Feanor: Pero desafortunadamente nuestra fuerza no es suficiente para enfrentarle solos",
