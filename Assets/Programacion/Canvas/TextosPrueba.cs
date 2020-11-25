@@ -27,6 +27,7 @@ public class TextosPrueba : MonoBehaviour
 
     //Booleano para la activacion del paso de dialogos
     bool next;
+    bool habilitar;
 
     //Inicia el objeto panel desactivado
     void Start()
@@ -34,8 +35,8 @@ public class TextosPrueba : MonoBehaviour
         Panel.SetActive(false);
         CarceleroGeo = GameObject.Find("CarceleroGeo");
         next = true;
-
         // Seccion de deshabilitacion de triggers
+        habilitar = true;
 
     }
 
@@ -50,6 +51,7 @@ public class TextosPrueba : MonoBehaviour
             s = texto[i].Length-1;//s=longitud de la posicion i-1 del array texto[]
             Dialogos.text = texto[i];//Mostrar texto completo de la posicion i
         }
+        EnableTriggers();
     }
 
     //Esta corrutina muestra los dialogos bajo restricciones de tiempo en segundos
@@ -75,7 +77,6 @@ public class TextosPrueba : MonoBehaviour
         Dialogos.text = "";//Vacia el texto
         yield return new WaitForSeconds(0.5f);
         Panel.SetActive(false);//Deasactiva el panel de dialogos
-        triggers[trig+1].gameObject.GetComponent<Collider>().enabled = true;
         next = true;
     }
 
@@ -96,7 +97,6 @@ public class TextosPrueba : MonoBehaviour
             }
         }
     }
-
     //##################### Escritura de Dialogos ###########################
     void Dialogar()//Se asignan los dialogos al array segun la variable triggerAc
     {
@@ -107,6 +107,7 @@ public class TextosPrueba : MonoBehaviour
             texto = new string[]
             {
                 "Einar: ¡¿Qué es esto?!, de repente esa espada llameante salto a mi espalda, pensé que me quemaría, pero… Se siente una energía increíble en mi cuerpo...",
+                "Espada: 'LuxTerra, Luz de la tierra es mi nombre y tu eres mi destino'",
                 "Einar: ¿Que acabo de escuchar en mi mente?…El sable?… esta espada…",
                 "LuxTerra: Joven guerrero, no temas, el destino te ha elegido para portar los tesoros de los guardianes… Y la misión de recuperar el mundo que hace 20 años se perdió por los errores de tus antepasados… En este sable esta la esencia viva de la tierra misma, porta su energía, y su poder, como ya tu mismo lo pudiste sentir.",
                 "Einar: Osea que este es… El sable del que mi padre me contaba en sus historias. Pero si se supone eran solo historias.",
@@ -167,7 +168,7 @@ public class TextosPrueba : MonoBehaviour
         }
         
         //En la puerta del Templo Geotermico
-        else if (triggerAc == 5 && GetComponent<PropiedadesScript>().runas == 4)
+        else if (triggerAc == 5)
         {
             texto = new string[]
             {
@@ -205,120 +206,110 @@ public class TextosPrueba : MonoBehaviour
         //Al derrotar al carcelero
         else if (triggerAc == 8 && CarceleroGeo.GetComponent<EnemyLife>().life < 1)
         {
+            GetComponent<TranslationMovement>().DialogDetention();
             texto = new string[]
             {
                 "Carcelero: No puede ser, quien es este humano",
                 "Einar: Con que estos son los servidores de contaminacion, ¡son unos demonios!",
-                "Einar: ¿Una llave?, si este es un carcelero, esta debe abrir la prision donde se encuentra el Guardián"
+                "Einar: ¡Debo ir a liberar al Guardian!"
             };
             triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
-            triggers[triggerAc + 1].gameObject.GetComponent<Collider>().enabled = false;
             next = false;
         }
         //Al acercarse a la puerta con la llave
         else if (triggerAc == 9)
         {
+            GetComponent<TranslationMovement>().DialogDetention();
             texto = new string[]
            {
-                "Einar: La llave coincide con la entrada de la celda, perfecto!!",
-                "LuxTerra: Al fin!!"
+                "Einar: Siento que puedo abrirla con solo tocarla!!",
+                "LuxTerra: La puerta se mantiene cerrada por la fuerza de las energias no renovables, la pureza de las energias renovables que ahora portas, hace que puedas hacerlo"
            };
             triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
-            triggers[triggerAc + 1].gameObject.GetComponent<Collider>().enabled = false;
             next = false;
         }
         //Conversacion con el guardian
-        else if (triggerAc == 10 && triggers[9].GetComponent<Collider>().enabled == false)
+        else if (triggerAc == 10)
         {
+            GetComponent<TranslationMovement>().DialogDetention();
             texto = new string[]
            {
-                "Feanor: Gracias, me han salvado, desde aquella gran catástrofe he estado muy débil, dormido durante muchos años, y ese Carcelero me encontró y me atrapo hace poco tiempo, y estaba esperando el momento para llevarme con Contaminación… ",
-
-                "Sigurd: Feanor, Guardián de la energía Geotérmica, necesitamos ayuda para acabar con esto.",
-
-                "Feanor: Deseo lo mismo, pero… ¿Quién es ese muchacho?",
-
-                "Einar: Soy Einar, un habitante de la sociedad subterránea, la que es por lo que me cuenta Sigurd, el último bastión de la humanidad, estoy aquí para defender esa última esperanza, quiero que me ayuden a derrotar a Contaminación.",
-
-                "Sigurd: Es un muchacho muy decidido… Tengo mis esperanzas puestas en él desde que lo conocí.",
-
-                "Feanor: Sigurd, confió en tu juicio, si decidiste confiar en este muchacho es porque ves algo muy importante, los ayudare.",
-                "Feanor: Muchacho, como sabrás, estamos muy débiles y por ello solo podemos ofrecerte las herramientas mientras ponemos nuestra completa confianza en ti.",
-                "Feanor: Debo pedirte algo muy importante, el Guardián de la Energía Solar está en una condición igual a la que yo estaba hace un momento, debes liberarlo antes de que sea entregado a Contaminación. ",
-                "Su ayuda es fundamental para poder derrotar a ese mal que azota el mundo.",
-                "Feanor: Para ello te dejo como regalo esa espada y te entrego esta llave, una de tres necesarias para poder abrir la puerta que libera a tu pueblo… ",
-                "Si, puedo sentirlos y se de una salida para ellos, la cual veras en medio de las escaleras hacia la superficie.",
-                "Sal por el camino a tu izquierda y avanza recto, luego usa la espada para destruir el muro que veras al fondo, podrás ver las escaleras de que te hablo.",
-                "Feanor: Ten mucho cuidado, allá afuera enfrentaras muchos peligros, y recuerda, solo con la ayuda de Lena, la Guardiana de la Energía Solar, podremos enfrentar a Contaminación.",
-                "Feanor: En la salida a la superficie podrás encontrar un brazalete sagrado que dispara cargas solares, el cual perteneciente a Lena,",
-                "mientras no llegues a donde esta ella, las cargas que podrás usar son limitadas, úsalas sabiamente.",
-                "Feanor: Ahh, por cierto, deberás recargar tu espada, y eso solo podrás hacerlo conmigo lo cual lo puedo hacer sin cargo alguno o en la forja, siendo en la forja necesarias rocas de lava. ",
-                "De la misma forma también serán necesarias rocas de lava para mejorarla ya sea conmigo o en la forja. Mientras no desenvaines tu espada esta no perderá su energía.",
-                "Feanor: Yo no podre acompañarte ya que me quedare recuperando mi fuerza para cuando llegue el momento, pero si me necesitas ven a buscarme. ",
-                "Feanor: ¡Mucha suerte en tu misión!. ",
-
-                "Sigurd: Muchas gracias Feanor.",
-
-                "Einar: No te fallare."
+                "Feanor: Es increible, derrotaste a ese monstruo tu solo... Y me has salvado, te agradezco mucho",
+                "Feanor: Pude ver que portas a LuxTerra. Tu eres el joven guerrero que he esperado por tantos años.",
+                "Einar: ¿Tu eres el guardian del que me ha estado hablado LuxTerra?",
+                "Feanor: Asi es muchacho, yo soy Feanor, el guardian de la Energia Geotermica",
+                "Feanor: Te he escuchado a travez de LuxTerra, eres Einar, un descendiente de los humanos que habitan bajo la tierra en las cercanias",
+                "Feanor: Es un placer poder verte en persona al fin, y saber que vale la pena confiar en ti, tienes muchas agallas",
+                "Einar: Que!... Osea que la puedes oir a la espada sin necesidad de que este contigo?",
+                "Feanor: Esa espada esta basada en la energia geotermica, la energia de la tierra, y yo soy su guardian, nuestra esencia esta vinculada",
+                "Einar: Sorprendente!",
+                "Feanor: Ahora es tu espada, tu eres su portador, su maestro y ella tu guia, y su mision salvar a este mundo",
+                "Feanor: Escuchame:" ,
+                "Feanor: Desde hace 20 años la guardiana del sol y yo, hemos sido perseguidos por los destructores de Contaminacion",
+                "Feanor: Ella y yo como guardianes de las energias somo los protectores de la vida, por eso desean acabar con nosotros",
+                "Feanor: Pero desafortunadamente nuestra fuerza no es suficiente para enfrentarle solos",
+                "Feanor: Sin embargo por ello estas tu, eres quien puede usar el poder completo de los tesoros, ya que tu corazon no esta lleno de ambicion y maldad, y tu sangre porta la conexion con la naturaleza y la vida",
+                "Feanor: Eres quien nace de la naturaleza para protegerla",
+                "Feanor: Al fin estas aqui, pero no puedo retenerte mas, debes seguir tu mision, yo tratare de apoyarte en tu mision alimentando la energia de tu espada a travez de los arboles de vida en la superficie",
+                "Einar: Superficie?, pero como ire alla, ademas, siempre me han dicho que no podemos volver alla",
+                "Einar: Que desde que todo aquello sucedio es un lugar lleno de muerte, el caos que la misma humanidad alimento con su ambicion e irresponsabilidad se convirtio en la esencia de la muerte misma",
+                "Einar: Cualquiera que vaya alla no llegara muy lejos",
+                "Feanor: Lo se, es de Contaminacion de quien hablas, la superficie esta poseida por ella, pero debes ir, el tiempo se agota, los recursos que quedan cada vez son menos",
+                "Feanor: La esencia de la naturaleza aun sigue presente, debes evitar que desaparezca por completo o no habra vuelta atras, la vida de tu mundo esta en tus manos",
+                "Einar: Pero... ¡¿Que deberia hacer yo?!",
+                "Feanor: La energia que en este momento emanas es muy poderosa, tu conexion con la espada tiene una sinergia perfecta, tu esencia y la de la espada se hacen una misma",
+                "Feanor: Esa energia que emana de ti es limpia y llena de vida, debes derrotar a los monstruos que habitan en la superficie, debes limpiar el mundo",
+                "Feanor: A medida que vayas derrotando a los servidores de Contaminacion, la naturaleza empezara a recobrar fuerza, esos seres consumen la vida, son la encarnacion de aquel deseo en los humanos que creo a Contaminacion",
+                "Einar: ¿Osea que los monstruos que atacan a mi pueblo son la forma de la maldad humana?, ese deseo de poder y placer que destruyo todo para su propia conveniencia",
+                "Feanor: Asi es, esos monstruos nacieron del corazon de la humanidad misma, el corazon de los humanos primo el placer sobre la vida, usaron energias que dañaron la naturaleza, y el resultado de ello se hizo una calamidad tomo vida",
+                "Einar: ¿Y entonces como lo hago?",
+                "Feanor: Sal de este templo, vuelve por donde viniste, cuando lo veas sabras cual es tu camino",
+                "Feanor: Cuando llegues a la superficie encuentra el amuleto de Lena, con el tendras la fuerza suficiente para derrotar a tus enemigos",
+                "Feanor: Ese amuleto porta la energia solar, es aquella energia que alimento la vida de la humanidad por milenios, una energia muy pura y poderosa, te llenara de fuerzas",
+                "Feanor: Luego los tesoros te guiaran en tu mision",
+                "Feanor: Ve Guardian!!",
+                "Einar: Lo hare, protegere este mundo!!"
            };
             triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
             next = false;
         }
-
-
-
-
         //Conversacion con feanor
         else if (triggerAc == 11)
         {
             texto = new string[]
             {
-                
+                "Einar: Habian unas piedras alli, creo es a lo que se referia Feanor, debo ir por aquellas escaleras, y llegare a la superficie"
             };
             triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
             next = false;
         }
-        //Saliendo del templo del Sol
-        else if (triggerAc == 12)
+    }
+
+
+    bool a = true;
+    bool b = true;
+    bool c = true;
+    void EnableTriggers()
+    {
+        if (habilitar)
         {
-            texto = new string[]
-            {
-                "Sigurd: Mira, volvimos al principio.",
-                "Sigurd: Y pensar que estaba tan cerca…",
-                "Sigurd: Vamos"
-            };
-            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
-            next = false;
+            triggers[5].GetComponent<Collider>().enabled = false;
+            triggers[8].GetComponent<Collider>().enabled = false;
+            triggers[9].GetComponent<Collider>().enabled = false;
+            habilitar = false;
         }
-        //Frente al muro de las escaleras
-        else if (triggerAc == 13)
+
+        else if (CarceleroGeo.GetComponent<EnemyLife>().life < 1 && a)
         {
-            texto = new string[]
-            {
-                "Sigurd: Golpéalo con la espada",
-                //Luego de romper el muro
-                "Sigurd: Bien, ahí están las escaleras, vamos."
-            };
-            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
-            next = false;
+            triggers[8].GetComponent<Collider>().enabled = true;
+            triggers[9].GetComponent<Collider>().enabled = true;
+            a = false;
         }
-        else if (triggerAc == 14)
+
+        else if (GetComponent<PropiedadesScript>().runas == 4 && b)
         {
-            texto = new string[]
-            {
-                "Sigurd: Mira, ahí está la puerta de la que hablaba Feanor… Por ahora no podrás abrirla, necesitas tres llaves… Debemos seguir."
-            };
-            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
-            next = false;
-        }
-        else if (triggerAc == 15)
-        {
-            texto = new string[]
-            {
-                "Sigurd: Ahh hace tanto que no veo la superficie, tengo curiosidad… Aunque no espero que este nada bien."
-            };
-            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
-            next = false;
+            triggers[5].GetComponent<Collider>().enabled = true;
+            b = false;
         }
     }
 }
