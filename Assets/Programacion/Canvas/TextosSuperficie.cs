@@ -106,11 +106,11 @@ public class TextosSuperficie : MonoBehaviour
             GetComponent<TranslationMovement>().DialogDetention();//funciones lost energy(Desactiva movimientos), no funciona bien
             texto = new string[]
             {
-                "Einar: ¡Es!... ¡impresionante!... ¿Esto es la superficie?, no me la imaginaba asi, si me dijeron que era muy bonito, pero es totalmente diferente",
-                "LuxTerra: Antes era mas bello, era maginifico, esto es solo destruccion",
+                "Einar: ¡Es!... ¡impresionante!... ¿Esto es la superficie?, no me la imaginaba así, si me dijeron que era muy bonito, pero es totalmente diferente",
+                "LuxTerra: Antes era más bello, era magnifico, esto es solo destrucción",
                 "Einar: Si esto son solo ruinas y desastre entonces la belleza de antes era infinita",
                 "LuxTerra: sin embargo tus antepasados no supieran valorar nada, y este es el resultado",
-                "LuxTerra: Eso de alla es... ¡Es el tesoro del Sol!"
+                "LuxTerra: Eso de allá es... ¡Es el tesoro del Sol!"
             };
             triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
             next = false;
@@ -123,11 +123,11 @@ public class TextosSuperficie : MonoBehaviour
             {
                 "Brazalete: 'Signus, la estrella del norte'...",
                 "Einar: Es igual que con la espada...",
-                "Signus: Ahora hago parte de tu energia, estoy vinculado a tu esencia... Igual que LuxTerra a quien portas en tu espalda",
-                "Signus: Einar, ya sabras esto, pero tu eres quien ha sido esperado por decadas, aquel que puede salvar este mundo",
-                "Signus: Yo te guiare en este lugar, y te hare mas fuerte a travez de la energia del Sol, de la que soy portador, y ahora hace parte de ti",
-                "Signus: Mi guardiana descubrio algo importante respecto a Contaminacion, pero la energia que porta quien la tiene capturada no permite conectar con sus pensamientos",
-                "Signus: Debes ayudarme a salvarla Einar. Esta muy cerca de aqui, tendras que enfrentar muchos obstaculos, pero confio en que lo lograras",
+                "Signus: Ahora hago parte de tu energía, estoy vinculado a tu esencia... Igual que LuxTerra a quien portas en tu espalda",
+                "Signus: Einar, ya sabrás esto, pero tú eres quien ha sido esperado por decadas, aquel que puede salvar este mundo",
+                "Signus: Yo te guiare en este lugar, y te hare más fuerte a través de la energia del Sol, de la que soy portador, y ahora hace parte de ti",
+                "Signus: Mi guardiana descubrió algo importante respecto a Contaminación, pero la energía que porta quien la tiene capturada no permite conectar con sus pensamientos",
+                "Signus: Debes ayudarme a salvarla Einar. Está muy cerca de aquí, tendrás que enfrentar muchos obstáculos, pero confío en que lo lograras",
                 "Einar: Lo hare!",
                 "Signus: Entonces vamos"
             };
@@ -140,12 +140,12 @@ public class TextosSuperficie : MonoBehaviour
             GetComponent<TranslationMovement>().DialogDetention();
             texto = new string[]
             {
-                "Signus: Mira, esos son enemigos... Los soladados de contaminacion, aquel de color negro te atacara a distancia, debes tener cuidado los de ese tipo, no son faciles de eliminar",
-                "Signus: Y aquel otro con esas enormes garras te tratara de destrozar a golpes y te perseguira, debes ser rapido para enfrentarlo",
-                "Einar: Se ven bastante problematicos, sin embargo siento esta energia que ahora fluye en mi cuerpo... es como si fuera aun mas fuerte",
-                "Signus: Y asi es Einar, ahora con las dos energias juntas tu fuerza esta completa",
-                "Signus: Vamos a derrotarlos!!... Aunque si sientes que no puedes mas alejate y encuentra un arbol, te ayudara a sanar tus heridas y recuperar tus energias",
-                "Einar: Bien, derrotaremos a contaminacion y sus monstruos... ¡Corregire los errores de mis antepasados!"
+                "Signus: Mira, esos son enemigos... Los soldados de contaminación, aquel de color negro te atacara a distancia, debes tener cuidado los de ese tipo, no son fáciles de eliminar",
+                "Signus: Y aquel otro con esas enormes garras te tratara de destrozar a golpes y te perseguirá, debes ser rápido para enfrentarlo",
+                "Einar: Se ven bastante problemáticos, sin embargo siento esta energía que ahora fluye en mi cuerpo... es como si fuera aún más fuerte",
+                "Signus: Y así es Einar, ahora con las dos energías juntas tu fuerza está completa",
+                "Signus: ¡Vamos a derrotarlos!... Aunque si sientes que no puedes más aléjate y encuentra un árbol, te ayudara a sanar tus heridas y recuperar tus energías",
+                "Einar: Bien, derrotaremos a contaminación y sus monstruos... ¡Corregiré los errores de mis antepasados!"
             };
             triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
             next = false;
@@ -155,8 +155,8 @@ public class TextosSuperficie : MonoBehaviour
         {
             texto = new string[]
             {
-                "Signus: Esta es una buena oportunidad de que entiendas mi poder... Yo te permitire atacar a distancia, asi:",
-                "Signus(Instrucciones): Presiona Click Derecho en tu mouse para apuntar, luego Click Izquierdo para disparar, si deseas cancelar el ataque vuelve a presionar Click Derecho, ahora intentalo"
+                "Signus: Esta es una buena oportunidad de que entiendas mi poder... Yo te permitiré atacar a distancia, así:",
+                "Signus (Instrucciones): Presiona Click Derecho en tu mouse para apuntar, luego Click Izquierdo para disparar, si deseas cancelar el ataque vuelve a presionar Click Derecho, ahora inténtalo"
             };
             triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
             next = false;
@@ -166,7 +166,7 @@ public class TextosSuperficie : MonoBehaviour
         {
             texto = new string[]
             {
-                "Einar: Que bien, es un arbol, podre recuperar la energia de LuxTerra y mis fuerzas"
+                "Einar: Que bien, es un árbol, podre recuperar la energía de LuxTerra y mis fuerzas"
             };
             triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
             next = false;
@@ -177,8 +177,8 @@ public class TextosSuperficie : MonoBehaviour
         {
             texto = new string[]
             {
-                "Einar: Oo o ohh ... Que.. Esta torreee, ¡es enorme!",
-                "Signus: Debes subir para poder llegar al templo, pero debes observar bien, en esta torre hay runas que necesitaras para , debes obtenerlas"
+                "Einar: Oo o ohh... Que... Esta torreee, ¡es enorme!",
+                "Signus: Debes subir para poder llegar al templo, pero debes observar bien, en esta torre hay runas que necesitaras, debes obtenerlas"
             };
             triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
             next = false;
@@ -189,7 +189,9 @@ public class TextosSuperficie : MonoBehaviour
             GetComponent<TranslationMovement>().DialogDetention();
             texto = new string[]
             {
-                "Einar: Que extraño, parece la entrada a un templo..."
+                "Einar: Eso fue difícil",
+                "Signus: Debemos seguir, siento que Lena está cerca",
+                "Signus: Ten cuidado, se ven más enemigos al frente"
             };
             triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
             next = false;
@@ -200,11 +202,9 @@ public class TextosSuperficie : MonoBehaviour
             GetComponent<TranslationMovement>().DialogDetention();
             texto = new string[]
             {
-                "Einar: Pero que demonios es eso!!",
-                "LuxTerra: Es el destructor que atrapo a Feanor, ¡Mira al fondo, alla esta feanor!",
-                "Einar: ¡Mira al fondo, alla esta alguien atrapado!",
-                "LuxTerra: Al fin, es Feanor, debes derrotar al destructor para liberarlo",
-                "Einar: Hoy me siento mas valiente de lo normal... Vamos!!!"
+                "Signus: Este es el templo de la Guardiana del Sol, sus mecanismos de defensa se activaron cuando los soldados de Contaminación la atacaron y aprisionaron",
+                "Einar: Creo que no será tan sencillo salvarla, si caigo allá abajo definitivamente estoy muerto",
+                "Signus: Siento que hay más runas cerca, debes estar atento para conseguirlas"
             };
             triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
             next = false;
@@ -215,9 +215,10 @@ public class TextosSuperficie : MonoBehaviour
             GetComponent<TranslationMovement>().DialogDetention();
             texto = new string[]
             {
-                "Carcelero: No puede ser, quien es este humano",
-                "Einar: Con que estos son los servidores de contaminacion, ¡son unos demonios!",
-                "Einar: ¡Debo ir a liberar al Guardian!"
+                "Signus: Lena esta aprisionada en este lugar, siento que hay un enemigo muy poderoso aquí dentro",
+                "Signus: Utiliza las runas para abrir la puerta",
+                "Signus: Salva a Lena",
+                "Einar: ¡Lo hare!"
             };
             triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
             next = false;
@@ -227,10 +228,11 @@ public class TextosSuperficie : MonoBehaviour
         {
             GetComponent<TranslationMovement>().DialogDetention();
             texto = new string[]
-           {
-                "Einar: Siento que puedo abrirla con solo tocarla!!",
-                "LuxTerra: La puerta se mantiene cerrada por la fuerza de las energias no renovables, la pureza de las energias renovables que ahora portas, hace que puedas hacerlo"
-           };
+            {
+                "Signus: Es uno de los grandes soldados de Contaminación, tiene el poder de atacar a distancia con cargas de energía negativa",
+                "Signus: Posee un escudo que se alimenta de los orbes solares, debes desactivarlos",
+                "Signus (Instrucción): Acércate a los orbes y presiona F para interactuar con los orbes y desactivarlos"
+            };
             triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
             next = false;
         }
@@ -240,41 +242,10 @@ public class TextosSuperficie : MonoBehaviour
             GetComponent<TranslationMovement>().DialogDetention();
             texto = new string[]
            {
-                "Feanor: Es increible, derrotaste a ese monstruo tu solo... Y me has salvado, te agradezco mucho",
-                "Feanor: Pude ver que portas a LuxTerra. Tu eres el joven guerrero que he esperado por tantos años.",
-                "Einar: ¿Tu eres el guardian del que me ha estado hablado LuxTerra?",
-                "Feanor: Asi es muchacho, yo soy Feanor, el guardian de la Energia Geotermica",
-                "Feanor: Te he escuchado a travez de LuxTerra, eres Einar, un descendiente de los humanos que habitan bajo la tierra en las cercanias",
-                "Feanor: Es un placer poder verte en persona al fin, y saber que vale la pena confiar en ti, tienes muchas agallas",
-                "Einar: Que!... Osea que la puedes oir a la espada sin necesidad de que este contigo?",
-                "Feanor: Esa espada esta basada en la energia geotermica, la energia de la tierra, y yo soy su guardian, nuestra esencia esta vinculada",
-                "Einar: Sorprendente!",
-                "Feanor: Ahora es tu espada, tu eres su portador, su maestro y ella tu guia, y su mision salvar a este mundo",
-                "Feanor: Escuchame:" ,
-                "Feanor: Desde hace 20 años la guardiana del sol y yo, hemos sido perseguidos por los destructores de Contaminacion",
-                "Feanor: Ella y yo como guardianes de las energias somo los protectores de la vida, por eso desean acabar con nosotros",
-                "Feanor: Pero desafortunadamente nuestra fuerza no es suficiente para enfrentarle solos",
-                "Feanor: Sin embargo por ello estas tu, eres quien puede usar el poder completo de los tesoros, ya que tu corazon no esta lleno de ambicion y maldad, y tu sangre porta la conexion con la naturaleza y la vida",
-                "Feanor: Eres quien nace de la naturaleza para protegerla",
-                "Feanor: Al fin estas aqui, pero no puedo retenerte mas, debes seguir tu mision, yo tratare de apoyarte en tu mision alimentando la energia de tu espada a travez de los arboles de vida en la superficie",
-                "Einar: Superficie?, pero como ire alla, ademas, siempre me han dicho que no podemos volver alla",
-                "Einar: Que desde que todo aquello sucedio es un lugar lleno de muerte, el caos que la misma humanidad alimento con su ambicion e irresponsabilidad se convirtio en la esencia de la muerte misma",
-                "Einar: Cualquiera que vaya alla no llegara muy lejos",
-                "Feanor: Lo se, es de Contaminacion de quien hablas, la superficie esta poseida por ella, pero debes ir, el tiempo se agota, los recursos que quedan cada vez son menos",
-                "Feanor: La esencia de la naturaleza aun sigue presente, debes evitar que desaparezca por completo o no habra vuelta atras, la vida de tu mundo esta en tus manos",
-                "Einar: Pero... ¡¿Que deberia hacer yo?!",
-                "Feanor: La energia que en este momento emanas es muy poderosa, tu conexion con la espada tiene una sinergia perfecta, tu esencia y la de la espada se hacen una misma",
-                "Feanor: Esa energia que emana de ti es limpia y llena de vida, debes derrotar a los monstruos que habitan en la superficie, debes limpiar el mundo",
-                "Feanor: A medida que vayas derrotando a los servidores de Contaminacion, la naturaleza empezara a recobrar fuerza, esos seres consumen la vida, son la encarnacion de aquel deseo en los humanos que creo a Contaminacion",
-                "Einar: ¿Osea que los monstruos que atacan a mi pueblo son la forma de la maldad humana?, ese deseo de poder y placer que destruyo todo para su propia conveniencia",
-                "Feanor: Asi es, esos monstruos nacieron del corazon de la humanidad misma, el corazon de los humanos primo el placer sobre la vida, usaron energias que dañaron la naturaleza, y el resultado de ello se hizo una calamidad tomo vida",
-                "Einar: ¿Y entonces como lo hago?",
-                "Feanor: Sal de este templo, vuelve por donde viniste, cuando lo veas sabras cual es tu camino",
-                "Feanor: Cuando llegues a la superficie encuentra el amuleto de Lena, con el tendras la fuerza suficiente para derrotar a tus enemigos",
-                "Feanor: Ese amuleto porta la energia solar, es aquella energia que alimento la vida de la humanidad por milenios, una energia muy pura y poderosa, te llenara de fuerzas",
-                "Feanor: Luego los tesoros te guiaran en tu mision",
-                "Feanor: Ve Guardian!!",
-                "Einar: Lo hare, protegere este mundo!!"
+                "Carcelera: Quien este humano tan fuerte...",
+                "Signus: Al fin hemos terminado con ese monstruo",
+                "Signus: Al fin puedo sentir claramente la energía y los pensamientos de Lena",
+                "Signus: Ve a esa plataforma y úsala para llegar a la planta superior, Lena se encuentra allá"
            };
             triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
             next = false;
@@ -282,9 +253,11 @@ public class TextosSuperficie : MonoBehaviour
         //Conversacion con feanor
         else if (triggerAc == 11)
         {
+            GetComponent<TranslationMovement>().DialogDetention();
             texto = new string[]
             {
-                "Einar: Habian unas piedras alli, creo es a lo que se referia Feanor, debo ir por aquellas escaleras, y llegare a la superficie"
+                "Lena: Einar, gracias por salvarme, me has liberado, como hiciste con el Guardián de la Energía Geotérmica, y al fin tenemos una nueva oportunidad de salvar este mundo",
+                "Lena: Esta lucha apenas comienza, ahora tu misión será utilizar estas energías para curar el planeta, eres el nuevo Guardián de las Energías"
             };
             triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
             next = false;
