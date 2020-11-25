@@ -54607,6 +54607,21 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontSize
       value: 26
       objectReference: {fileID: 0}
+    - target: {fileID: 7214076861652167465, guid: 515a0a3449bcbaf4c86236ed938ca341,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214076861652167465, guid: 515a0a3449bcbaf4c86236ed938ca341,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214076861652167465, guid: 515a0a3449bcbaf4c86236ed938ca341,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7214076861652167470, guid: 515a0a3449bcbaf4c86236ed938ca341,
         type: 3}
       propertyPath: m_AnchoredPosition.y
