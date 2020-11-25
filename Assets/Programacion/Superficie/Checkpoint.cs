@@ -24,6 +24,7 @@ public class Checkpoint : MonoBehaviour
         if (other.name == "Einar")
         {
             gm.lastCheckPointPost = transform.position;
+            other.GetComponent<EnergySword>().SwordLife = 100;
             if (other.GetComponent<PropiedadesScript>().runas == 0)
             {
                 other.GetComponent<PropiedadesScript>().ContarRunas(runas);
