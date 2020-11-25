@@ -69,7 +69,7 @@ public class TextosPrueba : MonoBehaviour
             {
                 res = string.Concat(res, texto[i][s]);//Concatena letra por letra en la variable res
                 Dialogos.text = res;//Muestra las letras concatenadas
-                yield return new WaitForSeconds(0.005f);
+                yield return new WaitForSeconds(0.1f * Time.deltaTime);
             }
             yield return new WaitForSeconds(0.5f);
         }
