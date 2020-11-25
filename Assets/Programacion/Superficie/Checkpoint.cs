@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
+    public int runas;
     private GameMaster gm;
 
     // Start is called before the first frame update
@@ -23,6 +24,10 @@ public class Checkpoint : MonoBehaviour
         if (other.name == "Einar")
         {
             gm.lastCheckPointPost = transform.position;
+            if (other.GetComponent<PropiedadesScript>().runas == 0)
+            {
+                other.GetComponent<PropiedadesScript>().ContarRunas(runas);
+            }
         }    
     }
 

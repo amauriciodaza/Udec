@@ -5,10 +5,13 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PropiedadesScript : MonoBehaviour
 {
+
     public int runas;
     public Text Runastxt;
     public int totalrunas;
     public Image dialogos;
+
+
     void Start()
     {
         dialogos.enabled = false;
@@ -18,7 +21,7 @@ public class PropiedadesScript : MonoBehaviour
 
     void Update()
     {
-
+      
     }
 
     public void ContarRunas(int num)
