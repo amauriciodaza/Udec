@@ -77,6 +77,8 @@ public class RunasScript : MonoBehaviour
         {
             op = false;
             Instrucciontxt.enabled = false;
+            Runasinfotxt.enabled = false;
+            InfoRunasimg.enabled = false;
         }
     }
 

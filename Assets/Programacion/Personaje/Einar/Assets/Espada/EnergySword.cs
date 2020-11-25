@@ -9,7 +9,7 @@ public class EnergySword : MonoBehaviour
     public GameObject Sword3;
     public GameObject Sword4;
 
-    float SwordLife;
+    public float SwordLife;
 
     bool UbEspada;
 

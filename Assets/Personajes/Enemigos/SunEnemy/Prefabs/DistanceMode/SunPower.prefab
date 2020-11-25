@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 3316720825308207153, guid: 5ba523b956d70204fb02791d591f51c7,
         type: 3}
       propertyPath: m_Name
-      value: DistancePower
+      value: SunPower
       objectReference: {fileID: 0}
     - target: {fileID: 3316720825308207306, guid: 5ba523b956d70204fb02791d591f51c7,
         type: 3}
@@ -90,7 +90,7 @@ PrefabInstance:
     - target: {fileID: 3623899005636779793, guid: 5ba523b956d70204fb02791d591f51c7,
         type: 3}
       propertyPath: AtackDamage
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ba523b956d70204fb02791d591f51c7, type: 3}
