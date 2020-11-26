@@ -68,6 +68,10 @@ public class TranslationMovement : MonoBehaviour
     {
         checkConditions();
         MakeBehaviour();
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            FinishMovement();
+        }
     }
 
     void checkConditions()
@@ -474,5 +478,4 @@ public class TranslationMovement : MonoBehaviour
             currentState = STATES.IDDLE;
         }
     }
-
 }
