@@ -135,6 +135,8 @@ public class EnemyLife : MonoBehaviour
         else if (EnemyType == 4)
         {
             GetComponent<MeleeMovement>().death();
+            GameObject trigger = GameObject.Find("Trigger10 MuerteCarcelera");
+            trigger.GetComponent<Collider>().enabled = true;
             yield return new WaitForSeconds(7f);
             gameObject.SetActive(false);
         }
