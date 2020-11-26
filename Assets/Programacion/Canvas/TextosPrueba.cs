@@ -69,9 +69,9 @@ public class TextosPrueba : MonoBehaviour
             {
                 res = string.Concat(res, texto[i][s]);//Concatena letra por letra en la variable res
                 Dialogos.text = res;//Muestra las letras concatenadas
-                yield return new WaitForSeconds(0.5f * Time.deltaTime);
+                yield return new WaitForSeconds(0.3f * Time.deltaTime);
             }
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
         }
         GetComponent<TranslationMovement>().detention = false;//Esto reactiva los movimientos del personaje, funcion propia de lost energy
         Dialogos.text = "";//Vacia el texto
