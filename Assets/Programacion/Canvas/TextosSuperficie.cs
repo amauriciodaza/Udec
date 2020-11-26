@@ -209,18 +209,21 @@ public class TextosSuperficie : MonoBehaviour
             next = false;
         }
         //Al derrotar al carcelero
-        else if (triggerAc == 8 && CarceleraSun.GetComponent<EnemyLife>().life < 1)
+        else if (triggerAc == 8 && CarceleraSun)
         {
-            GetComponent<TranslationMovement>().DialogDetention();
-            texto = new string[]
+            if (CarceleraSun.GetComponent<EnemyLife>().life < 1)
             {
+                GetComponent<TranslationMovement>().DialogDetention();
+                texto = new string[]
+                {
                 "Signus: Lena esta aprisionada en este lugar, siento que hay un enemigo muy poderoso aquí dentro",
                 "Signus: Utiliza las runas para abrir la puerta",
                 "Signus: Salva a Lena",
                 "Einar: ¡Lo hare!"
-            };
-            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
-            next = false;
+                };
+                triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
+                next = false;
+            }
         }
         //Al acercarse a la puerta con la llave
         else if (triggerAc == 9)
