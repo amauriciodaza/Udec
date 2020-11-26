@@ -68,9 +68,9 @@ public class TextosSuperficie : MonoBehaviour
             {
                 res = string.Concat(res, texto[i][s]);//Concatena letra por letra en la variable res
                 Dialogos.text = res;//Muestra las letras concatenadas
-                yield return new WaitForSeconds(0.1f * Time.deltaTime);
+                yield return new WaitForSeconds(0.2f);
             }
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(2f);
         }
         GetComponent<TranslationMovement>().detention = false;//Esto reactiva los movimientos del personaje, funcion propia de lost energy
         Dialogos.text = "";//Vacia el texto
