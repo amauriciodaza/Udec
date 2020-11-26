@@ -294,12 +294,12 @@ PrefabInstance:
     - target: {fileID: 8007872736953029336, guid: 18ac941cd1173234c997f7eeb68c8ce4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.6000061
+      value: -14.600006
       objectReference: {fileID: 0}
     - target: {fileID: 8007872736953029336, guid: 18ac941cd1173234c997f7eeb68c8ce4,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1.1501846
+      value: -29.29242
       objectReference: {fileID: 0}
     - target: {fileID: 8007872736953029336, guid: 18ac941cd1173234c997f7eeb68c8ce4,
         type: 3}
@@ -309,12 +309,12 @@ PrefabInstance:
     - target: {fileID: 8007872736953029336, guid: 18ac941cd1173234c997f7eeb68c8ce4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1.4772034
+      value: -0.97720337
       objectReference: {fileID: 0}
     - target: {fileID: 8007872736953029336, guid: 18ac941cd1173234c997f7eeb68c8ce4,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0.9544678
+      value: 1.9544678
       objectReference: {fileID: 0}
     - target: {fileID: 8007872736953029337, guid: 18ac941cd1173234c997f7eeb68c8ce4,
         type: 3}
@@ -586,17 +586,17 @@ PrefabInstance:
     - target: {fileID: 8007872737758679205, guid: 18ac941cd1173234c997f7eeb68c8ce4,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.9528302
+      value: 0.990566
       objectReference: {fileID: 0}
     - target: {fileID: 8007872737758679205, guid: 18ac941cd1173234c997f7eeb68c8ce4,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.75536287
+      value: 0.7253388
       objectReference: {fileID: 0}
     - target: {fileID: 8007872737758679205, guid: 18ac941cd1173234c997f7eeb68c8ce4,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.4269758
+      value: 0.4906105
       objectReference: {fileID: 0}
     - target: {fileID: 8007872738098296931, guid: 18ac941cd1173234c997f7eeb68c8ce4,
         type: 3}
@@ -644,9 +644,9 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0868125, y: 0.44400004}
-  m_AnchorMax: {x: 0.9018985, y: 0.81120837}
-  m_AnchoredPosition: {x: -8.200012, y: -42.600998}
-  m_SizeDelta: {x: -20.697205, y: 83.9169}
+  m_AnchorMax: {x: 0.89400005, y: 0.9104167}
+  m_AnchoredPosition: {x: 1.0743103, y: -30.9}
+  m_SizeDelta: {x: -2.1484985, y: 61.72754}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1043163419
 MonoBehaviour:
@@ -669,7 +669,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d314b48c1cc90c846a9e752e55347860, type: 3}
-    m_FontSize: 50
+    m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -680,8 +680,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\xA1Felicidades Has Completado La Aventura De Juego!\nRecuerda cuidar
-    los recursos naturales que nos ofrece el planeta."
+  m_Text: "\xA1Felicidades Has Completado La Aventura De Juego!\nRecuerda los beneficios
+    de las energ\xEDas renovables, utilizalas, estudialas implementalas y ayuda a
+    cuidar el planeta, Guardian."
 --- !u!222 &1043163420
 CanvasRenderer:
   m_ObjectHideFlags: 0

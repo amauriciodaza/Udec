@@ -69,9 +69,9 @@ public class TextosPrueba : MonoBehaviour
             {
                 res = string.Concat(res, texto[i][s]);//Concatena letra por letra en la variable res
                 Dialogos.text = res;//Muestra las letras concatenadas
-                yield return new WaitForSeconds(0.1f * Time.deltaTime);
+                yield return new WaitForSeconds(0.5f * Time.deltaTime);
             }
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(3f);
         }
         GetComponent<TranslationMovement>().detention = false;//Esto reactiva los movimientos del personaje, funcion propia de lost energy
         Dialogos.text = "";//Vacia el texto
@@ -109,18 +109,19 @@ public class TextosPrueba : MonoBehaviour
                 "Einar: ¡¿Qué es esto?!, de repente esa espada llameante salto a mi espalda, pensé que me quemaría, pero… Se siente una energía increíble en mi cuerpo...",
                 "Espada: 'LuxTerra, Luz de la tierra es mi nombre y tú eres mi destino'",
                 "Einar: ¿Que acabo de escuchar en mi mente? …El sable?… esta espada…",
-                "LuxTerra: Joven guerrero, no temas, el destino te ha elegido para portar los tesoros de los guardianes… Y la misión de recuperar el mundo que hace 20 años se perdió por los errores de tus antepasados… En este sable esta la esencia viva de la tierra misma, porta su energía, y su poder, como ya tú mismo lo pudiste sentir.",
-                "Einar: Ósea que este es… El sable del que mi padre me contaba en sus historias. Pero si se supone eran solo historias.",
-                "LuxTerra: A veces la realidad pasa a ser solo un cuento ya que no hay como o quien la atestigüe.",
+                "LuxTerra: Joven guerrero, no temas, el destino te ha elegido para portar los tesoros de los guardianes…", 
+                "Y la misión de recuperar el mundo que hace 20 años se perdió por los errores de tus antepasados… En este sable esta la esencia viva de la tierra misma, porta su energía, y su poder, como ya tú mismo lo pudiste sentir.",
                 "Einar: Es increíble… Mi padre me contaba que en el pasado la humanidad estaba llena de codicia y consumismo, destruían la naturaleza solo pensando en sí mismos, y esto alimentaba a la esencia del caos, a Contaminación…",
-                "Einar: Sin embargo, entre ellos había personas que luchaban incansablemente para hacer entender a la humanidad el daño que estaban haciendo, sin embargo, fueron ignorados y al final contaminación cobro una fuerza descomunal y destruyo todo…",
-                "LuxTerra: Así es muchacho, Contaminación ha esperado por milenios para romper el equilibrio natural y alimentar el caos que porta, al final hace 20 años lo logro… Sin embargo, no todo está perdido, supongo que también sabes del origen de los tesoros de los guardianes.",
-                "Einar: Por lo que me han y me has contado, solo sé que existe una espada legendaria que nació del fuego y se perdió entre la tierra.",
-                "LuxTerra: Nací del fuego o más bien, fui creada del fuego de la tierra por la esencia de la naturaleza… ",
-                "LuxTerra: Hace más de 20 años cuando el caos estaba cerca, la naturaleza premio a dos guardianes por su luchar incansable y su amor inconmensurable por la vida en el mundo, los convirtió en seres trascendentales denominados Guardianes de las Energías, uno de ellos representa a la energía de la tierra, el otro a la energía del sol.",
-                "LuxTerra: Así mismo les entrego a cada uno un tesoro, yo fui entregado a Feanor, Guardián de la Tierra; el tesoro del sol Sidus, fue entregado a Lena, la Guardiana del Sol.",
-                "LuxTerra: La naturaleza al entregarles los tesoros también les dio una profecía: Al pasar las décadas una nueva luz se levantará en la humanidad, su propio brillo le permitirá llegar a los tesoros que os he encomendado y la vida volverá nuevamente al mundo.",
-                "LuxTerra: Einar, eres la esperanza de este mundo, debes ayudarme a encontrar a mi Guardián antes de que se entregado a Contaminación, lo necesitamos para poder enfrentar a ese monstruo. Siento que está cerca… en algún lugar de estos pasillos.",
+                "Einar: Sin embargo, entre ellos había personas que luchaban incansablemente para hacer entender a la humanidad el daño que estaban haciendo",
+                "sin embargo, fueron ignorados y al final contaminación cobro una fuerza descomunal y destruyo todo…",
+                "LuxTerra: Así es muchacho, Contaminación ha esperado por milenios para romper el equilibrio natural y alimentar el caos que porta, al final hace 20 años lo logro…", 
+                "Sin embargo, no todo está perdido, supongo que también sabes del origen de los tesoros de los guardianes.",
+                "LuxTerra: Hace más de 20 años cuando el caos estaba cerca, la naturaleza premio a dos guardianes por su luchar incansable y su amor inconmensurable por la vida en el mundo", 
+                "los convirtió en seres trascendentales denominados Guardianes de las Energías, uno de ellos representa a la energía de la tierra, el otro a la energía del sol.",
+                "LuxTerra: les entrego a cada uno un tesoro, yo fui entregado a Feanor, el Guardián de la Tierra, y el tesoro del sol Sidus, fue entregado a Lena, la Guardiana del Sol.",
+                "LuxTerra: y les dejo esta profecía: Al pasar las décadas una nueva luz se levantará en la humanidad, su propio brillo le permitirá llegar a los tesoros que os he encomendado y la vida volverá nuevamente al mundo.            ",
+                "LuxTerra: Einar, eres la esperanza de este mundo, debes ayudarme a encontrar a mi Guardián antes de que se entregado a Contaminación", 
+                "lo necesitamos para poder enfrentar a ese monstruo. Siento que está cerca… en algún lugar de estos pasillos.",
                 "Einar: Esta bien, ¡vamos!"
             };
             triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
@@ -241,29 +242,19 @@ public class TextosPrueba : MonoBehaviour
                 "Feanor: Así es muchacho, yo soy Feanor, el guardián de la Energía Geotérmica",
                 "Feanor: Te he escuchado a través de LuxTerra, eres Einar, un descendiente de los humanos que habitan bajo la tierra en las cercanías",
                 "Feanor: Es un placer poder verte en persona al fin, y saber que vale la pena confiar en ti, tienes muchas agallas",
-                "Einar: ¡Que!... ¿Ósea que la puedes oír a la espada sin necesidad de que este contigo?",
-                "Feanor: Esa espada está basada en la energía geotérmica, la energía de la tierra, y yo soy su guardián, nuestra esencia está vinculada",
-                "Einar: ¡Sorprendente!",
-                "Feanor: Ahora es tu espada, tu eres su portador, su maestro y ella tu guía, y su misión salvar a este mundo",
                 "Feanor: Escúchame:",
                 "Feanor: Desde hace 20 años la guardiana del sol y yo, hemos sido perseguidos por los destructores de Contaminación",
                 "Feanor: Ella y yo como guardianes de las energías somos los protectores de la vida, por eso desean acabar con nosotros",
                 "Feanor: Pero desafortunadamente nuestra fuerza no es suficiente para enfrentarle solos",
-                "Feanor: Sin embargo, por ello estas tú, eres quien puede usar el poder completo de los tesoros, ya que tu corazón no está lleno de ambición y maldad, y tu sangre porta la conexión con la naturaleza y la vida",
+                "Feanor: Sin embargo, para ello estas tú, eres quien puede usar el poder completo de los tesoros", 
+                "ya que tu corazón no está lleno de ambición y maldad, y tu sangre porta la conexión con la naturaleza y la vida",
                 "Feanor: Eres quien nace de la naturaleza para protegerla",
                 "Feanor: Al fin estas aquí, pero no puedo retenerte más, debes seguir tu misión, yo tratare de apoyarte en tu misión alimentando la energía de tu espada a través de los árboles de vida en la superficie",
                 "Einar: ¿Superficie?, pero como iré allá, además, siempre me han dicho que no podemos volver allá",
-                "Einar: Que desde que todo aquello sucedió es un lugar lleno de muerte, el caos que la misma humanidad alimento con su ambición e irresponsabilidad se convirtió en la esencia de la muerte misma",
-                "Einar: Cualquiera que vaya allá no llegara muy lejos",
+                "Einar: Que desde que todo aquello sucedió es un lugar lleno de muerte",
                 "Feanor: Lo sé, es de Contaminación de quien hablas, la superficie esta poseída por ella, pero debes ir, el tiempo se agota, los recursos que quedan cada vez son menos",
                 "Feanor: La esencia de la naturaleza aún sigue presente, debes evitar que desaparezca por completo o no habrá vuelta atrás, la vida de tu mundo está en tus manos",
                 "Einar: Pero... ¡¿Que debería hacer yo?!",
-                "Feanor: La energía que en este momento emanas es muy poderosa, tu conexión con la espada tiene una sinergia perfecta, tu esencia y la de la espada se hacen una misma",
-                "Feanor: Esa energía que emana de ti es limpia y llena de vida, debes derrotar a los monstruos que habitan en la superficie, debes limpiar el mundo",
-                "Feanor: A medida que vayas derrotando a los servidores de Contaminación, la naturaleza empezara a recobrar fuerza, esos seres consumen la vida, son la encarnación de aquel deseo en los humanos que creo a Contaminación",
-                "Einar: ¿Ósea que los monstruos que atacan a mi pueblo son la forma de la maldad humana?, ese deseo de poder y placer que destruyo todo para su propia conveniencia",
-                "Feanor: Así es, esos monstruos nacieron del corazón de la humanidad misma, el corazón de los humanos primo el placer sobre la vida, usaron energías que dañaron la naturaleza, y el resultado de ello se hizo una calamidad tomo vida",
-                "Einar: ¿Y entonces como lo hago?",
                 "Feanor: Sal de este templo, vuelve por donde viniste, cuando lo veas sabrás cuál es tu camino",
                 "Feanor: Cuando llegues a la superficie encuentra el amuleto de Lena, con el tendrás la fuerza suficiente para derrotar a tus enemigos",
                 "Feanor: Ese amuleto porta la energía solar, es aquella energía que alimento la vida de la humanidad por milenios, una energía muy pura y poderosa, te llenara de fuerzas",
