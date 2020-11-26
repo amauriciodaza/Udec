@@ -68,7 +68,7 @@ public class TextosSuperficie : MonoBehaviour
             {
                 res = string.Concat(res, texto[i][s]);//Concatena letra por letra en la variable res
                 Dialogos.text = res;//Muestra las letras concatenadas
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(0.2f * Time.deltaTime);
             }
             yield return new WaitForSeconds(2f);
         }
