@@ -209,48 +209,49 @@ public class TextosSuperficie : MonoBehaviour
             next = false;
         }
         //Al derrotar al carcelero
-        else if (triggerAc == 8 && CarceleraSun)
+        else if (triggerAc == 8 )
+        {
+            GetComponent<TranslationMovement>().DialogDetention();
+            texto = new string[]
+            {
+                "Signus: Lena esta aprisionada en este lugar, siento que hay un enemigo muy poderoso aquí dentro",
+                "Signus: Utiliza las runas para abrir la puerta",
+                "Signus: Salva a Lena",
+                "Einar: ¡Lo hare!"
+            };
+            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
+            next = false;
+        }
+        //Al acercarse a la puerta con la llave
+        else if (triggerAc == 9)
+        {
+            
+                    GetComponent<TranslationMovement>().DialogDetention();
+                    texto = new string[]
+                    {
+                        "Signus: Es uno de los grandes soldados de Contaminación, tiene el poder de atacar a distancia con cargas de energía negativa",
+                        "Signus: Posee un escudo que se alimenta de los orbes solares, debes desactivarlos",
+                        "Signus (Instrucción): Acércate a los orbes y presiona F para interactuar con los orbes y desactivarlos"
+                    };
+                    triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
+                    next = false;
+        }
+        //Conversacion con el guardian
+        else if (triggerAc == 10 && CarceleraSun)
         {
             if (CarceleraSun.GetComponent<EnemyLife>().life < 1)
             {
                 GetComponent<TranslationMovement>().DialogDetention();
                 texto = new string[]
-                {
-                "Signus: Lena esta aprisionada en este lugar, siento que hay un enemigo muy poderoso aquí dentro",
-                "Signus: Utiliza las runas para abrir la puerta",
-                "Signus: Salva a Lena",
-                "Einar: ¡Lo hare!"
-                };
-                triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
-                next = false;
-            }
-        }
-        //Al acercarse a la puerta con la llave
-        else if (triggerAc == 9)
-        {
-            GetComponent<TranslationMovement>().DialogDetention();
-            texto = new string[]
-            {
-                "Signus: Es uno de los grandes soldados de Contaminación, tiene el poder de atacar a distancia con cargas de energía negativa",
-                "Signus: Posee un escudo que se alimenta de los orbes solares, debes desactivarlos",
-                "Signus (Instrucción): Acércate a los orbes y presiona F para interactuar con los orbes y desactivarlos"
-            };
-            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
-            next = false;
-        }
-        //Conversacion con el guardian
-        else if (triggerAc == 10)
-        {
-            GetComponent<TranslationMovement>().DialogDetention();
-            texto = new string[]
-           {
+               {
                 "Carcelera: Quien este humano tan fuerte...",
                 "Signus: Al fin hemos terminado con ese monstruo",
                 "Signus: Al fin puedo sentir claramente la energía y los pensamientos de Lena",
                 "Signus: Ve a esa plataforma y úsala para llegar a la planta superior, Lena se encuentra allá"
-           };
-            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
-            next = false;
+               };
+                triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
+                next = false;
+            }
         }
         //Conversacion con feanor
         else if (triggerAc == 11)
