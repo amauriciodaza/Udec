@@ -4714,12 +4714,12 @@ PrefabInstance:
     - target: {fileID: 2652810847902674833, guid: 2d9649ee83d85a040a049a4da7010491,
         type: 3}
       propertyPath: distanceToMovement
-      value: 40
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 2652810847902674833, guid: 2d9649ee83d85a040a049a4da7010491,
         type: 3}
       propertyPath: distanceToAtack
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2652810847902674834, guid: 2d9649ee83d85a040a049a4da7010491,
         type: 3}
@@ -54307,7 +54307,7 @@ PrefabInstance:
     - target: {fileID: 1567504101528717600, guid: d35a063cff3aa784c9f73cb163f03edd,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 11.800018
+      value: 11.800003
       objectReference: {fileID: 0}
     - target: {fileID: 1567504101528717600, guid: d35a063cff3aa784c9f73cb163f03edd,
         type: 3}
