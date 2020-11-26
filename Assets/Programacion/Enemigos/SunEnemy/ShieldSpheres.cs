@@ -31,4 +31,12 @@ public class ShieldSpheres : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "Einar")
+        {
+            Instrucciontxt.enabled = false;
+        }
+    }
 }
