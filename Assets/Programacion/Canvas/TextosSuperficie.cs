@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TextosSuperficie : MonoBehaviour
 {
@@ -225,33 +226,27 @@ public class TextosSuperficie : MonoBehaviour
         //Al acercarse a la puerta con la llave
         else if (triggerAc == 9)
         {
-            
-                    GetComponent<TranslationMovement>().DialogDetention();
-                    texto = new string[]
-                    {
-                        "Signus: Es uno de los grandes soldados de Contaminación, tiene el poder de atacar a distancia con cargas de energía negativa",
-                        "Signus: Posee un escudo que se alimenta de los orbes solares, debes desactivarlos",
-                        "Signus (Instrucción): Acércate a los orbes y presiona F para interactuar con los orbes y desactivarlos"
-                    };
-                    triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
-                    next = false;
+            texto = new string[]
+            {
+                "Signus: Es uno de los grandes soldados de Contaminación, tiene el poder de atacar a distancia con cargas de energía negativa",
+                "Signus: Posee un escudo que se alimenta de los orbes solares, debes desactivarlos",
+                "Signus (Instrucción): Acércate a los orbes y presiona F para interactuar con los orbes y desactivarlos"
+            };
+            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
+            next = false;
         }
         //Conversacion con el guardian
-        else if (triggerAc == 10 && CarceleraSun)
+        else if (triggerAc == 10 )
         {
-            if (CarceleraSun.GetComponent<EnemyLife>().life < 1)
-            {
-                GetComponent<TranslationMovement>().DialogDetention();
-                texto = new string[]
-               {
+            texto = new string[]
+           {
                 "Carcelera: Quien este humano tan fuerte...",
                 "Signus: Al fin hemos terminado con ese monstruo",
                 "Signus: Al fin puedo sentir claramente la energía y los pensamientos de Lena",
                 "Signus: Ve a esa plataforma y úsala para llegar a la planta superior, Lena se encuentra allá"
-               };
-                triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
-                next = false;
-            }
+           };
+            triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
+            next = false;
         }
         //Conversacion con feanor
         else if (triggerAc == 11)
@@ -264,6 +259,7 @@ public class TextosSuperficie : MonoBehaviour
             };
             triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
             next = false;
+            StartCoroutine(YouWin());
         }
     }
 
@@ -291,5 +287,11 @@ public class TextosSuperficie : MonoBehaviour
             triggers[1].GetComponent<Collider>().enabled = true;
             b = false;
         }
+    }
+
+    IEnumerator YouWin()
+    {
+        yield return new WaitForSeconds(20f);
+        SceneManager.LoadScene("JuegoFinalizado", LoadSceneMode.Single);
     }
 }
