@@ -19,7 +19,7 @@ public class TextosSuperficie : MonoBehaviour
     public GameObject[] triggers;
 
     //Esta variable es alternativa de mi codigo. Innecesaria
-    GameObject CarceleroGeo;
+    GameObject CarceleraSun;
 
     //Variables del ciclo for anidado que muestra los dialogos en la corrutina(i , s)
     int i;
@@ -33,11 +33,10 @@ public class TextosSuperficie : MonoBehaviour
     void Start()
     {
         Panel.SetActive(false);
-        CarceleroGeo = GameObject.Find("CarceleroGeo");
+        CarceleraSun = GameObject.Find("SunEnemyMelee");
         next = true;
         // Seccion de deshabilitacion de triggers
         habilitar = true;
-
     }
 
     void Update()
@@ -100,7 +99,7 @@ public class TextosSuperficie : MonoBehaviour
     //##################### Escritura de Dialogos ###########################
     void Dialogar()//Se asignan los dialogos al array segun la variable triggerAc
     {
-        //Dialogo con LuxTerra al encontrarla.
+        //Entrada
         if (triggerAc == 0)
         {
             GetComponent<TranslationMovement>().DialogDetention();//funciones lost energy(Desactiva movimientos), no funciona bien
@@ -115,7 +114,7 @@ public class TextosSuperficie : MonoBehaviour
             triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
             next = false;
         }
-        //Cuando llegan a las trampas
+        //Brazalete
         else if (triggerAc == 1)
         {
             GetComponent<TranslationMovement>().DialogDetention();
@@ -128,13 +127,13 @@ public class TextosSuperficie : MonoBehaviour
                 "Signus: Yo te guiare en este lugar, y te hare más fuerte a través de la energia del Sol, de la que soy portador, y ahora hace parte de ti",
                 "Signus: Mi guardiana descubrió algo importante respecto a Contaminación, pero la energía que porta quien la tiene capturada no permite conectar con sus pensamientos",
                 "Signus: Debes ayudarme a salvarla Einar. Está muy cerca de aquí, tendrás que enfrentar muchos obstáculos, pero confío en que lo lograras",
-                "Einar: Lo hare!",
+                "Einar: ¡Lo hare!",
                 "Signus: Entonces vamos"
             };
             triggers[triggerAc].gameObject.GetComponent<Collider>().enabled = false;
             next = false;
         }
-        //En la sala de la secuencia de botones
+        //Enemigos
         else if (triggerAc == 2)
         {
             GetComponent<TranslationMovement>().DialogDetention();
@@ -210,7 +209,7 @@ public class TextosSuperficie : MonoBehaviour
             next = false;
         }
         //Al derrotar al carcelero
-        else if (triggerAc == 8 && CarceleroGeo.GetComponent<EnemyLife>().life < 1)
+        else if (triggerAc == 8 && CarceleraSun.GetComponent<EnemyLife>().life < 1)
         {
             GetComponent<TranslationMovement>().DialogDetention();
             texto = new string[]
@@ -267,29 +266,25 @@ public class TextosSuperficie : MonoBehaviour
 
     bool a = true;
     bool b = true;
-    bool c = true;
     void EnableTriggers()
     {
         if (habilitar)
         {
-            triggers[5].GetComponent<Collider>().enabled = false;
-            triggers[8].GetComponent<Collider>().enabled = false;
-            triggers[9].GetComponent<Collider>().enabled = false;
-            triggers[11].GetComponent<Collider>().enabled = false;
+            triggers[1].GetComponent<Collider>().enabled = false;
+            triggers[10].GetComponent<Collider>().enabled = false;
             habilitar = false;
         }
-
-        else if (CarceleroGeo.GetComponent<EnemyLife>().life < 1 && a)
+        else if (CarceleraSun && a)
         {
-            triggers[8].GetComponent<Collider>().enabled = true;
-            triggers[9].GetComponent<Collider>().enabled = true;
-            triggers[11].GetComponent<Collider>().enabled = true;
-            a = false;
+            if (CarceleraSun.GetComponent<EnemyLife>().life < 1)
+            {
+                triggers[10].GetComponent<Collider>().enabled = true;
+                a = false;
+            }
         }
-
-        else if (GetComponent<PropiedadesScript>().runas == 4 && b)
+        else if (GetComponent<BracerFunction>().bracerCollected && b)
         {
-            triggers[5].GetComponent<Collider>().enabled = true;
+            triggers[1].GetComponent<Collider>().enabled = true;
             b = false;
         }
     }
