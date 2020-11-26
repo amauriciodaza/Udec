@@ -294,12 +294,12 @@ PrefabInstance:
     - target: {fileID: 8007872736953029336, guid: 18ac941cd1173234c997f7eeb68c8ce4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.6000061
+      value: -14.600006
       objectReference: {fileID: 0}
     - target: {fileID: 8007872736953029336, guid: 18ac941cd1173234c997f7eeb68c8ce4,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1.1501846
+      value: -29.29242
       objectReference: {fileID: 0}
     - target: {fileID: 8007872736953029336, guid: 18ac941cd1173234c997f7eeb68c8ce4,
         type: 3}
@@ -309,12 +309,12 @@ PrefabInstance:
     - target: {fileID: 8007872736953029336, guid: 18ac941cd1173234c997f7eeb68c8ce4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1.4772034
+      value: -0.97720337
       objectReference: {fileID: 0}
     - target: {fileID: 8007872736953029336, guid: 18ac941cd1173234c997f7eeb68c8ce4,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0.9544678
+      value: 1.9544678
       objectReference: {fileID: 0}
     - target: {fileID: 8007872736953029337, guid: 18ac941cd1173234c997f7eeb68c8ce4,
         type: 3}
@@ -420,6 +420,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_FontStyle
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8007872737440459486, guid: 18ac941cd1173234c997f7eeb68c8ce4,
+        type: 3}
+      propertyPath: m_Text
+      value: "\xA1Felicidades Has Completado La Aventura De Juego!\nRecuerda cuidar
+        los recursos naturales que nos ofrece el planeta."
       objectReference: {fileID: 0}
     - target: {fileID: 8007872737525701224, guid: 18ac941cd1173234c997f7eeb68c8ce4,
         type: 3}
@@ -577,6 +583,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 57ea3ed0ac5b6fb40a82a986f2e5670b,
         type: 3}
+    - target: {fileID: 8007872737758679205, guid: 18ac941cd1173234c997f7eeb68c8ce4,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 8007872737758679205, guid: 18ac941cd1173234c997f7eeb68c8ce4,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.7253388
+      objectReference: {fileID: 0}
+    - target: {fileID: 8007872737758679205, guid: 18ac941cd1173234c997f7eeb68c8ce4,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.4906105
+      objectReference: {fileID: 0}
     - target: {fileID: 8007872738098296931, guid: 18ac941cd1173234c997f7eeb68c8ce4,
         type: 3}
       propertyPath: m_FontData.m_FontSize
@@ -584,6 +605,92 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18ac941cd1173234c997f7eeb68c8ce4, type: 3}
+--- !u!224 &705169288 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8007872737758679204, guid: 18ac941cd1173234c997f7eeb68c8ce4,
+    type: 3}
+  m_PrefabInstance: {fileID: 705169287}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1043163417
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1043163418}
+  - component: {fileID: 1043163420}
+  - component: {fileID: 1043163419}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1043163418
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043163417}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 705169288}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.0868125, y: 0.44400004}
+  m_AnchorMax: {x: 0.89400005, y: 0.9104167}
+  m_AnchoredPosition: {x: 1.0743103, y: -30.9}
+  m_SizeDelta: {x: -2.1484985, y: 61.72754}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1043163419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043163417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.9622642, g: 0.9577252, b: 0.9577252, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: d314b48c1cc90c846a9e752e55347860, type: 3}
+    m_FontSize: 45
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 56
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\xA1Felicidades Has Completado La Aventura De Juego!\nRecuerda los beneficios
+    de las energ\xEDas renovables, utilizalas, estudialas implementalas y ayuda a
+    cuidar el planeta, Guardian."
+--- !u!222 &1043163420
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043163417}
+  m_CullTransparentMesh: 0
 --- !u!1 &1580726219
 GameObject:
   m_ObjectHideFlags: 0
