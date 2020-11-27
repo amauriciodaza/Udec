@@ -291,7 +291,7 @@ public class TextosSuperficie : MonoBehaviour
 
     IEnumerator YouWin()
     {
-        yield return new WaitForSeconds(20f);
+        yield return new WaitForSeconds(10f);
         SceneManager.LoadScene("JuegoFinalizado", LoadSceneMode.Single);
     }
 }
